@@ -32,7 +32,7 @@ public class LandingPage extends WebActions {
     private MobileElement classNameText;
 
     public void clickOnClassRoom(){
-       // awaitForElement(driver,classNameText);
+        awaitForElement(driver,classNameText);
         try {
             clickOnElement(classNameText);
         }

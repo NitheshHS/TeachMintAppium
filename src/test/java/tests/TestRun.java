@@ -96,7 +96,7 @@ public class TestRun extends BaseTest {
                 "0","none of the above","all the above");
         homeWorkPage.clickOnSaveQuestionButton();
         homeWorkPage.saveQuestionPaper();
-        homeWorkPage.createHomeWork("Homework2");
+        homeWorkPage.createHomeWork("Homework3");
     }
 }
 

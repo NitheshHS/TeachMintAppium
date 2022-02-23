@@ -67,7 +67,7 @@ public class HomeWorkPage extends WebActions {
         hideKeyboard(driver);
         type(optionETextField,optionE);
         hideKeyboard(driver);
-        scrollToElement(driver,"Mark Correct Answer");
+        scrollToElement(driver);
         awaitForElement(driver,optionAButton);
         clickOnElement(optionAButton);
 
@@ -84,13 +84,16 @@ public class HomeWorkPage extends WebActions {
     public void createHomeWork(String homeWorkTopicName){
         type(homeWorkTopicTextField,homeWorkTopicName);
         clickOnElement(createHomeworkButton);
+        String topicName=null;
         try {
             Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            topicName = driver.findElement(By
+                    .xpath("//*[@resource-id='com.teachmint.teachmint:id/test_name_text' and @text='"+homeWorkTopicName+"']"))
+                    .getText();
+        } catch (Exception e) {
+            pressNavigationBack(driver);
         }
-        pressNavigationBack(driver);
-       String topicName = driver.findElement(By
+        topicName = driver.findElement(By
                 .xpath("//*[@resource-id='com.teachmint.teachmint:id/test_name_text' and @text='"+homeWorkTopicName+"']"))
                 .getText();
        sa.assertEquals(topicName,homeWorkTopicName,"Homework topic name is not matching");
