@@ -1,15 +1,16 @@
 package Pages;
 
-import base.WebActions;
+import base.AppGenericLib;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.asserts.SoftAssert;
 
-public class HomeWorkPage extends WebActions {
+public class HomeWorkPage extends AppGenericLib {
     SoftAssert sa=new SoftAssert();
     AppiumDriver driver;
 
@@ -73,14 +74,18 @@ public class HomeWorkPage extends WebActions {
 
     }
 
+    @Step("Tap on save question button")
     public void clickOnSaveQuestionButton(){
         clickOnElement(saveQuestionButton);
     }
 
+    @Step("Save question paper")
     public void saveQuestionPaper(){
+        awaitForElement(driver,saveQuestionPaperButton);
         clickOnElement(saveQuestionPaperButton);
     }
 
+    @Step("Creatin home work with name {homeWorkTopicName}")
     public void createHomeWork(String homeWorkTopicName){
         type(homeWorkTopicTextField,homeWorkTopicName);
         clickOnElement(createHomeworkButton);

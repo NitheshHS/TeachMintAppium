@@ -16,10 +16,7 @@ import io.appium.java_client.touch.TapOptions;
 import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 import javassist.bytecode.stackmap.BasicBlock;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.python.antlr.op.And;
@@ -35,9 +32,10 @@ import java.io.IOException;
 
 
 
-public class WebActions {
+public class AppGenericLib extends CapabailitySettingLib{
 
     public void awaitForElement(AppiumDriver driver, WebElement element){
+//        ExtentManager.extentTest.get().info("waiting for visibility of element: "+element);
         WebDriverWait wait = new WebDriverWait(driver, 20);
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
@@ -82,6 +80,7 @@ public class WebActions {
 //    }
 
     public void tapOnElement(AppiumDriver driver, MobileElement element){
+      //  ExtentManager.extentTest.get().info("Tapping on element: "+element);
         TouchAction touchAction=new TouchAction(driver);
         touchAction.tap(TapOptions.tapOptions().withElement(ElementOption.element(element))).perform();
     }
@@ -103,6 +102,14 @@ public class WebActions {
         return 0;
     }
 
+    public String takeScreenshot(AppiumDriver driver, String screenshotName) throws IOException {
+        TakesScreenshot ts=(TakesScreenshot)driver;
+        File src=ts.getScreenshotAs(OutputType.FILE);
+        File dest=new File("./screenshots/"+screenshotName+".PNG");
+        Files.copy(src,dest);
+        return dest.getAbsolutePath();
+    }
+
     public File takeScreenshot(WebElement element,String imageName) throws IOException {
         File file=element.getScreenshotAs(OutputType.FILE);
         File dest=new File(".\\src\\test\\Images\\"+imageName+".png");
@@ -111,16 +118,19 @@ public class WebActions {
     }
 
     public void clickOnElement(WebElement element){
+//        ExtentManager.extentTest.get().info("click on element: "+element);
             element.click();
     }
 
     public void type(WebElement element,String text){
+        //ExtentManager.extentTest.get().info("element: "+element+" entering text: "+text);
         element.sendKeys(text);
     }
 
 
     public void openNotification(AppiumDriver driver){
         if(driver!=null){
+            ExtentManager.extentTest.get().info("Opening notification");
             AndroidDriver androidDriver = (AndroidDriver) driver;
             androidDriver.openNotifications();
 
@@ -130,6 +140,7 @@ public class WebActions {
     public void turnOffMobileDataAndWifi(AppiumDriver driver,String adbCommand) throws IOException {
         AndroidDriver androidDriver = (AndroidDriver) driver;
         if(androidDriver.getConnection().isWiFiEnabled() || androidDriver.getConnection().isDataEnabled()) {
+            ExtentManager.extentTest.get().info("Turning off mobile data and wifi");
 //            ConnectionStateBuilder builder = new ConnectionStateBuilder(ConnectionState.DATA_MASK).withDataDisabled();
 //            androidDriver.setConnection(builder.build());
             //androidDriver.toggleAirplaneMode();
@@ -142,6 +153,7 @@ public class WebActions {
     public void turnOnDataAndWifi(AppiumDriver driver){
        AndroidDriver androidDriver=(AndroidDriver)driver;
         if(!(androidDriver.getConnection().isWiFiEnabled() || androidDriver.getConnection().isDataEnabled())) {
+            ExtentManager.extentTest.get().info("Turning on mobile data and wifi");
             androidDriver.toggleWifi();
             androidDriver.toggleData();
         }
@@ -149,11 +161,13 @@ public class WebActions {
 
     public void pressNavigationBack(AppiumDriver driver){
         AndroidDriver androidDriver=(AndroidDriver)driver;
+       // ExtentManager.extentTest.get().info("Pressing navigate back button");
         androidDriver.pressKey(new KeyEvent(AndroidKey.BACK));
     }
 
     public void pressHomeButton(AppiumDriver driver){
         AndroidDriver androidDriver=(AndroidDriver)driver;
+        //ExtentManager.extentTest.get().info("Pressing home button");
         androidDriver.pressKey(new KeyEvent(AndroidKey.HOME));
     }
 
@@ -162,16 +176,19 @@ public class WebActions {
     }
 
     public String getToastMessage(AppiumDriver driver){
+        //ExtentManager.extentTest.get().info("Handling Toast message ");
        WebElement toast= driver.findElement(By.xpath("//android.widget.Toast"));
         awaitForElement(driver,toast);
        return toast.getText();
     }
 
     public void hideKeyboard(AppiumDriver driver){
+       // ExtentManager.extentTest.get().info("hiding the keyboard");
         driver.hideKeyboard();
     }
 
     public void scrollToElement(AppiumDriver driver,String visibleText){
+        //ExtentManager.extentTest.get().info("Scrolling for elemenet: "+visibleText);
         driver.findElement(MobileBy
                 .AndroidUIAutomator(
                         "new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains("+visibleText+").instance(0))"));
@@ -179,11 +196,17 @@ public class WebActions {
     }
 
     public void scrollToElement(AppiumDriver driver) {
+        //ExtentManager.extentTest.get().info("Performing scroll action");
         TouchAction touch=new TouchAction(driver);
         touch.longPress(PointOption.point(414, 1485))
          .moveTo(PointOption.point(421,618))
             .release()
                 .perform();
+    }
+
+    public byte[] getScreenshot(){
+        TakesScreenshot ts=(TakesScreenshot)driver;
+       return ts.getScreenshotAs(OutputType.BYTES);
     }
 
 

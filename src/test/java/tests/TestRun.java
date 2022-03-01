@@ -4,15 +4,27 @@ import Pages.ClassRoomPage;
 import Pages.HomeWorkPage;
 import Pages.LandingPage;
 import base.BaseTest;
+import base.ExtentManager;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.function.Function;
 
+/**
+ * author : Nithesh
+ */
 public class TestRun extends BaseTest {
-
-    @Test
+    /**
+     *
+     * @throws InterruptedException
+     * @throws IOException
+     */
+    @Test(enabled = false)
     public void TC_E_001_ValidateTheTeacherIsAbleToStartTheLiveClassTest() throws InterruptedException, IOException {
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
@@ -22,7 +34,8 @@ public class TestRun extends BaseTest {
         classRoomPage.tapOnMeetingProfile();
     }
 
-    @Test
+    @Description("TC_E_008_ValidateIfTheTeacherIsAbleToCreateLivePollTest")
+    @Test(description = "Validate If The Teacher Is Able To Create LivePoll")
     public void TC_E_008_ValidateIfTheTeacherIsAbleToCreateLivePollTest() throws IOException {
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
@@ -35,20 +48,23 @@ public class TestRun extends BaseTest {
         classRoomPage.stopLivePoll();
     }
 
-    @Test
+    @Test(enabled = false)
     public void TC_E_005_ValidateNetworkSwitchInTeacherSideDuringLiveClassTest() throws IOException {
+       // ExtentManager.testName("TC_E_005_ValidateNetworkSwitchInTeacherSideDuringLiveClassTest","Nithesh");
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
         classRoomPage.clickOnGoLive();
         classRoomPage.clickOnGoLivebutton();
-        webActions.openNotification(driver);
-        webActions.turnOffMobileDataAndWifi(driver, "adb shell svc wifi disable");
-        webActions.pressNavigationBack(driver);
+        openNotification(driver);
+        turnOffMobileDataAndWifi(driver, "adb shell svc wifi disable");
+        pressNavigationBack(driver);
     }
 
+    @Description("TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClass")
     @Test
     public void TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClassTest() throws IOException {
+       // ExtentManager.testName("TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClassTest","Nithesh");
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
@@ -58,8 +74,10 @@ public class TestRun extends BaseTest {
         classRoomPage.startYoutubeStreaming("youtube", "YouTube live streaming failed. Try again");
     }
 
+    @Description("TC_E_009_ValidateIfTheTeacherIsAbleToChatWithChatDisabledForStudents")
     @Test
     public void TC_E_009_ValidateIfTheTeacherIsAbleToChatWithChatDisabledForStudents() throws IOException {
+       // ExtentManager.testName("TC_E_009_ValidateIfTheTeacherIsAbleToChatWithChatDisabledForStudents","Nithesh");
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
@@ -68,12 +86,14 @@ public class TestRun extends BaseTest {
         classRoomPage.tapOnMoreButton();
         classRoomPage.tapOnStudentControl();
         classRoomPage.tapOnChatSwitch();
-        webActions.pressNavigationBack(driver);
+        pressNavigationBack(driver);
         classRoomPage.typeChat("Hello");
     }
 
+    @Description("TC_E_002_ValidateTheTeacherIsAbleToShareScreenInLiveClass")
     @Test
     public void TC_E_002_ValidateTheTeacherIsAbleToShareScreenInLiveClass() {
+       // ExtentManager.testName("TC_E_002_ValidateTheTeacherIsAbleToShareScreenInLiveClass","Nithesh");
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
@@ -83,8 +103,10 @@ public class TestRun extends BaseTest {
         classRoomPage.clickOnShareScreen();
     }
 
+    @Description("TC_E_017_ValidateThatTeacherCanCreateHomeworkUsingBlueFloatingIconOnSummaryTab")
     @Test
     public void TC_E_017_ValidateThatTeacherCanCreateHomeworkUsingBlueFloatingIconOnSummaryTab(){
+       // ExtentManager.testName("TC_E_017_ValidateThatTeacherCanCreateHomeworkUsingBlueFloatingIconOnSummaryTab","Nithesh");
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
