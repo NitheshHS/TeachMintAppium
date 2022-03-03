@@ -26,7 +26,6 @@ public class ClassRoomPage extends AppGenericLib {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-
     @FindBy(xpath = "//*[@text='Go Live']")
     private WebElement goLiveLink;
 
@@ -144,6 +143,24 @@ public class ClassRoomPage extends AppGenericLib {
     @FindBy(id = "//android.widget.TextView[@text='Mic on']")
     private WebElement MicOn;
 
+    @FindBy(xpath = "//android.widget.TextView[@text='Tests']")
+    private WebElement TestsButton;
+
+  @FindBy(xpath = "//android.widget.ImageView[@resource-id='com.teachmint.teachmint:id/create_test_icon']")
+   private WebElement TestIcon;
+
+    @FindBy(xpath = "//android.widget.RadioButton[@resource-id='com.teachmint.teachmint:id/radio_btn_questionBank']")
+    private WebElement QestionBank;
+
+    @FindBy(xpath = "//android.widget.Button[@text='Continue']")
+    private WebElement ContinueButton;
+    //android.view.View[@text='English']
+
+    @FindBy(xpath = "//android.view.View[@text='English']")
+    private WebElement EnglishButton;
+
+    @FindBy(xpath = "//android.view.View[@text='Noun']")
+    private WebElement TopicNoun;
 
 
     @Step("Tapping on go live link in class room page")
@@ -357,9 +374,21 @@ public class ClassRoomPage extends AppGenericLib {
         sa.assertEquals(videoOn_OffStatus,videoOn_offText,"Video is not turned on");
         sa.assertAll();
     }
+    @Step
+    public void scrollAndClickOnTest(double startx, double endx){
+        scrollToHorizontalElement(driver,startx,endx,TestsButton);
+        clickOnElement(TestIcon);
+    }
+
+    @Step
+    public void modifyQuestionBank(){
+        clickOnElement(QestionBank);
+        clickOnElement(ContinueButton);
+        awaitForElement(driver,EnglishButton);
+        clickOnElement(EnglishButton);
+        clickOnElement(TopicNoun);
+    }
 }
-
-
 
 //    public void comapareImage() throws IOException {
 //       // awaitForElement(driver,micIcon);
