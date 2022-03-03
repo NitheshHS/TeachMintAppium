@@ -26,7 +26,7 @@ public class LandingPage extends AppGenericLib {
     @FindBy(id="com.teachmint.teachmint:id/edit_subject")
     private MobileElement editSubject;
 
-    @FindBy(xpath="//*[@resource-id='com.teachmint.teachmint:id/title' or @text='Class10']")
+    @FindBy(xpath="//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10']")
     private MobileElement classNameText;
 
     @Step("Tap on class room")

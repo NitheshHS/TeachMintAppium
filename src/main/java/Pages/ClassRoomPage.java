@@ -113,6 +113,23 @@ public class ClassRoomPage extends AppGenericLib {
     @FindBy(id="com.teachmint.teachmint:id/click_save")
     private WebElement continueButton;
 
+    @FindBy(xpath = "//android.widget.TextView[@text='Video on']")
+    private WebElement VideoOn;
+
+    @FindBy(id = "//android.widget.TextView[@text='Mic off']")
+    private WebElement MicOff;
+
+    @FindBy(xpath = "//android.widget.TextView[@text='Video off']")
+    private WebElement VideoOff;
+
+    @FindBy(xpath="//*[contains(@text,'Video')]")
+    private WebElement videoIconText;
+
+    @FindBy(id = "//android.widget.TextView[@text='Mic on']")
+    private WebElement MicOn;
+
+
+
     @Step("Tapping on go live link in class room page")
     public void clickOnGoLive() {
         //goLiveLink.click();
@@ -286,6 +303,23 @@ public class ClassRoomPage extends AppGenericLib {
     @Step("tap on continue button")
     public void clickOnContinueButton(){
         clickOnElement(continueButton);
+    }
+
+    public void clickOnVideoIcon() {
+        clickOnElement(videoIcon);
+    }
+    @Step("clicking on video icon")
+
+    public void clickOnVideoIconAndVerify(String videoOn_offText) {
+        awaitForElement(driver,videoIcon);
+        String videoOn_OffStatus=videoIconText.getText().trim();
+        if(videoOn_OffStatus.equalsIgnoreCase("Video Off")){
+            clickOnElement(videoIcon);
+            videoOn_OffStatus=videoIconText.getText().trim();
+        }
+        System.out.println(videoOn_OffStatus);
+        sa.assertEquals(videoOn_OffStatus,videoOn_offText,"Video is not turned on");
+        sa.assertAll();
     }
 }
 

@@ -4,16 +4,10 @@ import Pages.ClassRoomPage;
 import Pages.HomeWorkPage;
 import Pages.LandingPage;
 import base.BaseTest;
-import base.ExtentManager;
 import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.function.Function;
 
 /**
  * author : Nithesh
@@ -69,9 +63,10 @@ public class TestRun extends BaseTest {
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
         classRoomPage.clickOnGoLive();
+
+        classRoomPage.clickOnVideoIconAndVerify("Video on");
         classRoomPage.clickOnGoLivebutton();
-        classRoomPage.tapOnMoreButton();
-        classRoomPage.startYoutubeStreaming("youtube", "YouTube live streaming failed. Try again");
+
     }
 
     @Description("TC_E_009_ValidateIfTheTeacherIsAbleToChatWithChatDisabledForStudents")
@@ -114,11 +109,17 @@ public class TestRun extends BaseTest {
         classRoomPage.clickOnMCQ();
         classRoomPage.clickOnContinueButton();
         HomeWorkPage homeWorkPage=new HomeWorkPage(driver);
-        homeWorkPage.typeQuestion("sin 0 + cos 0 =","1","2",
-                "0","none of the above","all the above");
+        homeWorkPage.typeQuestion("sin 0 + cos 0 =","1","2", "0","none of the above","all the above");
         homeWorkPage.clickOnSaveQuestionButton();
         homeWorkPage.saveQuestionPaper();
         homeWorkPage.createHomeWork("Homework3");
+    }
+
+    @Test
+    public void TC_E_012_ValidateThatUnderChatTabStudentIsAbleToSendAnAttachmentUsingTheCamera(){
+        LandingPage landingPage = new LandingPage(driver);
+        landingPage.clickOnClassRoom();
+
     }
 }
 
