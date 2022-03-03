@@ -86,6 +86,7 @@ public class TimeTablePage extends AppGenericLib {
         toButton.sendKeys(fromMinutes);
         clickOnElement(okButton);
         clickOnElement(slot1toButton);
+
         clickOnElement(switchToKeyBoardButton);
         clickOnElement(fromButton);
         fromButton.sendKeys(toHours);
@@ -93,6 +94,10 @@ public class TimeTablePage extends AppGenericLib {
         toButton.sendKeys(toMinutes);
         clickOnElement(okButton);
     }
+
+        type(hoursField,"7");
+        type(minutesField,"30");
+
 
     @Step("Click on plus button")
     public void clickOnPlus() {

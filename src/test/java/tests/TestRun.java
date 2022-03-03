@@ -3,16 +3,10 @@ package tests;
 import Pages.*;
 import Pages.StudyMaterialPage;
 import base.BaseTest;
-import base.ExtentManager;
 import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
-import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.function.Function;
 
 /**
  * author : Nithesh
@@ -68,9 +62,10 @@ public class TestRun extends BaseTest {
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
         classRoomPage.clickOnGoLive();
+
+        classRoomPage.clickOnVideoIconAndVerify("Video on");
         classRoomPage.clickOnGoLivebutton();
-        classRoomPage.tapOnMoreButton();
-        classRoomPage.startYoutubeStreaming("youtube", "YouTube live streaming failed. Try again");
+
     }
 
     @Description("TC_E_009_ValidateIfTheTeacherIsAbleToChatWithChatDisabledForStudents")
@@ -116,9 +111,21 @@ public class TestRun extends BaseTest {
         HomeWorkPage homeWorkPage = new HomeWorkPage(driver);
         homeWorkPage.typeQuestion("sin 0 + cos 0 =", "1", "2",
                 "0", "none of the above", "all the above");
+
         homeWorkPage.clickOnSaveQuestionButton();
         homeWorkPage.saveQuestionPaper();
         homeWorkPage.createHomeWork("Homework3");
+    }
+
+    @Description("TC_E_012_ValidateThatUnderChatTabStudentIsAbleToSendAnAttachmentUsingTheCamera")
+    @Test
+    public void TC_E_012_ValidateThatUnderChatTabStudentIsAbleToSendAnAttachmentUsingTheCamera() throws InterruptedException {
+        LandingPage landingPage = new LandingPage(driver);
+        StudentClassroomPage studentclassRoomPage=new StudentClassroomPage(driver);
+        landingPage.clickOnClassRoom();
+        studentclassRoomPage.clickOnChatButtonAndSelectTeacher();
+        studentclassRoomPage.addAttachment();
+        studentclassRoomPage.verifySentPicture();
     }
 
     @Description("TC_E_011_ValidateTheTeacherIsAbleToCreateStudyMaterialPdf")
@@ -130,6 +137,26 @@ public class TestRun extends BaseTest {
         StudyMaterialPage studyMaterialPage = new StudyMaterialPage(driver);
         studyMaterialPage.uploadPdf();
     }
+    @Description("TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClass")
+    @Test
+    public void TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClassTest() throws IOException {
+        // ExtentManager.testName("TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClassTest","Nithesh");
+        LandingPage landingPage = new LandingPage(driver);
+        landingPage.clickOnClassRoom();
+        ClassRoomPage classRoomPage = new ClassRoomPage(driver);
+        classRoomPage.clickOnGoLive();
+
+        classRoomPage.clickOnVideoIconAndVerify("Video on");
+        classRoomPage.clickOnGoLivebutton();
+
+    }
+
+    @Test
+    public void TC_E_016_ValidateThatTeacherCanCreateTestUsingQuestionBankRecommendations (){
+        LandingPage landingPage = new LandingPage(driver);
+        landingPage.clickOnClassRoom();
+        ClassRoomPage classRoomPage = new ClassRoomPage(driver);
+        classRoomPage.scrollAndClickOnTest(0.8,0.5);
 
     @Description("TC_E_013_ValidateTeacherIsAbleToAddTimetableForAClass")
     @Test
@@ -153,5 +180,7 @@ public class TestRun extends BaseTest {
         StudentClassroomPage studentClassroomPage=new StudentClassroomPage(driver);
         studentClassroomPage.selectCourseClassSubject();
     }
+       
+
 }
 
