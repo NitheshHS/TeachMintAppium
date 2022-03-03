@@ -1,9 +1,6 @@
 package tests;
 
-import Pages.ClassRoomPage;
-import Pages.HomeWorkPage;
-import Pages.LandingPage;
-import Pages.StudyMaterialPage;
+import Pages.*;
 import Pages.StudyMaterialPage;
 import base.BaseTest;
 import base.ExtentManager;
@@ -45,7 +42,7 @@ public class TestRun extends BaseTest {
         classRoomPage.clickOnGoLivebutton();
         // classRoomPage.tapOnMeetingProfile();
         classRoomPage.tapOnMoreButton();
-        classRoomPage.startLivePoll();
+        classRoomPage.startLivePoll("30","A");
         classRoomPage.stopLivePoll();
     }
 
@@ -62,10 +59,11 @@ public class TestRun extends BaseTest {
         pressNavigationBack(driver);
     }
 
-    @Description("TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClass")
+    @Description("TC_E_007_ValidateIfTheTeacherIsAbleToStartYoutubeStreamTest")
     @Test
-    public void TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClassTest() throws IOException {
-        // ExtentManager.testName("TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClassTest","Nithesh");
+
+    public void TC_E_007_ValidateIfTheTeacherIsAbleToStartYoutubeStreamTest() throws IOException {
+       // ExtentManager.testName("TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClassTest","Nithesh");
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
@@ -90,6 +88,7 @@ public class TestRun extends BaseTest {
         pressNavigationBack(driver);
         classRoomPage.typeChat("Hello");
     }
+
 
     @Description("TC_E_002_ValidateTheTeacherIsAbleToShareScreenInLiveClass")
     @Test
@@ -132,6 +131,27 @@ public class TestRun extends BaseTest {
         studyMaterialPage.uploadPdf();
     }
 
+    @Description("TC_E_013_ValidateTeacherIsAbleToAddTimetableForAClass")
+    @Test
+    public void TC_E_013_ValidateTeacherIsAbleToAddTimetableForAClass() {
+        // ExtentManager.testName("TC_E_013_ValidateTeacherIsAbleToAddTimetableForAClass","Nithesh");
+        LandingPage landingPage = new LandingPage(driver);
+        landingPage.clickOnClassRoom();
+        TimeTablePage timeTablePage = new TimeTablePage(driver);
+        timeTablePage.clickOnEdit();
+        timeTablePage.addTimetableForSlot1("7" ,"30", "8", "00");
+        timeTablePage.clickOnPlus();
+        timeTablePage.addTimetableForSlot2("5" ,"00", "7", "00");
+        timeTablePage.verifyTimetableSlots("7" ,"30" , "8" , "00" , "5" ,"00", "7", "00" );
+        timeTablePage.clickOnToggleButton();
+    }
 
+    @Description("TC_E_014_ValidateStudentCanPracticeUsingLearnTab")
+    @Test
+    public void TC_E_014_ValidateStudentCanPracticeUsingLearnTab() throws InterruptedException {
+        // ExtentManager.testName("TC_E_014_ValidateStudentCanPracticeUsingLearnTab()","Nithesh");
+        StudentClassroomPage studentClassroomPage=new StudentClassroomPage(driver);
+        studentClassroomPage.selectCourseClassSubject();
+    }
 }
 
