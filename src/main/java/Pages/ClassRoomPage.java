@@ -3,6 +3,7 @@ package Pages;
 import base.AppGenericLib;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -53,7 +54,7 @@ public class ClassRoomPage extends AppGenericLib {
     @FindBy(xpath = "//*[@resource-id='com.teachmint.teachmint:id/zoom_touch_view']")
     private WebElement profileIcon;
 
-    @FindBy(id = "com.teachmint.teachmint:id/options_menu")
+    @FindBy(xpath = "//*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']")
     private WebElement moreButton;
 
     @FindBy(xpath = "//*[@text='Live Polls']")
@@ -62,8 +63,23 @@ public class ClassRoomPage extends AppGenericLib {
     @FindBy(id="com.teachmint.teachmint:id/duration_30")
     private WebElement pollDuration30;
 
+    @FindBy(id="com.teachmint.teachmint:id/duration_60")
+    private WebElement pollDuration60;
+
+    @FindBy(id="com.teachmint.teachmint:id/duration_90")
+    private WebElement pollDuration90;
+
     @FindBy(id="com.teachmint.teachmint:id/option_a")
     private WebElement pollOptionA;
+
+    @FindBy(id="com.teachmint.teachmint:id/option_b")
+    private WebElement pollOptionB;
+
+    @FindBy(id="com.teachmint.teachmint:id/option_c")
+    private WebElement pollOptionC;
+
+    @FindBy(id="com.teachmint.teachmint:id/option_d")
+    private WebElement pollOptionD;
 
     @FindBy(id="com.teachmint.teachmint:id/launch_poll_button")
     private WebElement launchPollButton;
@@ -187,7 +203,8 @@ public class ClassRoomPage extends AppGenericLib {
     public void tapOnMoreButton() {
         for (int tapCount = 1; tapCount <= 60; tapCount++) {
             try {
-                moreButton.click();
+                awaitForElement(driver,moreButton);
+                clickOnElement(moreButton);
                 break;
             } catch (Exception e) {
                 tapOnElement(driver,(MobileElement) profileIcon);
@@ -196,10 +213,28 @@ public class ClassRoomPage extends AppGenericLib {
     }
 
     @Step("starting the student poll")
-    public void startLivePoll() {
+    public void startLivePoll(String pollDurationInSeconds, String pollOption) {
         clickOnElement(livePollOption);
-        clickOnElement(pollDuration30);
-        clickOnElement(pollOptionA);
+        if(pollDurationInSeconds.equalsIgnoreCase("30")){
+        clickOnElement(pollDuration30);}
+        else if(pollDurationInSeconds.equalsIgnoreCase("40")){
+            clickOnElement(pollDuration60);
+        }
+        else if(pollDurationInSeconds.equalsIgnoreCase("90")){
+            clickOnElement(pollDuration90);
+        }
+        if(pollOption.equalsIgnoreCase("A")){
+            clickOnElement(pollOptionA);
+        }
+        else if(pollOption.equalsIgnoreCase("B")){
+            clickOnElement(pollOptionB);
+        }
+        else if(pollOption.equalsIgnoreCase("C")){
+            clickOnElement(pollOptionC);
+        }
+        else if(pollOption.equalsIgnoreCase("D")){
+            clickOnElement(pollOptionD);
+        }
         clickOnElement(launchPollButton);
         try {
             Thread.sleep(3000);
@@ -259,10 +294,11 @@ public class ClassRoomPage extends AppGenericLib {
     public void tapOnShareScreenOption() {
         for (int tapCount = 0; tapCount <= 60; tapCount++) {
             try {
-                clickOnElement(shareScreenOption);
+                shareScreenOption.click();
+              //  clickOnElement(shareScreenOption);
                 break;
             } catch (Exception e) {
-                tapOnElement(driver, (MobileElement) profileIcon);
+               tapOnElement(driver,(AndroidElement) profileIcon);
             }
         }
     }

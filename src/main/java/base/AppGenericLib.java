@@ -153,7 +153,7 @@ public class AppGenericLib extends CapabailitySettingLib{
     public void turnOnDataAndWifi(AppiumDriver driver){
        AndroidDriver androidDriver=(AndroidDriver)driver;
         if(!(androidDriver.getConnection().isWiFiEnabled() || androidDriver.getConnection().isDataEnabled())) {
-            ExtentManager.extentTest.get().info("Turning on mobile data and wifi");
+           // ExtentManager.extentTest.get().info("Turning on mobile data and wifi");
             androidDriver.toggleWifi();
             androidDriver.toggleData();
         }

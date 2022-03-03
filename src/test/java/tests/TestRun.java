@@ -44,7 +44,7 @@ public class TestRun extends BaseTest {
         classRoomPage.clickOnGoLivebutton();
         // classRoomPage.tapOnMeetingProfile();
         classRoomPage.tapOnMoreButton();
-        classRoomPage.startLivePoll();
+        classRoomPage.startLivePoll("30","A");
         classRoomPage.stopLivePoll();
     }
 
@@ -61,9 +61,9 @@ public class TestRun extends BaseTest {
         pressNavigationBack(driver);
     }
 
-    @Description("TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClass")
+    @Description("TC_E_007_ValidateIfTheTeacherIsAbleToStartYoutubeStreamTest")
     @Test
-    public void TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClassTest() throws IOException {
+    public void TC_E_007_ValidateIfTheTeacherIsAbleToStartYoutubeStreamTest() throws IOException {
        // ExtentManager.testName("TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClassTest","Nithesh");
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
@@ -89,6 +89,7 @@ public class TestRun extends BaseTest {
         pressNavigationBack(driver);
         classRoomPage.typeChat("Hello");
     }
+
 
     @Description("TC_E_002_ValidateTheTeacherIsAbleToShareScreenInLiveClass")
     @Test
