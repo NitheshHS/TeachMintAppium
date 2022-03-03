@@ -152,16 +152,6 @@ public class TestRun extends BaseTest {
 
     }
 
-//.Download the teachmint app
-//2.Login as a student with correct mobile no. and otp
-//3.Go inside the already created classroom
-//4. Naviagte to test tab and click on create
-//5. select Question bank
-//6. choose one of the Readymade tests
-//7. click delete for first question
-//8. Click replace for next question
-//9. Click on save test
-//10. supply details and publish
     @Test
     public void TC_E_016_ValidateThatTeacherCanCreateTestUsingQuestionBankRecommendations (){
         LandingPage landingPage = new LandingPage(driver);
