@@ -74,6 +74,7 @@ public class HomeWorkPage extends AppGenericLib {
 
     }
 
+
     @Step("Tap on save question button")
     public void clickOnSaveQuestionButton(){
         clickOnElement(saveQuestionButton);
@@ -85,7 +86,7 @@ public class HomeWorkPage extends AppGenericLib {
         clickOnElement(saveQuestionPaperButton);
     }
 
-    @Step("Creatin home work with name {homeWorkTopicName}")
+    @Step("Creating home work with name {homeWorkTopicName}")
     public void createHomeWork(String homeWorkTopicName){
         type(homeWorkTopicTextField,homeWorkTopicName);
         clickOnElement(createHomeworkButton);
