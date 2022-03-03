@@ -58,7 +58,6 @@ public class TestRun extends BaseTest {
 
     public void TC_E_007_ValidateIfTheTeacherIsAbleToStartYoutubeStreamTest() throws IOException {
        // ExtentManager.testName("TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClassTest","Nithesh");
-
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
@@ -159,7 +158,29 @@ public class TestRun extends BaseTest {
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
         classRoomPage.scrollAndClickOnTest(0.8,0.5);
 
+    @Description("TC_E_013_ValidateTeacherIsAbleToAddTimetableForAClass")
+    @Test
+    public void TC_E_013_ValidateTeacherIsAbleToAddTimetableForAClass() {
+        // ExtentManager.testName("TC_E_013_ValidateTeacherIsAbleToAddTimetableForAClass","Nithesh");
+        LandingPage landingPage = new LandingPage(driver);
+        landingPage.clickOnClassRoom();
+        TimeTablePage timeTablePage = new TimeTablePage(driver);
+        timeTablePage.clickOnEdit();
+        timeTablePage.addTimetableForSlot1("7" ,"30", "8", "00");
+        timeTablePage.clickOnPlus();
+        timeTablePage.addTimetableForSlot2("5" ,"00", "7", "00");
+        timeTablePage.verifyTimetableSlots("7" ,"30" , "8" , "00" , "5" ,"00", "7", "00" );
+        timeTablePage.clickOnToggleButton();
+    }
 
-       }
+    @Description("TC_E_014_ValidateStudentCanPracticeUsingLearnTab")
+    @Test
+    public void TC_E_014_ValidateStudentCanPracticeUsingLearnTab() throws InterruptedException {
+        // ExtentManager.testName("TC_E_014_ValidateStudentCanPracticeUsingLearnTab()","Nithesh");
+        StudentClassroomPage studentClassroomPage=new StudentClassroomPage(driver);
+        studentClassroomPage.selectCourseClassSubject();
+    }
+       
+
 }
 

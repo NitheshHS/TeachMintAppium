@@ -13,7 +13,10 @@ import org.sikuli.script.App;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-import javax.xml.xpath.XPath;
+
+
+public class StudentClassroomPage extends AppGenericLib {
+
 
 public class StudentClassroomPage extends AppGenericLib {
     SoftAssert sa=new SoftAssert();
@@ -82,6 +85,66 @@ public class StudentClassroomPage extends AppGenericLib {
         }
 
     }
+
+
+    @FindBy(xpath="//*[@text='Learn']")
+    private WebElement learnButton;
+
+    @FindBy(xpath="//*[@text='NCERT']")
+    private WebElement ncertCourseButton;
+
+    @FindBy(xpath="//*[@text='Class 1']")
+    private WebElement class1Button;
+
+    @FindBy(xpath="//*[@text='Maths']")
+    private WebElement mathSubjectButton;
+
+    @FindBy(xpath="//*[@text='Addition']")
+    private WebElement additionTopicButton;
+
+    @FindBy(xpath="(//*[@text='Auto-render test'])[5]")
+    private WebElement optionDButton;
+
+    @FindBy(xpath="(//*[@text='Auto-render test'])[4]")
+    private WebElement optionCButton;
+
+    @FindBy(xpath="//*[@text='Submit']")
+    private WebElement submitButton ;
+
+    @FindBy(xpath="//*[@text='Next >>']")
+    private WebElement nextButton ;
+
+    @FindBy(xpath="//*[@text='Correct']")
+    private WebElement correctButton ;
+
+    @FindBy(xpath="//*[@text='Wrong']")
+    private WebElement wrongButton ;
+
+
+    @Step(" Student can select cource, class and subject")
+    public void selectCourseClassSubject() throws InterruptedException {
+
+        clickOnElement(learnButton);
+        Thread.sleep(1000);
+        clickOnElement(ncertCourseButton);
+        clickOnElement(class1Button);
+        clickOnElement(mathSubjectButton);
+
+        clickOnElement(additionTopicButton);
+        clickOnElement(optionDButton);
+        clickOnElement(submitButton);
+        clickOnElement( nextButton);
+
+        softAssert.assertTrue(correctButton.getText().contains("Correct"),"There is an error adding the slots.");
+        softAssert.assertAll();
+
+        clickOnElement(optionCButton);
+        clickOnElement(submitButton);
+        softAssert.assertTrue(correctButton.getText().contains("Wrong"),"There is an error adding the slots.");
+        softAssert.assertAll();
+        }
+        }
+
     public void verifySentPicture(){
         awaitForElement(driver,sentPicture);
         sa.assertTrue(sentPicture.getText().contains(".jpeg"),"pic is not there");
@@ -90,3 +153,4 @@ public class StudentClassroomPage extends AppGenericLib {
 
 
 }
+
