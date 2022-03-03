@@ -3,6 +3,8 @@ package tests;
 import Pages.ClassRoomPage;
 import Pages.HomeWorkPage;
 import Pages.LandingPage;
+import Pages.StudyMaterialPage;
+import Pages.StudyMaterialPage;
 import base.BaseTest;
 import base.ExtentManager;
 import io.qameta.allure.Description;
@@ -20,7 +22,6 @@ import java.util.function.Function;
  */
 public class TestRun extends BaseTest {
     /**
-     *
      * @throws InterruptedException
      * @throws IOException
      */
@@ -50,7 +51,7 @@ public class TestRun extends BaseTest {
 
     @Test(enabled = false)
     public void TC_E_005_ValidateNetworkSwitchInTeacherSideDuringLiveClassTest() throws IOException {
-       // ExtentManager.testName("TC_E_005_ValidateNetworkSwitchInTeacherSideDuringLiveClassTest","Nithesh");
+        // ExtentManager.testName("TC_E_005_ValidateNetworkSwitchInTeacherSideDuringLiveClassTest","Nithesh");
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
@@ -64,7 +65,7 @@ public class TestRun extends BaseTest {
     @Description("TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClass")
     @Test
     public void TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClassTest() throws IOException {
-       // ExtentManager.testName("TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClassTest","Nithesh");
+        // ExtentManager.testName("TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClassTest","Nithesh");
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
@@ -77,7 +78,7 @@ public class TestRun extends BaseTest {
     @Description("TC_E_009_ValidateIfTheTeacherIsAbleToChatWithChatDisabledForStudents")
     @Test
     public void TC_E_009_ValidateIfTheTeacherIsAbleToChatWithChatDisabledForStudents() throws IOException {
-       // ExtentManager.testName("TC_E_009_ValidateIfTheTeacherIsAbleToChatWithChatDisabledForStudents","Nithesh");
+        // ExtentManager.testName("TC_E_009_ValidateIfTheTeacherIsAbleToChatWithChatDisabledForStudents","Nithesh");
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
@@ -93,7 +94,7 @@ public class TestRun extends BaseTest {
     @Description("TC_E_002_ValidateTheTeacherIsAbleToShareScreenInLiveClass")
     @Test
     public void TC_E_002_ValidateTheTeacherIsAbleToShareScreenInLiveClass() {
-       // ExtentManager.testName("TC_E_002_ValidateTheTeacherIsAbleToShareScreenInLiveClass","Nithesh");
+        // ExtentManager.testName("TC_E_002_ValidateTheTeacherIsAbleToShareScreenInLiveClass","Nithesh");
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
@@ -105,20 +106,32 @@ public class TestRun extends BaseTest {
 
     @Description("TC_E_017_ValidateThatTeacherCanCreateHomeworkUsingBlueFloatingIconOnSummaryTab")
     @Test
-    public void TC_E_017_ValidateThatTeacherCanCreateHomeworkUsingBlueFloatingIconOnSummaryTab(){
-       // ExtentManager.testName("TC_E_017_ValidateThatTeacherCanCreateHomeworkUsingBlueFloatingIconOnSummaryTab","Nithesh");
+    public void TC_E_017_ValidateThatTeacherCanCreateHomeworkUsingBlueFloatingIconOnSummaryTab() {
+        // ExtentManager.testName("TC_E_017_ValidateThatTeacherCanCreateHomeworkUsingBlueFloatingIconOnSummaryTab","Nithesh");
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
         classRoomPage.clickOnHomeWork();
         classRoomPage.clickOnMCQ();
         classRoomPage.clickOnContinueButton();
-        HomeWorkPage homeWorkPage=new HomeWorkPage(driver);
-        homeWorkPage.typeQuestion("sin 0 + cos 0 =","1","2",
-                "0","none of the above","all the above");
+        HomeWorkPage homeWorkPage = new HomeWorkPage(driver);
+        homeWorkPage.typeQuestion("sin 0 + cos 0 =", "1", "2",
+                "0", "none of the above", "all the above");
         homeWorkPage.clickOnSaveQuestionButton();
         homeWorkPage.saveQuestionPaper();
         homeWorkPage.createHomeWork("Homework3");
     }
+
+    @Description("TC_E_011_ValidateTheTeacherIsAbleToCreateStudyMaterialPdf")
+    @Test
+    public void TC_E_011_ValidateTheTeacherIsAbleToCreateStudyMaterialPdf() {
+        // ExtentManager.testName("TC_E_011_ValidateTheTeacherIsAbleToCreateStudyMaterialPdf","Nithesh");
+        LandingPage landingPage = new LandingPage(driver);
+        landingPage.clickOnClassRoom();
+        StudyMaterialPage studyMaterialPage = new StudyMaterialPage(driver);
+        studyMaterialPage.uploadPdf();
+    }
+
+
 }
 

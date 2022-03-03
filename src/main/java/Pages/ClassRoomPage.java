@@ -25,7 +25,6 @@ public class ClassRoomPage extends AppGenericLib {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-
     @FindBy(xpath = "//*[@text='Go Live']")
     private WebElement goLiveLink;
 
@@ -288,8 +287,6 @@ public class ClassRoomPage extends AppGenericLib {
         clickOnElement(continueButton);
     }
 }
-
-
 
 //    public void comapareImage() throws IOException {
 //       // awaitForElement(driver,micIcon);
