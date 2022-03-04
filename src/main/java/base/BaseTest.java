@@ -4,6 +4,7 @@ package base;
 
 import com.aventstack.extentreports.Status;
 import enums.AppInfo;
+import io.appium.java_client.remote.MobileCapabilityType;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -31,9 +32,10 @@ public class BaseTest extends AppGenericLib {
     @BeforeMethod
     public void launchApp() throws MalformedURLException {
         DesiredCapabilities capabilities =
-                setDesiredCapability(AppInfo.PLATFORM.getLabel(), AppInfo.ANDROID_PLATFORM_NAME.getLabel(), AppInfo.ANDROID_APP_PACKAGE.getLabel(), AppInfo.ANDROID_APP_ACTIVITY.getLabel(), AppInfo.ANDROID_AUTOMATION_NAME.getLabel());
+                setDesiredCapability(AppInfo.PLATFORM.getLabel());
+        capabilities.setCapability(MobileCapabilityType.UDID,"R9ZRB050WWT");//emulator-5554
         driver=launchApp(new URL("http://localhost:4723/wd/hub"),Platform.ANDROID,capabilities);
-
+        studentDriver = launchStudentDriver(new URL("http://localhost:6666/wd/hub"), Platform.ANDROID);
     }
 
     @AfterMethod
@@ -53,6 +55,9 @@ public class BaseTest extends AppGenericLib {
        }
         softAssert.assertAll();
             driver.closeApp();
+            if(studentDriver!=null){
+                studentDriver.closeApp();
+            }
     }
 
     @AfterClass

@@ -1,12 +1,15 @@
 package tests;
 
 import Pages.*;
-import Pages.StudyMaterialPage;
 import base.BaseTest;
 import io.qameta.allure.Description;
+import org.openqa.selenium.Platform;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /**
  * author : Nithesh
@@ -36,12 +39,12 @@ public class TestRun extends BaseTest {
         classRoomPage.clickOnGoLivebutton();
         // classRoomPage.tapOnMeetingProfile();
         classRoomPage.tapOnMoreButton();
-        classRoomPage.startLivePoll("30","A");
+        classRoomPage.startLivePoll("30", "A");
         classRoomPage.stopLivePoll();
     }
 
-    @Test(enabled = false)
-    public void TC_E_005_ValidateNetworkSwitchInTeacherSideDuringLiveClassTest() throws IOException {
+    @Test
+    public void TC_E_005_ValidateNetworkSwitchInTeacherSideDuringLiveClassTest() throws IOException, InterruptedException {
         // ExtentManager.testName("TC_E_005_ValidateNetworkSwitchInTeacherSideDuringLiveClassTest","Nithesh");
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
@@ -49,22 +52,25 @@ public class TestRun extends BaseTest {
         classRoomPage.clickOnGoLive();
         classRoomPage.clickOnGoLivebutton();
         openNotification(driver);
-        turnOffMobileDataAndWifi(driver, "adb shell svc wifi disable");
+        turnOffMobileDataAndWifi(driver);
         pressNavigationBack(driver);
+        classRoomPage.verifyTheNoInternetMsg("Check your network");
+        turnWifiOn(driver);
     }
 
     @Description("TC_E_007_ValidateIfTheTeacherIsAbleToStartYoutubeStreamTest")
     @Test
-
     public void TC_E_007_ValidateIfTheTeacherIsAbleToStartYoutubeStreamTest() throws IOException {
-       // ExtentManager.testName("TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClassTest","Nithesh");
+        // ExtentManager.testName("TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClassTest","Nithesh");
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
         classRoomPage.clickOnGoLive();
-
-        classRoomPage.clickOnVideoIconAndVerify("Video on");
         classRoomPage.clickOnGoLivebutton();
+        classRoomPage.tapOnMoreButton();
+        classRoomPage.startYoutubeStreaming("youtube","");
+//        classRoomPage.clickOnVideoIconAndVerify("Video on");
+//        classRoomPage.clickOnGoLivebutton();
 
     }
 
@@ -87,7 +93,7 @@ public class TestRun extends BaseTest {
 
     @Description("TC_E_002_ValidateTheTeacherIsAbleToShareScreenInLiveClass")
     @Test
-    public void TC_E_002_ValidateTheTeacherIsAbleToShareScreenInLiveClass() {
+    public void TC_E_002_ValidateTheTeacherIsAbleToShareScreenInLiveClass() throws InterruptedException, IOException {
         // ExtentManager.testName("TC_E_002_ValidateTheTeacherIsAbleToShareScreenInLiveClass","Nithesh");
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
@@ -96,6 +102,16 @@ public class TestRun extends BaseTest {
         classRoomPage.clickOnGoLivebutton();
         classRoomPage.tapOnShareScreenOption();
         classRoomPage.clickOnShareScreen();
+        classRoomPage.tapOnStartSharingScreen();
+        studentDriver = launchStudentDriver(new URL("http://localhost:6666/wd/hub"), Platform.ANDROID);
+        StudentClassroomPage studentClassroomPage = new StudentClassroomPage(studentDriver);
+        studentClassroomPage.tapOnClassroom();
+        studentClassroomPage.tapOnJoinLiveButton();
+        Thread.sleep(15000);
+        File TeacherLive=takeScreenshot(driver,"TeacherSharedScreen.png");
+        File StudentLive = takeScreenshot(studentDriver,"StudentScreen.png");
+        double compPer = compareImage(TeacherLive, StudentLive);
+        softAssert.assertTrue(compPer>=60,"Both images are not same");
     }
 
     @Description("TC_E_017_ValidateThatTeacherCanCreateHomeworkUsingBlueFloatingIconOnSummaryTab")
@@ -120,12 +136,26 @@ public class TestRun extends BaseTest {
     @Description("TC_E_012_ValidateThatUnderChatTabStudentIsAbleToSendAnAttachmentUsingTheCamera")
     @Test
     public void TC_E_012_ValidateThatUnderChatTabStudentIsAbleToSendAnAttachmentUsingTheCamera() throws InterruptedException {
-        LandingPage landingPage = new LandingPage(driver);
-        StudentClassroomPage studentclassRoomPage=new StudentClassroomPage(driver);
+        LandingPage landingPage = new LandingPage(studentDriver);
+        StudentClassroomPage studentclassRoomPage = new StudentClassroomPage(studentDriver);
         landingPage.clickOnClassRoom();
         studentclassRoomPage.clickOnChatButtonAndSelectTeacher();
-        studentclassRoomPage.addAttachment();
-        studentclassRoomPage.verifySentPicture();
+        studentclassRoomPage.clickOnAttachementButton();
+        studentclassRoomPage.chooseCamara();
+        studentclassRoomPage.clickPhoto();
+        studentclassRoomPage.clickOnSendButton();
+        String studentImageText=studentclassRoomPage.verifySentPicture();
+        System.out.println(studentImageText);
+        LandingPage teacherLandingPage=new LandingPage(driver);
+        teacherLandingPage.clickOnClassRoom();
+        ClassRoomPage classRoomPage=new ClassRoomPage(driver);
+        classRoomPage.clickOnChat();
+        ChatPage chatPage=new ChatPage(driver);
+        chatPage.clickOnStudent("Guru");
+        String teacherImageText=chatPage.getStudentImageText();
+        System.out.println(teacherImageText);
+        softAssert.assertEquals(teacherImageText,studentImageText,"Both images are different");
+        Thread.sleep(10000);
     }
 
     @Description("TC_E_011_ValidateTheTeacherIsAbleToCreateStudyMaterialPdf")
@@ -137,26 +167,35 @@ public class TestRun extends BaseTest {
         StudyMaterialPage studyMaterialPage = new StudyMaterialPage(driver);
         studyMaterialPage.uploadPdf();
     }
+
     @Description("TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClass")
     @Test
-    public void TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClassTest() throws IOException {
+    public void TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClassTest() throws IOException, InterruptedException {
         // ExtentManager.testName("TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClassTest","Nithesh");
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
         classRoomPage.clickOnGoLive();
-
         classRoomPage.clickOnVideoIconAndVerify("Video on");
         classRoomPage.clickOnGoLivebutton();
+        StudentClassroomPage studentClassroomPage = new StudentClassroomPage(studentDriver);
+        studentClassroomPage.tapOnClassroom();
+        studentClassroomPage.tapOnJoinLiveButton();
+        Thread.sleep(15000);
+        File TeacherLive=takeScreenshot(driver,"TeacherLiveSession.png");
+       File StudentLive = takeScreenshot(studentDriver,"StudentLiveSession.png");
+        double compPer = compareImage(TeacherLive, StudentLive);
+        softAssert.assertTrue(compPer>=60,"Both images are not same");
 
     }
 
     @Test
-    public void TC_E_016_ValidateThatTeacherCanCreateTestUsingQuestionBankRecommendations (){
+    public void TC_E_016_ValidateThatTeacherCanCreateTestUsingQuestionBankRecommendations() {
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
-        classRoomPage.scrollAndClickOnTest(0.8,0.5);
+        classRoomPage.scrollAndClickOnTest(0.8, 0.5);
+    }
 
     @Description("TC_E_013_ValidateTeacherIsAbleToAddTimetableForAClass")
     @Test
@@ -166,22 +205,20 @@ public class TestRun extends BaseTest {
         landingPage.clickOnClassRoom();
         TimeTablePage timeTablePage = new TimeTablePage(driver);
         timeTablePage.clickOnEdit();
-        timeTablePage.addTimetableForSlot1("7" ,"30", "8", "00");
+        timeTablePage.addTimetableForSlot1("7", "30", "8", "00");
         timeTablePage.clickOnPlus();
-        timeTablePage.addTimetableForSlot2("5" ,"00", "7", "00");
-        timeTablePage.verifyTimetableSlots("7" ,"30" , "8" , "00" , "5" ,"00", "7", "00" );
+        timeTablePage.addTimetableForSlot2("5", "00", "7", "00");
+        timeTablePage.verifyTimetableSlots("7", "30", "8", "00", "5", "00", "7", "00");
         timeTablePage.clickOnToggleButton();
     }
 
     @Description("TC_E_014_ValidateStudentCanPracticeUsingLearnTab")
     @Test
-    public void TC_E_014_ValidateStudentCanPracticeUsingLearnTab() throws InterruptedException {
+    public void TC_E_014_ValidateStudentCanPracticeUsingLearnTab() throws InterruptedException, MalformedURLException {
         // ExtentManager.testName("TC_E_014_ValidateStudentCanPracticeUsingLearnTab()","Nithesh");
-        StudentClassroomPage studentClassroomPage=new StudentClassroomPage(driver);
+        StudentClassroomPage studentClassroomPage = new StudentClassroomPage(studentDriver);
         studentClassroomPage.selectCourseClassSubject();
     }
-       
-
 
 
 }

@@ -6,6 +6,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.qameta.allure.Step;
 import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -29,6 +30,7 @@ public class LandingPage extends AppGenericLib {
     @FindBy(xpath="//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10']")
     private MobileElement classNameText;
 
+
     @Step("Tap on class room")
     public void clickOnClassRoom(){
         //awaitForElement(driver,classNameText);
@@ -39,6 +41,8 @@ public class LandingPage extends AppGenericLib {
             clickOnElement(classNameText);
         }
     }
+
+
 
 
 

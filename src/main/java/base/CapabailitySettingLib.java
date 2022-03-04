@@ -17,11 +17,14 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.asserts.SoftAssert;
 
 import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.Time;
 import java.util.concurrent.TimeUnit;
 
 public class CapabailitySettingLib{
    public  AppiumDriver driver;
+   public AppiumDriver studentDriver;
    public SoftAssert softAssert=new SoftAssert();
 
    public ExtentSparkReporter spark;
@@ -29,15 +32,15 @@ public class CapabailitySettingLib{
    public ExtentTest test;
 
 
-    public DesiredCapabilities setDesiredCapability(String platform, String platformName, String appPackage, String appActivity, String automationName) {
+    public DesiredCapabilities setDesiredCapability(String platform) {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platform", platform);
-        capabilities.setCapability(CapabilityType.PLATFORM_NAME, platformName);
-        capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, appPackage);
-        capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, appActivity);
+        capabilities.setCapability(CapabilityType.PLATFORM_NAME, AppInfo.ANDROID_PLATFORM_NAME.getLabel());
+        capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, AppInfo.ANDROID_APP_PACKAGE.getLabel());
+        capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, AppInfo.ANDROID_APP_ACTIVITY.getLabel());
         capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
-        capabilities.setCapability("automationName", automationName);
+        capabilities.setCapability("automationName", AppInfo.ANDROID_AUTOMATION_NAME.getLabel());
         return capabilities;
     }
 
@@ -55,6 +58,25 @@ public class CapabailitySettingLib{
         }
         driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         return driver;
+    }
+
+    public AppiumDriver launchStudentDriver(URL url, Platform platform) throws MalformedURLException {
+        DesiredCapabilities capabilities=null;
+        switch (platform){
+            case ANDROID:
+                 capabilities = setDesiredCapability("android");
+                 capabilities.setCapability(MobileCapabilityType.UDID,"R9ZRB0CHV3T");//emulator-5556
+                studentDriver=new AndroidDriver(url,capabilities);
+                break;
+            case IOS:
+                studentDriver=new IOSDriver(url,capabilities);
+                break;
+            default:
+                System.out.println("Invalid capabilities: "+capabilities);
+                break;
+        }
+        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+        return studentDriver;
     }
 
     public void configExtentReport(){

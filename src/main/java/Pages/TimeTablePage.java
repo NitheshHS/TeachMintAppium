@@ -95,8 +95,8 @@ public class TimeTablePage extends AppGenericLib {
         clickOnElement(okButton);
     }
 
-        type(hoursField,"7");
-        type(minutesField,"30");
+//        type(hoursField,"7");
+//        type(minutesField,"30");
 
 
     @Step("Click on plus button")

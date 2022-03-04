@@ -162,6 +162,17 @@ public class ClassRoomPage extends AppGenericLib {
     @FindBy(xpath = "//android.view.View[@text='Noun']")
     private WebElement TopicNoun;
 
+    @FindBy(xpath = "//*[@text='Start now']")
+    private WebElement startScreenSharing;
+
+    @FindBy(xpath = "//*[@text='Chat']")
+    private WebElement chat;
+
+    @FindBy(xpath="(//*[@text='Tests'])[1]")
+    private WebElement tests;
+
+    @FindBy(id="com.teachmint.teachmint:id/interntStatusLayout")
+    private WebElement noInternetErrorMsg;
 
     @Step("Tapping on go live link in class room page")
     public void clickOnGoLive() {
@@ -376,7 +387,7 @@ public class ClassRoomPage extends AppGenericLib {
     }
     @Step
     public void scrollAndClickOnTest(double startx, double endx){
-        scrollToHorizontalElement(driver,startx,endx,TestsButton);
+        scrollToHorizontalElementAndClick(driver,startx,endx,TestsButton);
         clickOnElement(TestIcon);
     }
 
@@ -387,6 +398,22 @@ public class ClassRoomPage extends AppGenericLib {
         awaitForElement(driver,EnglishButton);
         clickOnElement(EnglishButton);
         clickOnElement(TopicNoun);
+    }
+
+    @Step("tap on start sharing screen")
+    public void tapOnStartSharingScreen(){
+        clickOnElement(startScreenSharing);
+    }
+
+    @Step("scroll and tap on chat")
+    public void clickOnChat(){
+        clickOnElement(tests);
+        clickOnElement(chat);
+    }
+
+    public void verifyTheNoInternetMsg(String errorMsg){
+       String msg= noInternetErrorMsg.getText().trim();
+       softAssert.assertEquals(msg,errorMsg, "Internet error msg is not matching");
     }
 }
 

@@ -99,12 +99,12 @@ public class AppGenericLib extends CapabailitySettingLib {
         return 0;
     }
 
-    public String takeScreenshot(AppiumDriver driver, String screenshotName) throws IOException {
+    public File takeScreenshot(AppiumDriver driver, String screenshotName) throws IOException {
         TakesScreenshot ts = (TakesScreenshot) driver;
         File src = ts.getScreenshotAs(OutputType.FILE);
         File dest = new File("./screenshots/" + screenshotName + ".PNG");
         Files.copy(src, dest);
-        return dest.getAbsolutePath();
+        return dest;
     }
 
     public File takeScreenshot(WebElement element, String imageName) throws IOException {
@@ -127,25 +127,27 @@ public class AppGenericLib extends CapabailitySettingLib {
 
     public void openNotification(AppiumDriver driver) {
         if (driver != null) {
-            ExtentManager.extentTest.get().info("Opening notification");
+            //ExtentManager.extentTest.get().info("Opening notification");
             AndroidDriver androidDriver = (AndroidDriver) driver;
             androidDriver.openNotifications();
 
         }
     }
 
-    public void turnOffMobileDataAndWifi(AppiumDriver driver, String adbCommand) throws IOException {
+    public void turnOffMobileDataAndWifi(AppiumDriver driver) throws IOException, InterruptedException {
         AndroidDriver androidDriver = (AndroidDriver) driver;
         if (androidDriver.getConnection().isWiFiEnabled() || androidDriver.getConnection().isDataEnabled()) {
-            ExtentManager.extentTest.get().info("Turning off mobile data and wifi");
+//            ExtentManager.extentTest.get().info("Turning off mobile data and wifi");
 //            ConnectionStateBuilder builder = new ConnectionStateBuilder(ConnectionState.DATA_MASK).withDataDisabled();
 //            androidDriver.setConnection(builder.build());
             //androidDriver.toggleAirplaneMode();
+            androidDriver.toggleWifi();
+            Thread.sleep(10000);
 //            androidDriver.toggleData();
             // executeADBcommand(driver,adbCommand);
-            Runtime.getRuntime().exec(adbCommand);
-
+            //Runtime.getRuntime().exec(adbCommand);
         }
+
     }
 
     public void turnOnDataAndWifi(AppiumDriver driver) {
@@ -216,7 +218,7 @@ public class AppGenericLib extends CapabailitySettingLib {
         }
     }
 
-    public void scrollToHorizontalElement(AppiumDriver driver, double startpart, double endPart, WebElement element) {
+    public void scrollToHorizontalElementAndClick(AppiumDriver driver, double startpart, double endPart, WebElement element) {
         //ExtentManager.extentTest.get().info("Performing scroll action");
         TouchAction touch = new TouchAction(driver);
         int xcordstartPoint = driver.manage().window().getSize().getWidth();
@@ -233,8 +235,27 @@ public class AppGenericLib extends CapabailitySettingLib {
                         .perform();
             }
         }
+    }
+    public void scrollHorizontalAndClick(AppiumDriver driver,WebElement element){
+        for(int swipeCount=0;swipeCount<3;swipeCount++) {
+            try {
+                clickOnElement(element);
+                break;
+            } catch (Exception e) {
+                TouchAction touch = new TouchAction(driver);
+                touch.longPress(PointOption.point(871, 329))
+                        .moveTo(PointOption.point(248, 341))
+                        .release()
+                        .perform();
+            }
+        }
+    }
 
-
+    public void turnWifiOn(AppiumDriver driver){
+        AndroidDriver androidDriver=(AndroidDriver)driver;
+        if(!androidDriver.getConnection().isWiFiEnabled()) {
+            androidDriver.toggleWifi();
+        }
     }
 }
 
