@@ -128,6 +128,41 @@ public class ClassRoomPage extends AppGenericLib {
     @FindBy(id="com.teachmint.teachmint:id/click_save")
     private WebElement continueButton;
 
+    @FindBy(xpath = "//android.widget.TextView[@text='Video on']")
+    private WebElement VideoOn;
+
+    @FindBy(id = "//android.widget.TextView[@text='Mic off']")
+    private WebElement MicOff;
+
+    @FindBy(xpath = "//android.widget.TextView[@text='Video off']")
+    private WebElement VideoOff;
+
+    @FindBy(xpath="//*[contains(@text,'Video')]")
+    private WebElement videoIconText;
+
+    @FindBy(id = "//android.widget.TextView[@text='Mic on']")
+    private WebElement MicOn;
+
+    @FindBy(xpath = "//android.widget.TextView[@text='Tests']")
+    private WebElement TestsButton;
+
+  @FindBy(xpath = "//android.widget.ImageView[@resource-id='com.teachmint.teachmint:id/create_test_icon']")
+   private WebElement TestIcon;
+
+    @FindBy(xpath = "//android.widget.RadioButton[@resource-id='com.teachmint.teachmint:id/radio_btn_questionBank']")
+    private WebElement QestionBank;
+
+    @FindBy(xpath = "//android.widget.Button[@text='Continue']")
+    private WebElement ContinueButton;
+    //android.view.View[@text='English']
+
+    @FindBy(xpath = "//android.view.View[@text='English']")
+    private WebElement EnglishButton;
+
+    @FindBy(xpath = "//android.view.View[@text='Noun']")
+    private WebElement TopicNoun;
+
+
     @Step("Tapping on go live link in class room page")
     public void clickOnGoLive() {
         //goLiveLink.click();
@@ -321,6 +356,37 @@ public class ClassRoomPage extends AppGenericLib {
     @Step("tap on continue button")
     public void clickOnContinueButton(){
         clickOnElement(continueButton);
+    }
+
+    public void clickOnVideoIcon() {
+        clickOnElement(videoIcon);
+    }
+    @Step("clicking on video icon")
+
+    public void clickOnVideoIconAndVerify(String videoOn_offText) {
+        awaitForElement(driver,videoIcon);
+        String videoOn_OffStatus=videoIconText.getText().trim();
+        if(videoOn_OffStatus.equalsIgnoreCase("Video Off")){
+            clickOnElement(videoIcon);
+            videoOn_OffStatus=videoIconText.getText().trim();
+        }
+        System.out.println(videoOn_OffStatus);
+        sa.assertEquals(videoOn_OffStatus,videoOn_offText,"Video is not turned on");
+        sa.assertAll();
+    }
+    @Step
+    public void scrollAndClickOnTest(double startx, double endx){
+        scrollToHorizontalElement(driver,startx,endx,TestsButton);
+        clickOnElement(TestIcon);
+    }
+
+    @Step
+    public void modifyQuestionBank(){
+        clickOnElement(QestionBank);
+        clickOnElement(ContinueButton);
+        awaitForElement(driver,EnglishButton);
+        clickOnElement(EnglishButton);
+        clickOnElement(TopicNoun);
     }
 }
 
