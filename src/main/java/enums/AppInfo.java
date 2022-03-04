@@ -7,7 +7,9 @@ public enum AppInfo {
     ANDROID_APP_PACKAGE("com.teachmint.teachmint"),
     ANDROID_APP_ACTIVITY("com.teachmint.teachmint.MainActivity"),
     PLATFORM("android"),
-    SERVER_URL("http://localhost:4723")
+    SERVER_URL("http://localhost:4723"),
+    TEACHER_EMULATOR_UDDI(""),
+    STUDENT_EMULATOR_UDDI("")
     ;
 
 

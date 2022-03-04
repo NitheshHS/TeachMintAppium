@@ -2,6 +2,7 @@ package Pages;
 
 import base.AppGenericLib;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.touch.offset.PointOption;
@@ -17,8 +18,6 @@ import org.testng.asserts.SoftAssert;
 
 public class StudentClassroomPage extends AppGenericLib {
 
-
-public class StudentClassroomPage extends AppGenericLib {
     SoftAssert sa=new SoftAssert();
     AppiumDriver driver;
 
@@ -27,8 +26,15 @@ public class StudentClassroomPage extends AppGenericLib {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
+    @FindBy(xpath="//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10']")
+    private MobileElement classNameText;
+
+    @FindBy(xpath = "//*[@text='Join Live']")
+    private WebElement joinLiveButton;
+
     @FindBy(xpath = "//android.widget.LinearLayout[@content-desc=\"Chat\"]/android.widget.TextView")
     private WebElement chatButton;
+
     @FindBy(xpath = "//android.widget.TextView[@text='Nithesh']")
     private WebElement Teacher;
 
@@ -38,23 +44,31 @@ public class StudentClassroomPage extends AppGenericLib {
     @FindBy(xpath = "//android.widget.Button[@resource-id='com.android.permissioncontroller:id/permission_allow_button']")
     private WebElement AllowPermission;
 
-    @FindBy(xpath = "//android.widget.TextView[@text='Camera']")
+    @FindBy(xpath = "//*[@text='Camera']")
     private WebElement Camera;
 
-    @FindBy(xpath = "//android.widget.ImageView[@resource-id='com.android.camera2:id/shutter_button']")
+    @FindBy(id = "com.sec.android.app.camera:id/shutter_button")
     private WebElement cameraShutter;
+
     @FindBy(xpath = "//android.widget.ImageButton[@resource-id='com.android.camera2:id/done_button']")
     private WebElement clickForPic;
 
     @FindBy(xpath = "//*[@resource-id='com.teachmint.teachmint:id/send']")
     private WebElement sendPicButton;
 
-    @FindBy(xpath = "//android.widget.TextView[contains(@text,'.jpeg')]")
+    @FindBy(xpath = "(//*[@resource-id='com.teachmint.teachmint:id/filename'])[last()]")
     private WebElement sentPicture;
 
+    @FindBy(id="com.sec.android.app.camera:id/done_button")
+    private WebElement okButton;
 
+    @FindBy(id="com.teachmint.teachmint:id/send")
+    private WebElement sendButton;
 
-    @Step
+    @FindBy(id="com.teachmint.teachmint:id/add_attachment")
+    private WebElement attachmentButton;
+
+    @Step("click on chat and select teacher")
     public void clickOnChatButtonAndSelectTeacher()
     {
         clickOnElement(chatButton);
@@ -84,6 +98,32 @@ public class StudentClassroomPage extends AppGenericLib {
             clickOnElement(sendPicButton);
         }
 
+    }
+
+    @Step("tap on attachment")
+    public void clickOnAttachementButton(){
+        clickOnElement(attachmentButton);
+    }
+
+    @Step("select camara options")
+    public void chooseCamara(){
+        try {
+            clickOnElement(AllowPermission);
+            clickOnElement(Camera);
+        }catch (Exception e){
+            clickOnElement(Camera);
+        }
+    }
+    @Step("click the photo and click on ok")
+    public void clickPhoto(){
+        clickOnElement(cameraShutter);
+        //awaitForElement(studentDriver,okButton);
+        clickOnElement(okButton);
+    }
+
+    @Step("tap on send button")
+    public void clickOnSendButton(){
+        clickOnElement(sendButton);
     }
 
 
@@ -143,11 +183,21 @@ public class StudentClassroomPage extends AppGenericLib {
         softAssert.assertTrue(correctButton.getText().contains("Wrong"),"There is an error adding the slots.");
         softAssert.assertAll();
         }
-        }
 
-    public void verifySentPicture(){
+@Step("send image and verify")
+    public String verifySentPicture(){
         awaitForElement(driver,sentPicture);
-        sa.assertTrue(sentPicture.getText().contains(".jpeg"),"pic is not there");
+       return sentPicture.getText().trim();
+    }
+
+    @Step("Tap on your classroom")
+    public void tapOnClassroom(){
+        clickOnElement(classNameText);
+    }
+
+    @Step("Tap on join live button")
+    public void tapOnJoinLiveButton(){
+        clickOnElement(joinLiveButton);
     }
 
 
