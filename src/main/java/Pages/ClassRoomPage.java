@@ -119,8 +119,11 @@ public class ClassRoomPage extends AppGenericLib {
     @FindBy(xpath = "//*[@text='Share Screen' or @resource-id='Share Screen']")
     private WebElement shareScreen;
 
-    @FindBy(xpath = "(//*[@text='Homework'])[2]")
+    @FindBy(xpath = "//*[@text='Homework']")
     private WebElement homeworkLink;
+
+    @FindBy(xpath = "//*[@text='Create Homework']")
+    private WebElement createHomework;
 
     @FindBy(id="com.teachmint.teachmint:id/radio_btn_mcq")
     private WebElement mcqRadioButton;
@@ -173,6 +176,18 @@ public class ClassRoomPage extends AppGenericLib {
 
     @FindBy(id="com.teachmint.teachmint:id/interntStatusLayout")
     private WebElement noInternetErrorMsg;
+
+    @FindBy(id="com.teachmint.teachmint:id/btn_share_photo")
+    private WebElement shareImageOption;
+
+    @FindBy(xpath = "//*[@text='Gallery']")
+    private WebElement gallery;
+
+    @FindBy(id="com.sec.android.gallery3d:id/thumbnail")
+    private WebElement galleryImages;
+
+    @FindBy(xpath = "(//*[@resource-id='com.teachmint.teachmint:id/videoview'])[2]")
+    private WebElement imageTile;
 
     @Step("Tapping on go live link in class room page")
     public void clickOnGoLive() {
@@ -354,9 +369,14 @@ public class ClassRoomPage extends AppGenericLib {
         clickOnElement(shareScreen);
     }
 
-    @Step("click on home work ")
+    @Step("Tap on home work")
     public void clickOnHomeWork(){
         clickOnElement(homeworkLink);
+    }
+
+    @Step("Tap on create homework button")
+    public void clickOnCreateHomework(){
+        clickOnElement(createHomework);
     }
 
     @Step("Tap on MCQ")
@@ -411,9 +431,32 @@ public class ClassRoomPage extends AppGenericLib {
         clickOnElement(chat);
     }
 
+    @Step("Verifying for {errorMsg}")
     public void verifyTheNoInternetMsg(String errorMsg){
        String msg= noInternetErrorMsg.getText().trim();
        softAssert.assertEquals(msg,errorMsg, "Internet error msg is not matching");
+       softAssert.assertAll();
+    }
+
+    @Step("Taping on share image in live class")
+    public void clickOnShareImage(){
+        clickOnElement(shareImageOption);
+    }
+
+    @Step("choose gallery")
+    public void clickOnGallery(){
+        clickOnElement(gallery);
+    }
+    @Step("verifying shared image")
+    public void verifySharedImage(){
+        clickOnElement(galleryImages);
+        softAssert.assertTrue(imageTile.isDisplayed(),"Image not been shared "+imageTile);
+        softAssert.assertAll();
+    }
+
+    @Step("attach image")
+    public void addAttachment(){
+        clickOnElement(galleryImages);
     }
 }
 

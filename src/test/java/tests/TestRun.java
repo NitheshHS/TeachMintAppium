@@ -2,6 +2,7 @@ package tests;
 
 import Pages.*;
 import base.BaseTest;
+import enums.LoginAs;
 import io.qameta.allure.Description;
 import org.openqa.selenium.Platform;
 import org.testng.annotations.Test;
@@ -19,7 +20,7 @@ public class TestRun extends BaseTest {
      * @throws InterruptedException
      * @throws IOException
      */
-    @Test(enabled = false)
+    @Test
     public void TC_E_001_ValidateTheTeacherIsAbleToStartTheLiveClassTest() throws InterruptedException, IOException {
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
@@ -29,20 +30,20 @@ public class TestRun extends BaseTest {
         classRoomPage.tapOnMeetingProfile();
     }
 
-    @Description("TC_E_008_ValidateIfTheTeacherIsAbleToCreateLivePollTest")
-    @Test(description = "Validate If The Teacher Is Able To Create LivePoll")
+    @Description("TC_E_008_Validate If The Teacher Is Able To Create Live Poll Test")
+    @Test
     public void TC_E_008_ValidateIfTheTeacherIsAbleToCreateLivePollTest() throws IOException {
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
         classRoomPage.clickOnGoLive();
         classRoomPage.clickOnGoLivebutton();
-        // classRoomPage.tapOnMeetingProfile();
         classRoomPage.tapOnMoreButton();
         classRoomPage.startLivePoll("30", "A");
         classRoomPage.stopLivePoll();
     }
 
+    @Description("TC_E_005 Validate network switch in teacher side during live class")
     @Test
     public void TC_E_005_ValidateNetworkSwitchInTeacherSideDuringLiveClassTest() throws IOException, InterruptedException {
         // ExtentManager.testName("TC_E_005_ValidateNetworkSwitchInTeacherSideDuringLiveClassTest","Nithesh");
@@ -50,7 +51,7 @@ public class TestRun extends BaseTest {
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
         classRoomPage.clickOnGoLive();
-        classRoomPage.clickOnGoLivebutton();
+        //classRoomPage.clickOnGoLivebutton();
         openNotification(driver);
         turnOffMobileDataAndWifi(driver);
         pressNavigationBack(driver);
@@ -69,9 +70,6 @@ public class TestRun extends BaseTest {
         classRoomPage.clickOnGoLivebutton();
         classRoomPage.tapOnMoreButton();
         classRoomPage.startYoutubeStreaming("youtube","");
-//        classRoomPage.clickOnVideoIconAndVerify("Video on");
-//        classRoomPage.clickOnGoLivebutton();
-
     }
 
     @Description("TC_E_009_ValidateIfTheTeacherIsAbleToChatWithChatDisabledForStudents")
@@ -103,7 +101,6 @@ public class TestRun extends BaseTest {
         classRoomPage.tapOnShareScreenOption();
         classRoomPage.clickOnShareScreen();
         classRoomPage.tapOnStartSharingScreen();
-        studentDriver = launchStudentDriver(new URL("http://localhost:6666/wd/hub"), Platform.ANDROID);
         StudentClassroomPage studentClassroomPage = new StudentClassroomPage(studentDriver);
         studentClassroomPage.tapOnClassroom();
         studentClassroomPage.tapOnJoinLiveButton();
@@ -122,15 +119,18 @@ public class TestRun extends BaseTest {
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
         classRoomPage.clickOnHomeWork();
+        classRoomPage.clickOnCreateHomework();
         classRoomPage.clickOnMCQ();
         classRoomPage.clickOnContinueButton();
         HomeWorkPage homeWorkPage = new HomeWorkPage(driver);
-        homeWorkPage.typeQuestion("sin 0 + cos 0 =", "1", "2",
+        homeWorkPage.clickOnAttachment();
+        classRoomPage.clickOnGallery();
+        classRoomPage.addAttachment();
+        homeWorkPage.typeQuestion("Image attachment", "1", "2",
                 "0", "none of the above", "all the above");
-
         homeWorkPage.clickOnSaveQuestionButton();
         homeWorkPage.saveQuestionPaper();
-        homeWorkPage.createHomeWork("Homework3");
+        homeWorkPage.createHomeWorkAndVerify("Homework4");
     }
 
     @Description("TC_E_012_ValidateThatUnderChatTabStudentIsAbleToSendAnAttachmentUsingTheCamera")
@@ -155,20 +155,35 @@ public class TestRun extends BaseTest {
         String teacherImageText=chatPage.getStudentImageText();
         System.out.println(teacherImageText);
         softAssert.assertEquals(teacherImageText,studentImageText,"Both images are different");
-        Thread.sleep(10000);
     }
 
-    @Description("TC_E_011_ValidateTheTeacherIsAbleToCreateStudyMaterialPdf")
+    @Description("TC_E_010 Validate if the teacher is able to share files")
+    @Test
+    public void TC_E_010_ValidateIfTheTeacherIsAbleToShareFiles() throws InterruptedException {
+        LandingPage landingPage = new LandingPage(driver);
+        landingPage.clickOnClassRoom();
+        ClassRoomPage classRoomPage = new ClassRoomPage(driver);
+        classRoomPage.clickOnGoLive();
+        //classRoomPage.clickOnGoLivebutton();
+        classRoomPage.tapOnShareScreenOption();
+        classRoomPage.clickOnShareImage();
+        classRoomPage.clickOnGallery();
+        classRoomPage.verifySharedImage();
+    }
+
+    @Description("TC_E_011_Validate The Teacher Is Able To Create Study Material Pdf")
     @Test
     public void TC_E_011_ValidateTheTeacherIsAbleToCreateStudyMaterialPdf() {
         // ExtentManager.testName("TC_E_011_ValidateTheTeacherIsAbleToCreateStudyMaterialPdf","Nithesh");
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
         StudyMaterialPage studyMaterialPage = new StudyMaterialPage(driver);
-        studyMaterialPage.uploadPdf();
+        studyMaterialPage.clickOnStudyMaterial();
+        studyMaterialPage.clickOnAddMaterial();
+        studyMaterialPage.uploadDocumentAndVerify("agile.pdf");
     }
 
-    @Description("TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClass")
+    @Description("TC_E_004_Validate The Teacher Is Able To Video Stream In Live Class")
     @Test
     public void TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClassTest() throws IOException, InterruptedException {
         // ExtentManager.testName("TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClassTest","Nithesh");
@@ -190,7 +205,8 @@ public class TestRun extends BaseTest {
     }
 
     @Test
-    public void TC_E_016_ValidateThatTeacherCanCreateTestUsingQuestionBankRecommendations() {
+    public void TC_E_016_ValidateThatTeacherCanCreateTestUsingQuestionBankRecommendations() throws MalformedURLException {
+       // logonType(LoginAs.TEACHER);
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
@@ -199,8 +215,9 @@ public class TestRun extends BaseTest {
 
     @Description("TC_E_013_ValidateTeacherIsAbleToAddTimetableForAClass")
     @Test
-    public void TC_E_013_ValidateTeacherIsAbleToAddTimetableForAClass() {
+    public void TC_E_013_ValidateTeacherIsAbleToAddTimetableForAClass() throws MalformedURLException {
         // ExtentManager.testName("TC_E_013_ValidateTeacherIsAbleToAddTimetableForAClass","Nithesh");
+       // logonType(LoginAs.TEACHER);
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
         TimeTablePage timeTablePage = new TimeTablePage(driver);
@@ -216,8 +233,13 @@ public class TestRun extends BaseTest {
     @Test
     public void TC_E_014_ValidateStudentCanPracticeUsingLearnTab() throws InterruptedException, MalformedURLException {
         // ExtentManager.testName("TC_E_014_ValidateStudentCanPracticeUsingLearnTab()","Nithesh");
+        //logonType(LoginAs.STUDENT);
         StudentClassroomPage studentClassroomPage = new StudentClassroomPage(studentDriver);
-        studentClassroomPage.selectCourseClassSubject();
+        studentClassroomPage.clickOnLearn();
+        //studentClassroomPage.selectCourseAndClass("NCERT","Class 1");
+        studentClassroomPage.selectTopic("Addition");
+        studentClassroomPage.chooseAnswersAndVerify('A','B');
+
     }
 
 

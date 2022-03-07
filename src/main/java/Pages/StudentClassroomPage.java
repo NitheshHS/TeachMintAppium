@@ -7,6 +7,7 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.touch.offset.PointOption;
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -154,35 +155,70 @@ public class StudentClassroomPage extends AppGenericLib {
     @FindBy(xpath="//*[@text='Next >>']")
     private WebElement nextButton ;
 
-    @FindBy(xpath="//*[@text='Correct']")
-    private WebElement correctButton ;
+    @FindBy(xpath="//*[@text='Wrong' or @text='Correct']")
+    private WebElement correctOrWrongText ;
 
-    @FindBy(xpath="//*[@text='Wrong']")
-    private WebElement wrongButton ;
-
-
-    @Step(" Student can select cource, class and subject")
-    public void selectCourseClassSubject() throws InterruptedException {
-
+    @Step("Tap on learn tab")
+    public void clickOnLearn(){
         clickOnElement(learnButton);
-        Thread.sleep(1000);
+    }
+
+    @Step("select course and class and subject")
+    public void selectCourseAndClass(String course,String className){
         clickOnElement(ncertCourseButton);
-        clickOnElement(class1Button);
-        clickOnElement(mathSubjectButton);
-
-        clickOnElement(additionTopicButton);
-        clickOnElement(optionDButton);
-        clickOnElement(submitButton);
-        clickOnElement( nextButton);
-
-        softAssert.assertTrue(correctButton.getText().contains("Correct"),"There is an error adding the slots.");
-        softAssert.assertAll();
-
-        clickOnElement(optionCButton);
-        clickOnElement(submitButton);
-        softAssert.assertTrue(correctButton.getText().contains("Wrong"),"There is an error adding the slots.");
-        softAssert.assertAll();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+        driver.findElement(By.xpath("//*[@text='"+course+"']")).click();
+        driver.findElement(By.xpath("//*[@text='"+className+"']")).click();
+        clickOnElement(mathSubjectButton);
+    }
+
+    @Step("Selecting topic {topicName}")
+    public void selectTopic(String topicName){
+        driver.findElement(By.xpath("//*[@text='"+topicName+"']")).click();
+    }
+
+    @Step("choose first answer {optionForFirstAnswer} second answer {optionForSecondQuestion}")
+    public void chooseAnswersAndVerify(char optionForFirstAnswer,char optionForSecondQuestion){
+        driver.findElement(By.xpath("//*[@text='"+optionForFirstAnswer+"']")).click();
+        scrollToElement(driver);
+        clickOnElement(submitButton);
+        softAssert.assertTrue((correctOrWrongText.getText().contains("Correct") ||
+                correctOrWrongText.getText().contains("Correct")),"answers not matching");
+        clickOnElement(nextButton);
+        driver.findElement(By.xpath("//*[@text='"+optionForSecondQuestion+"']")).click();
+        scrollToElement(driver);
+        clickOnElement(submitButton);
+        softAssert.assertTrue((correctOrWrongText.getText().contains("Correct") ||
+                correctOrWrongText.getText().contains("Correct")),"answers not matching");
+        softAssert.assertAll();
+    }
+
+//    @Step(" Student can select cource, class and subject")
+//    public void selectCourseClassSubject() throws InterruptedException {
+//
+//        clickOnElement(learnButton);
+//        Thread.sleep(1000);
+//        clickOnElement(ncertCourseButton);
+//        clickOnElement(class1Button);
+//        clickOnElement(mathSubjectButton);
+//
+//        clickOnElement(additionTopicButton);
+//        clickOnElement(optionDButton);
+//        clickOnElement(submitButton);
+//        clickOnElement( nextButton);
+//
+//        softAssert.assertTrue(correctButton.getText().contains("Correct"),"There is an error adding the slots.");
+//        softAssert.assertAll();
+//
+//        clickOnElement(optionCButton);
+//        clickOnElement(submitButton);
+//        softAssert.assertTrue(correctButton.getText().contains("Wrong"),"There is an error adding the slots.");
+//        softAssert.assertAll();
+//        }
 
 @Step("send image and verify")
     public String verifySentPicture(){

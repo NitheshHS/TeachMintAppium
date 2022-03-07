@@ -20,6 +20,6 @@ public class StudentTests{
         AppiumDriver studentDriver = new CapabailitySettingLib()
                 .launchStudentDriver(new URL("http://localhost:6666/wd/hub"), Platform.ANDROID);
         StudentClassroomPage studentClassroomPage=new StudentClassroomPage(studentDriver);
-        studentClassroomPage.selectCourseClassSubject();
+       // studentClassroomPage.selectCourseClassSubject();
     }
 }

@@ -204,7 +204,7 @@ public class AppGenericLib extends CapabailitySettingLib {
                 .perform();
     }
 
-    public byte[] getScreenshot() {
+    public byte[] getScreenshot(AppiumDriver driver) {
         TakesScreenshot ts = (TakesScreenshot) driver;
         return ts.getScreenshotAs(OutputType.BYTES);
     }
