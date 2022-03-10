@@ -40,16 +40,16 @@ public class BaseTest extends AppGenericLib {
     public void closeApp(ITestResult result) throws IOException {
 
         if (result.getStatus() == ITestResult.SUCCESS) {
-////            ExtentManager.extentTest.get().log(Status.PASS,result.getMethod().getMethodName()+" is Pass");
+
         } else if (result.getStatus() == ITestResult.FAILURE) {
-//            ExtentManager.extentTest.get().log(Status.FAIL,result.getMethod().getMethodName()+" is Fail");
-//            ExtentManager.extentTest.get().log(Status.FAIL,result.getThrowable());
-//            ExtentManager.extentTest.get().addScreenCaptureFromPath(takeScreenshot(driver,result.getMethod().getMethodName()));
-            saveScreenshot(getScreenshot(driver));
-            saveScreenshot(getScreenshot(studentDriver));
+            if(driver!=null) {
+                saveScreenshot(getScreenshot(driver));
+            }
+            if(studentDriver!=null) {
+                saveScreenshot(getScreenshot(studentDriver));
+            }
         } else if (result.getStatus() == ITestResult.SKIP) {
-//            ExtentManager.extentTest.get().log(Status.SKIP,result.getMethod().getMethodName()+" is Skip");
-//            ExtentManager.extentTest.get().log(Status.SKIP,result.getThrowable());
+
         }
 
         if (driver != null) {
@@ -68,8 +68,6 @@ public class BaseTest extends AppGenericLib {
     @AfterSuite
     public void configAS() {
         System.out.println("Flushing the report");
-        //flushReport();
-        //ExtentManager.flushReport();
     }
 
     @Attachment(value = "Page screenshot", type = "image/png")

@@ -158,6 +158,9 @@ public class StudentClassroomPage extends AppGenericLib {
     @FindBy(xpath="//*[@text='Wrong' or @text='Correct']")
     private WebElement correctOrWrongText ;
 
+    @FindBy(xpath = "//*[@text='Addition']")
+    private WebElement addition;
+
     @Step("Tap on learn tab")
     public void clickOnLearn(){
         clickOnElement(learnButton);
@@ -178,11 +181,13 @@ public class StudentClassroomPage extends AppGenericLib {
 
     @Step("Selecting topic {topicName}")
     public void selectTopic(String topicName){
-        driver.findElement(By.xpath("//*[@text='"+topicName+"']")).click();
+        //driver.findElement(By.xpath("//*[@text='"+topicName+"']")).click();
+        clickOnElement(addition);
     }
 
     @Step("choose first answer {optionForFirstAnswer} second answer {optionForSecondQuestion}")
     public void chooseAnswersAndVerify(char optionForFirstAnswer,char optionForSecondQuestion){
+        awaitForElement(driver,driver.findElement(By.xpath("//*[@text='"+optionForFirstAnswer+"']")));
         driver.findElement(By.xpath("//*[@text='"+optionForFirstAnswer+"']")).click();
         scrollToElement(driver);
         clickOnElement(submitButton);
@@ -193,7 +198,7 @@ public class StudentClassroomPage extends AppGenericLib {
         scrollToElement(driver);
         clickOnElement(submitButton);
         softAssert.assertTrue((correctOrWrongText.getText().contains("Correct") ||
-                correctOrWrongText.getText().contains("Correct")),"answers not matching");
+                correctOrWrongText.getText().contains("Wrong")),"answers not matching");
         softAssert.assertAll();
     }
 

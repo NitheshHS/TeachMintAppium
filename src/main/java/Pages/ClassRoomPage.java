@@ -15,6 +15,8 @@ import org.testng.asserts.SoftAssert;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ClassRoomPage extends AppGenericLib {
 
@@ -157,7 +159,6 @@ public class ClassRoomPage extends AppGenericLib {
 
     @FindBy(xpath = "//android.widget.Button[@text='Continue']")
     private WebElement ContinueButton;
-    //android.view.View[@text='English']
 
     @FindBy(xpath = "//android.view.View[@text='English']")
     private WebElement EnglishButton;
@@ -188,6 +189,55 @@ public class ClassRoomPage extends AppGenericLib {
 
     @FindBy(xpath = "(//*[@resource-id='com.teachmint.teachmint:id/videoview'])[2]")
     private WebElement imageTile;
+
+    @FindBy(xpath = "//*[@text='Syllabus']")
+    private WebElement syllabus;
+
+
+
+
+    @FindBy(xpath = "//android.view.View[@text='Noun']/following-sibling::android.view.View[3]/child::android.view.View[1]")
+    private WebElement SelectNoQuestions;
+
+
+    @FindBy(xpath = "//android.view.View[@text='Generate Test']")
+    private WebElement GenerateTest;
+
+    @FindBy(xpath = "//android.view.View[@text='3']")
+    private WebElement No3;
+
+    @FindBy(xpath = "//l2.k0/android.view.View/android.view.View[5]/android.view.View[4]")
+    private WebElement DeleteIcon;
+
+    @FindBy(xpath = "//android.view.View[@text='Replace']")
+    private WebElement ReplaceButton;
+
+    @FindBy(xpath = "//android.view.View[@text='Cancel']")
+    private WebElement DeleteButton;
+
+    @FindBy(xpath = "//l2.k0/android.view.View/android.view.View[6]/android.view.View[5]")
+    private WebElement SaveTest;
+
+
+    @FindBy(xpath = "//android.widget.EditText[@text='E.g. 120']")
+    private WebElement TesDuration;
+
+    @FindBy(xpath = "//android.widget.Button[@resource-id='com.teachmint.teachmint:id/click_save']")
+    private WebElement PublishTest;
+
+
+    @FindBy(xpath = "//android.widget.TextView[@text='Upcoming']")
+    private WebElement TestCreated;
+
+
+    @FindBy(xpath = "//l2.k0/android.view.View/android.view.View[6]/android.view.View")
+    private List<WebElement> MarksQuestionlist;
+
+    @FindBy(xpath = "//android.widget.Button[@text='Skip']")
+    private WebElement SkipButton;
+
+    @FindBy(xpath = "//android.widget.ImageView[@resource-id='com.teachmint.teachmint:id/cross_icon']")
+    private WebElement CrossIcon;
 
     @Step("Tapping on go live link in class room page")
     public void clickOnGoLive() {
@@ -405,20 +455,29 @@ public class ClassRoomPage extends AppGenericLib {
         sa.assertEquals(videoOn_OffStatus,videoOn_offText,"Video is not turned on");
         sa.assertAll();
     }
+    public void disableVideo() {
+        awaitForElement(driver,videoIcon);
+        String videoOn_OffStatus=videoIconText.getText().trim();
+        if(videoOn_OffStatus.equalsIgnoreCase("Video on")) {
+            clickOnElement(videoIcon);
+            videoOn_OffStatus = videoIconText.getText().trim();
+        }
+        System.out.println(videoOn_OffStatus);
+    }
     @Step
     public void scrollAndClickOnTest(double startx, double endx){
         scrollToHorizontalElementAndClick(driver,startx,endx,TestsButton);
         clickOnElement(TestIcon);
     }
 
-    @Step
-    public void modifyQuestionBank(){
-        clickOnElement(QestionBank);
-        clickOnElement(ContinueButton);
-        awaitForElement(driver,EnglishButton);
-        clickOnElement(EnglishButton);
-        clickOnElement(TopicNoun);
-    }
+//    @Step
+//    public void modifyQuestionBank(){
+//        clickOnElement(QestionBank);
+//        clickOnElement(ContinueButton);
+//        awaitForElement(driver,EnglishButton);
+//        clickOnElement(EnglishButton);
+//        clickOnElement(TopicNoun);
+//    }
 
     @Step("tap on start sharing screen")
     public void tapOnStartSharingScreen(){
@@ -457,6 +516,80 @@ public class ClassRoomPage extends AppGenericLib {
     @Step("attach image")
     public void addAttachment(){
         clickOnElement(galleryImages);
+    }
+
+    public void clickOnSyllabus(){
+        clickOnElement(syllabus);
+    }
+
+    @Step
+    public void modifyQuestionBank() throws InterruptedException {
+        clickOnElement(QestionBank);
+        clickOnElement(ContinueButton);
+        awaitForElement(driver, EnglishButton);
+        clickOnElement(EnglishButton);
+        custmWait(driver,TopicNoun);
+        clickOnElement(TopicNoun);
+        // awaitForElement(driver,EnglishButton);
+        scrollToElement(driver);
+        // scrollToVerticalElement(driver,0.8,0.5,SelectNoQuestions);
+        clickOnElement(SelectNoQuestions);
+        //scrollToVerticalElement(driver,0.8,0.5,No3);
+        clickOnElement(No3);
+
+        clickOnElement(GenerateTest);
+//      awaitForElement(driver,ReplaceButton);
+//        clickOnElement(ReplaceButton);
+
+    }
+
+
+    public void deleteQuestionAndVerifyUpdatedMarks() throws InterruptedException {
+        awaitForElement(driver,DeleteIcon);
+        clickOnElement(DeleteIcon);
+        awaitForElement(driver,DeleteButton);
+        custmWait(driver,DeleteButton);
+        clickOnElement(DeleteButton);
+        Thread.sleep(2000);
+        verifyUpdatedMarks();
+        Thread.sleep(3000);
+
+        awaitForElement(driver,SaveTest);
+        clickOnElement(SaveTest);
+        awaitForElement(driver,TesDuration);
+
+        type(TesDuration ,"120");
+        hideKeyboard(driver);
+        scrollToElement(driver);
+        clickOnElement(PublishTest);
+    }
+
+
+    @Step
+    public void verifyCreatedTest(){
+        awaitForElement(driver,SkipButton);
+        clickOnElement(SkipButton);
+        awaitForElement(driver,CrossIcon);
+        clickOnElement(CrossIcon);
+        sa.assertTrue(TestCreated.getText().contains("Upcoming"),"test is not created");
+        sa.assertTrue(TestCreated.isDisplayed(),"created test not displayed");
+    }
+
+    @Step
+    public void verifyUpdatedMarks() {
+        List<WebElement> MarksQuestionlistUIPage = MarksQuestionlist;
+        ArrayList<String> marksFromUI = new ArrayList<>();
+        marksFromUI.clear();
+
+      //  awaitForListElements(driver,MarksQuestionlist);
+        for (WebElement marks : MarksQuestionlistUIPage) {
+            marksFromUI.add(marks.getText().trim());
+        }
+        System.out.println(marksFromUI);
+        for (String marksandQ : marksFromUI) {
+            sa.assertTrue(marksandQ.contains("2"), "marks is not verifyied");
+            sa.assertTrue(marksandQ.contains("Total Marks"), "total marks is not verified");
+        }
     }
 }
 
