@@ -159,6 +159,14 @@ public class AppGenericLib extends CapabailitySettingLib {
         }
     }
 
+    public void waitOrPause(long seconds) {
+        try {
+            Thread.sleep(seconds*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void pressNavigationBack(AppiumDriver driver) {
         AndroidDriver androidDriver = (AndroidDriver) driver;
         // ExtentManager.extentTest.get().info("Pressing navigate back button");
@@ -191,7 +199,7 @@ public class AppGenericLib extends CapabailitySettingLib {
         //ExtentManager.extentTest.get().info("Scrolling for elemenet: "+visibleText);
         driver.findElement(MobileBy
                 .AndroidUIAutomator(
-                        "new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(" + visibleText + ").instance(0))"));
+                        "new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollTextIntoView(" + visibleText + "))"));
 
     }
 
