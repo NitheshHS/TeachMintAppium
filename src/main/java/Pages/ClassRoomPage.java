@@ -40,7 +40,7 @@ public class ClassRoomPage extends AppGenericLib {
     @FindBy(id = "com.teachmint.teachmint:id/video_icon")
     private WebElement videoIcon;
 
-    @FindBy(id = "com.teachmint.teachmint:id/go_live_button")
+    @FindBy(id = "com.teachmint.teachmint:id/go_live_btn")
     private WebElement goLiveBtn;
 
     @FindBy(id = "com.teachmint.teachmint:id/recording_icon")
@@ -239,6 +239,9 @@ public class ClassRoomPage extends AppGenericLib {
     @FindBy(xpath = "//android.widget.ImageView[@resource-id='com.teachmint.teachmint:id/cross_icon']")
     private WebElement CrossIcon;
 
+   
+   
+    
     @Step("Tapping on go live link in class room page")
     public void clickOnGoLive() {
         //goLiveLink.click();

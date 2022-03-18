@@ -17,6 +17,12 @@ public class LandingPage extends AppGenericLib {
         this.driver=driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);
     }
+    
+    @FindBy(id="com.teachmint.teachmint:id/current_date")
+    private MobileElement date;
+
+    @FindBy(id="com.teachmint.teachmint:id/button2")
+    private MobileElement golive;
 
     @FindBy(xpath="//*[@text='Create Classroom']")
     private MobileElement createClassroom;
@@ -41,9 +47,17 @@ public class LandingPage extends AppGenericLib {
             clickOnElement(classNameText);
         }
     }
+    
+    public void verifydate(){
+    	String date1 = systemdate();
+        String date2 = date.getText();
+        softAssert.assertEquals(date1, date2);
+    } 
+    
+    public void clickOnGoLive(){   
+   	 clickOnElement(golive);
+    }
 
-
-
-
+   
 
 }
