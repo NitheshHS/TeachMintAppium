@@ -1,6 +1,7 @@
 package Pages;
 
 import base.AppGenericLib;
+import enums.LoginAs;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidElement;
@@ -15,6 +16,7 @@ import org.testng.asserts.SoftAssert;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +42,7 @@ public class ClassRoomPage extends AppGenericLib {
     @FindBy(id = "com.teachmint.teachmint:id/video_icon")
     private WebElement videoIcon;
 
-    @FindBy(id = "com.teachmint.teachmint:id/go_live_button")
+    @FindBy(id = "com.teachmint.teachmint:id/go_live_btn")
     private WebElement goLiveBtn;
 
     @FindBy(id = "com.teachmint.teachmint:id/recording_icon")
@@ -57,6 +59,13 @@ public class ClassRoomPage extends AppGenericLib {
 
     @FindBy(xpath = "//*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']")
     private WebElement moreButton;
+
+
+    @FindBy(xpath = "//*[@text='Options']")
+    private WebElement OptionsButton;
+    @FindBy(xpath = "//*[@text='Mute All']")
+    private WebElement MuteAllButton;
+
 
     @FindBy(xpath = "//*[@text='Live Polls']")
     private WebElement livePollOption;
@@ -233,11 +242,18 @@ public class ClassRoomPage extends AppGenericLib {
     @FindBy(xpath = "//l2.k0/android.view.View/android.view.View[6]/android.view.View")
     private List<WebElement> MarksQuestionlist;
 
+    @FindBy(id = "com.teachmint.teachmint:id/classroom_name")
+    private WebElement ClassRoomTXT;
+
     @FindBy(xpath = "//android.widget.Button[@text='Skip']")
     private WebElement SkipButton;
 
     @FindBy(xpath = "//android.widget.ImageView[@resource-id='com.teachmint.teachmint:id/cross_icon']")
     private WebElement CrossIcon;
+
+    @FindBy(id = "com.teachmint.teachmint:id/student_chat_switch")
+    private WebElement AllowStudentToChat;
+
 
     @Step("Tapping on go live link in class room page")
     public void clickOnGoLive() {
@@ -246,10 +262,24 @@ public class ClassRoomPage extends AppGenericLib {
         clickOnElement(goLiveLink);
     }
 
+    @Override
+    public void logonType(LoginAs teacherOrStudent) throws MalformedURLException {
+        super.logonType(teacherOrStudent);
+    }
+
     @Step("tapping on go live button ")
     public void clickOnGoLivebutton(){
        // awaitForElement(driver,goLiveBtn);
         clickOnElement(goLiveBtn);
+    }
+
+    @Step("click on mic,video,recording icon button ")
+    public void clickOnMicVideoRecIcon(){
+        // awaitForElement(driver,goLiveBtn);
+        clickOnElement(micIcon);
+        clickOnElement(videoIcon);
+        clickOnElement(recordIcon);
+
     }
 
     @Step("tap on go live button")
@@ -318,6 +348,32 @@ public class ClassRoomPage extends AppGenericLib {
                 break;
             } catch (Exception e) {
                 tapOnElement(driver,(MobileElement) profileIcon);
+            }
+        }
+    }
+
+    @Step("Tap on Options button in live class")
+    public void tapOnOptionsButton() {
+        for (int tapCount = 1; tapCount <= 60; tapCount++) {
+            try {
+                awaitForElement(driver,OptionsButton);
+                clickOnElement(OptionsButton);
+                break;
+            } catch (Exception e) {
+                tapOnElement(driver,(MobileElement) profileIcon);
+            }
+        }
+    }
+
+    @Step("Tap on MuteAll button in live class")
+    public void tapOnMuteAllButton() {
+        for (int tapCount = 1; tapCount <= 60; tapCount++) {
+            try {
+                awaitForElement(driver, MuteAllButton);
+                clickOnElement(MuteAllButton);
+                break;
+            } catch (Exception e) {
+                tapOnElement(driver, (MobileElement) profileIcon);
             }
         }
     }
@@ -501,6 +557,19 @@ public class ClassRoomPage extends AppGenericLib {
     public void clickOnShareImage(){
         clickOnElement(shareImageOption);
     }
+    @Step("Taping on share image in live class")
+    public void clickOnAllowStudentstoChat(){
+        for (int tapCount = 1; tapCount <= 60; tapCount++) {
+            try {
+                awaitForElement(driver, AllowStudentToChat);
+                clickOnElement(AllowStudentToChat);
+                break;
+            } catch (Exception e) {
+
+            }
+        }
+
+    }
 
     @Step("choose gallery")
     public void clickOnGallery(){
@@ -521,6 +590,17 @@ public class ClassRoomPage extends AppGenericLib {
     public void clickOnSyllabus(){
         clickOnElement(syllabus);
     }
+
+    @Step("verifyClassNameInLiveClassPreview")
+    public void verifyClassNameInLiveClassPreview(String className){
+
+        String msg= ClassRoomTXT.getAttribute("text").trim();
+        System.out.println(msg);
+        softAssert.assertEquals(msg,className, "Class Name in Live Class Preview is not matching");
+        softAssert.assertAll();
+
+    }
+
 
     @Step
     public void modifyQuestionBank() throws InterruptedException {

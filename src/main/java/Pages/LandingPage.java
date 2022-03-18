@@ -5,6 +5,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,6 +14,7 @@ import org.openqa.selenium.support.PageFactory;
 public class LandingPage extends AppGenericLib {
 
     AppiumDriver driver;
+
     public LandingPage(AppiumDriver driver){
         this.driver=driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver),this);
@@ -30,6 +32,13 @@ public class LandingPage extends AppGenericLib {
     @FindBy(xpath="//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10']")
     private MobileElement classNameText;
 
+
+    @Step("Tap on class room with rest to classRoom Name")
+    public void clickOnClassRoom(String className){
+        driver.findElement(By.xpath("//*[@resource-id='com.teachmint.teachmint:id/title' and @text='"+className+"']")).click();
+        //awaitForElement(driver,classNameText);
+
+    }
 
     @Step("Tap on class room")
     public void clickOnClassRoom(){
