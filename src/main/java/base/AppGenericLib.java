@@ -1,6 +1,8 @@
 package base;
 
 import com.google.common.io.Files;
+import com.ibm.icu.text.SimpleDateFormat;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
@@ -29,6 +31,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 
 
 
@@ -195,11 +198,12 @@ public class AppGenericLib extends CapabailitySettingLib {
         driver.hideKeyboard();
     }
 
-    public void scrollToElement(AppiumDriver driver, String visibleText) {
+    public void scrollToElement(AppiumDriver driver, String an,String av) {
         //ExtentManager.extentTest.get().info("Scrolling for elemenet: "+visibleText);
         driver.findElement(MobileBy
-                .AndroidUIAutomator(
-                        "new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollTextIntoView(" + visibleText + "))"));
+
+                .AndroidUIAutomator
+                		("new UiScrollable(new UiSelector()).scrollIntoView("+an+"(\""+av+"\"))"));
 
     }
 
@@ -264,6 +268,13 @@ public class AppGenericLib extends CapabailitySettingLib {
         if(!androidDriver.getConnection().isWiFiEnabled()) {
             androidDriver.toggleWifi();
         }
+    }
+    
+    public String systemdate(){
+    	SimpleDateFormat formate = new SimpleDateFormat("dd MMM yyyy");
+    	return formate.format(new Date());
+    	
+        
     }
 }
 
