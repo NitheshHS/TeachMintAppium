@@ -27,7 +27,7 @@ public class LandingPage extends AppGenericLib {
     @FindBy(id="com.teachmint.teachmint:id/edit_subject")
     private MobileElement editSubject;
 
-    @FindBy(xpath="//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10']")
+    @FindBy(xpath="(//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]")
     private MobileElement classNameText;
 
 
@@ -35,6 +35,7 @@ public class LandingPage extends AppGenericLib {
     public void clickOnClassRoom(){
         //awaitForElement(driver,classNameText);
         try {
+
             clickOnElement(classNameText);
         }
         catch (StaleElementReferenceException e){

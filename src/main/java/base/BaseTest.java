@@ -2,6 +2,7 @@ package base;
 
 
 import enums.AppInfo;
+import enums.Langauges;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.Platform;
@@ -24,16 +25,16 @@ public class BaseTest extends AppGenericLib {
 
     @BeforeClass
     public void configBC() {
-
+        sheetName=setLangauge(Langauges.HINDI.toString());
     }
 
     @BeforeMethod
     public void launchApp() throws MalformedURLException {
         DesiredCapabilities capabilities =
                 setDesiredCapability(AppInfo.PLATFORM.getLabel());
-        capabilities.setCapability(MobileCapabilityType.UDID,"R9ZRB050WWT");//emulator-5554
+      //  capabilities.setCapability(MobileCapabilityType.UDID,"R9ZRB050WWT");//emulator-5554
         driver=launchApp(new URL("http://localhost:4723/wd/hub"), Platform.ANDROID,capabilities);
-        studentDriver = launchStudentDriver(new URL("http://localhost:6666/wd/hub"), Platform.ANDROID);
+        //studentDriver = launchStudentDriver(new URL("http://localhost:6666/wd/hub"), Platform.ANDROID);
     }
 
     @AfterMethod(alwaysRun = true)
@@ -60,12 +61,12 @@ public class BaseTest extends AppGenericLib {
         }
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void configAC() {
 
     }
 
-    @AfterSuite
+    @AfterSuite(alwaysRun = true)
     public void configAS() {
         System.out.println("Flushing the report");
     }

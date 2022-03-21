@@ -1,6 +1,7 @@
 package base;
 
 import com.google.common.io.Files;
+import enums.Langauges;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
@@ -16,6 +17,8 @@ import io.appium.java_client.touch.TapOptions;
 import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 import javassist.bytecode.stackmap.BasicBlock;
+import org.apache.commons.codec.language.bm.Lang;
+import org.apache.commons.codec.language.bm.Languages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -264,6 +267,17 @@ public class AppGenericLib extends CapabailitySettingLib {
         if(!androidDriver.getConnection().isWiFiEnabled()) {
             androidDriver.toggleWifi();
         }
+    }
+
+    public static String setLangauge(String langauges){
+       if(Langauges.ENGLISH.toString().equalsIgnoreCase(langauges)){
+            return Langauges.ENGLISH.toString();
+       }
+       else if(Langauges.HINDI.toString().equalsIgnoreCase(langauges)){
+           return  Langauges.HINDI.toString();
+       }else{
+           return null;
+       }
     }
 }
 

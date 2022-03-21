@@ -2,6 +2,7 @@ package tests;
 
 import Pages.*;
 import base.BaseTest;
+import base.ExcelUtility;
 import io.qameta.allure.Description;
 import org.python.antlr.ast.Str;
 import org.testng.annotations.Test;
@@ -68,7 +69,8 @@ public class TestRun extends BaseTest {
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
         classRoomPage.clickOnGoLive();
-        classRoomPage.disableVideo();
+        String videoOffStatus= ExcelUtility.getExcelData(sheetName,3,3);
+        classRoomPage.disableVideo(videoOffStatus);
         classRoomPage.clickOnGoLivebutton();
         classRoomPage.tapOnMoreButton();
         classRoomPage.startYoutubeStreaming("youtube", "");

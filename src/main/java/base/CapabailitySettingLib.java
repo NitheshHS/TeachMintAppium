@@ -26,7 +26,7 @@ public class CapabailitySettingLib {
     public AppiumDriver driver;
     public AppiumDriver studentDriver;
     public SoftAssert softAssert = new SoftAssert();
-
+    public String sheetName;
     public ExtentSparkReporter spark;
     public ExtentReports reports;
     public ExtentTest test;
@@ -41,6 +41,7 @@ public class CapabailitySettingLib {
         capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, AppInfo.ANDROID_APP_ACTIVITY.getLabel());
         capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
         capabilities.setCapability("automationName", AppInfo.ANDROID_AUTOMATION_NAME.getLabel());
+        capabilities.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS,true);
         return capabilities;
     }
 
