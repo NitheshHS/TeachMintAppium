@@ -1,5 +1,6 @@
 package base;
 
+import TestAnnotations.TestInfo;
 import com.google.common.io.Files;
 import enums.Langauges;
 import io.appium.java_client.AppiumDriver;
@@ -7,43 +8,46 @@ import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
-import io.appium.java_client.android.connection.ConnectionState;
-import io.appium.java_client.android.connection.ConnectionStateBuilder;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
-import io.appium.java_client.pagefactory.AndroidBy;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.touch.TapOptions;
 import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
-import javassist.bytecode.stackmap.BasicBlock;
-import org.apache.commons.codec.language.bm.Lang;
-import org.apache.commons.codec.language.bm.Languages;
-import org.openqa.selenium.*;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.python.antlr.op.And;
 import org.sikuli.script.Finder;
 import org.sikuli.script.Match;
 import org.sikuli.script.Pattern;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 
-
-
+/**
+ * @author Nitheesha
+ */
 public class AppGenericLib extends CapabailitySettingLib {
 
-    public void awaitForElement(AppiumDriver driver, WebElement element) {
-//        ExtentManager.extentTest.get().info("waiting for visibility of element: "+element);
-        WebDriverWait wait = new WebDriverWait(driver, 20);
-        try {
-            wait.until(ExpectedConditions.visibilityOf(element));
-        } catch (Exception e) {
-            wait.until(ExpectedConditions.visibilityOf(element));
+    public static String setLangauge(String langauges) {
+        logger.info("Setting the language: " + langauges);
+        if (Langauges.ENGLISH.toString().equalsIgnoreCase(langauges)) {
+            return Langauges.ENGLISH.toString();
+        } else if (Langauges.HINDI.toString().equalsIgnoreCase(langauges)) {
+            return Langauges.HINDI.toString();
+        } else {
+            return null;
         }
     }
 //    public void compareImage(File image1, File image2) throws IOException {
@@ -81,28 +85,40 @@ public class AppGenericLib extends CapabailitySettingLib {
 //        }
 //    }
 
+    public void awaitForElement(AppiumDriver driver, WebElement element) {
+        logger.info("waiting for visibility of Element: " + element);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        try {
+            wait.until(ExpectedConditions.visibilityOf(element));
+        } catch (Exception e) {
+            wait.until(ExpectedConditions.visibilityOf(element));
+        }
+    }
+
     public void tapOnElement(AppiumDriver driver, MobileElement element) {
-        //  ExtentManager.extentTest.get().info("Tapping on element: "+element);
+        logger.info("Tapping on element: " + element);
         TouchAction touchAction = new TouchAction(driver);
         touchAction.tap(TapOptions.tapOptions().withElement(ElementOption.element(element))).perform();
     }
 
     public double compareImage(File image1, File image2) throws IOException {
+        logger.info("comparing images :" + image1.getAbsolutePath() + " with image: " + image2);
         Pattern pattern1 = new Pattern(image1.getAbsolutePath());
         Pattern pattern2 = new Pattern(image2.getAbsolutePath());
         Finder f = new Finder(pattern1.getImage());
         f.find(pattern2);
         if (f.hasNext()) {
             Match m = f.next();
-            System.out.println("Match found with: " + (m.getScore()) * 100 + "%");
+            logger.info("Match found with: " + (m.getScore()) * 100 + "%");
             return m.getScore() * 100;
         } else {
-            System.out.println("Image not found similar");
+            logger.info("Image not found similar");
         }
         return 0;
     }
 
     public File takeScreenshot(AppiumDriver driver, String screenshotName) throws IOException {
+        logger.info("Taking a screenshot: " + screenshotName);
         TakesScreenshot ts = (TakesScreenshot) driver;
         File src = ts.getScreenshotAs(OutputType.FILE);
         File dest = new File("./screenshots/" + screenshotName + ".PNG");
@@ -111,6 +127,7 @@ public class AppGenericLib extends CapabailitySettingLib {
     }
 
     public File takeScreenshot(WebElement element, String imageName) throws IOException {
+        logger.info("Taking screenshot a mobile element: " + element);
         File file = element.getScreenshotAs(OutputType.FILE);
         File dest = new File(".\\src\\test\\Images\\" + imageName + ".png");
         Files.copy(file, dest);
@@ -118,19 +135,18 @@ public class AppGenericLib extends CapabailitySettingLib {
     }
 
     public void clickOnElement(WebElement element) {
-//        ExtentManager.extentTest.get().info("click on element: "+element);
+        logger.info("clicking on element: " + element);
         element.click();
     }
 
     public void type(WebElement element, String text) {
-        //ExtentManager.extentTest.get().info("element: "+element+" entering text: "+text);
+        logger.info("typing into text field: " + element + " with text: " + text);
         element.sendKeys(text);
     }
 
-
     public void openNotification(AppiumDriver driver) {
         if (driver != null) {
-            //ExtentManager.extentTest.get().info("Opening notification");
+            logger.info("Opening a notification panel");
             AndroidDriver androidDriver = (AndroidDriver) driver;
             androidDriver.openNotifications();
 
@@ -138,25 +154,19 @@ public class AppGenericLib extends CapabailitySettingLib {
     }
 
     public void turnOffMobileDataAndWifi(AppiumDriver driver) throws IOException, InterruptedException {
+        logger.info("turning off both wifi and mobile data");
         AndroidDriver androidDriver = (AndroidDriver) driver;
         if (androidDriver.getConnection().isWiFiEnabled() || androidDriver.getConnection().isDataEnabled()) {
-//            ExtentManager.extentTest.get().info("Turning off mobile data and wifi");
-//            ConnectionStateBuilder builder = new ConnectionStateBuilder(ConnectionState.DATA_MASK).withDataDisabled();
-//            androidDriver.setConnection(builder.build());
-            //androidDriver.toggleAirplaneMode();
             androidDriver.toggleWifi();
-            Thread.sleep(10000);
-//            androidDriver.toggleData();
-            // executeADBcommand(driver,adbCommand);
-            //Runtime.getRuntime().exec(adbCommand);
+            androidDriver.toggleData();
         }
 
     }
 
     public void turnOnDataAndWifi(AppiumDriver driver) {
+        logger.info("Turning on both data and wifi");
         AndroidDriver androidDriver = (AndroidDriver) driver;
         if (!(androidDriver.getConnection().isWiFiEnabled() || androidDriver.getConnection().isDataEnabled())) {
-            // ExtentManager.extentTest.get().info("Turning on mobile data and wifi");
             androidDriver.toggleWifi();
             androidDriver.toggleData();
         }
@@ -164,21 +174,21 @@ public class AppGenericLib extends CapabailitySettingLib {
 
     public void waitOrPause(long seconds) {
         try {
-            Thread.sleep(seconds*1000);
+            Thread.sleep(seconds * 1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
     public void pressNavigationBack(AppiumDriver driver) {
+        logger.info("Pressing android navigate back button");
         AndroidDriver androidDriver = (AndroidDriver) driver;
-        // ExtentManager.extentTest.get().info("Pressing navigate back button");
         androidDriver.pressKey(new KeyEvent(AndroidKey.BACK));
     }
 
     public void pressHomeButton(AppiumDriver driver) {
+        logger.info("Pressing android Home button");
         AndroidDriver androidDriver = (AndroidDriver) driver;
-        //ExtentManager.extentTest.get().info("Pressing home button");
         androidDriver.pressKey(new KeyEvent(AndroidKey.HOME));
     }
 
@@ -187,19 +197,19 @@ public class AppGenericLib extends CapabailitySettingLib {
     }
 
     public String getToastMessage(AppiumDriver driver) {
-        //ExtentManager.extentTest.get().info("Handling Toast message ");
+        logger.info("Capturing Toast Messages");
         WebElement toast = driver.findElement(By.xpath("//android.widget.Toast"));
         awaitForElement(driver, toast);
         return toast.getText();
     }
 
     public void hideKeyboard(AppiumDriver driver) {
-        // ExtentManager.extentTest.get().info("hiding the keyboard");
+        logger.info("Hiding keyboard");
         driver.hideKeyboard();
     }
 
     public void scrollToElement(AppiumDriver driver, String visibleText) {
-        //ExtentManager.extentTest.get().info("Scrolling for elemenet: "+visibleText);
+        logger.info("Scrolling to the visible text: "+visibleText);
         driver.findElement(MobileBy
                 .AndroidUIAutomator(
                         "new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollTextIntoView(" + visibleText + "))"));
@@ -207,7 +217,7 @@ public class AppGenericLib extends CapabailitySettingLib {
     }
 
     public void scrollToElement(AppiumDriver driver) {
-        //ExtentManager.extentTest.get().info("Performing scroll action");
+        logger.info("Performing scrolling action");
         TouchAction touch = new TouchAction(driver);
         touch.longPress(PointOption.point(414, 1485))
                 .moveTo(PointOption.point(421, 618))
@@ -216,11 +226,13 @@ public class AppGenericLib extends CapabailitySettingLib {
     }
 
     public byte[] getScreenshot(AppiumDriver driver) {
+        logger.info("Taking screenshot in byte format");
         TakesScreenshot ts = (TakesScreenshot) driver;
         return ts.getScreenshotAs(OutputType.BYTES);
     }
 
-    public void custmWait(AppiumDriver driver, WebElement element) throws InterruptedException {
+    public void customWait(AppiumDriver driver, WebElement element) throws InterruptedException {
+        logger.info("Waiting for Element to clickable: "+element);
         try {
             WebDriverWait w = new WebDriverWait(driver, 10);
             w.until(ExpectedConditions.elementToBeClickable(element));
@@ -230,7 +242,6 @@ public class AppGenericLib extends CapabailitySettingLib {
     }
 
     public void scrollToHorizontalElementAndClick(AppiumDriver driver, double startpart, double endPart, WebElement element) {
-        //ExtentManager.extentTest.get().info("Performing scroll action");
         TouchAction touch = new TouchAction(driver);
         int xcordstartPoint = driver.manage().window().getSize().getWidth();
 
@@ -247,8 +258,9 @@ public class AppGenericLib extends CapabailitySettingLib {
             }
         }
     }
-    public void scrollHorizontalAndClick(AppiumDriver driver,WebElement element){
-        for(int swipeCount=0;swipeCount<3;swipeCount++) {
+
+    public void scrollHorizontalAndClick(AppiumDriver driver, WebElement element) {
+        for (int swipeCount = 0; swipeCount < 3; swipeCount++) {
             try {
                 clickOnElement(element);
                 break;
@@ -262,22 +274,41 @@ public class AppGenericLib extends CapabailitySettingLib {
         }
     }
 
-    public void turnWifiOn(AppiumDriver driver){
-        AndroidDriver androidDriver=(AndroidDriver)driver;
-        if(!androidDriver.getConnection().isWiFiEnabled()) {
+    public void turnWifiOn(AppiumDriver driver) {
+        logger.info("Turning on wifi");
+        AndroidDriver androidDriver = (AndroidDriver) driver;
+        if (!androidDriver.getConnection().isWiFiEnabled()) {
             androidDriver.toggleWifi();
         }
     }
 
-    public static String setLangauge(String langauges){
-       if(Langauges.ENGLISH.toString().equalsIgnoreCase(langauges)){
-            return Langauges.ENGLISH.toString();
-       }
-       else if(Langauges.HINDI.toString().equalsIgnoreCase(langauges)){
-           return  Langauges.HINDI.toString();
-       }else{
-           return null;
-       }
+    public static void logger() {
+        logger = Logger.getLogger(AppGenericLib.class);
+        logger.setLevel(Level.DEBUG);
+        try {
+            PropertyConfigurator.configure(new FileInputStream(FilePaths.LOG4J_PROPERTIES));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     *
+     * @param className
+     * @param testMethodName
+     * @return testCaseId from annotation
+     */
+    public  String getTestCaseId(Class className,String testMethodName){
+        try {
+            Method method = className.getMethod(testMethodName);
+            TestInfo testinfo = (TestInfo) method.getAnnotation(TestInfo.class);
+            if(testinfo!=null){
+                  return testinfo.testcaseID();
+            }
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+        return "No Testcase id found: "+testMethodName;
     }
 }
 

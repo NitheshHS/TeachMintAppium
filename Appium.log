@@ -1,0 +1,353 @@
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/mic_icon
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/mic_icon
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - Taking screenshot in byte format
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/mic_icon
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.id: com.teachmint.teachmint:id/video_icon
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/go_live_button
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - Tapping on element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/zoom_touch_view']
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Student Controls' or @resource-id='com.teachmint.teachmint:id/student_control_button']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/student_chat_switch
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.id: com.teachmint.teachmint:id/video_icon
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/go_live_button
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - Tapping on element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/zoom_touch_view']
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - Tapping on element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/zoom_touch_view']
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - Tapping on element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/zoom_touch_view']
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Student Controls' or @resource-id='com.teachmint.teachmint:id/student_control_button']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/student_audio_switch
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/mic_icon
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/mic_icon
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/video_icon
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://localhost:4723/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - Reading data from excel from sheet: hindi	 testcaseID: TC_VC_005	 cellName: video on
+[main] INFO  base.AppGenericLib  - data found in row: 3 in cell: 2
+[main] INFO  base.AppGenericLib  - Reading data from excel from sheet: hindi	 testcaseID: TC_VC_005	 cellName: Video Off
+[main] INFO  base.AppGenericLib  - data found in row: 3 in cell: 3
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/video_icon
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/video_icon
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://localhost:4723/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - Reading data from excel from sheet: hindi	 testcaseID: TC_VC_004	 cellName: Mike off
+[main] INFO  base.AppGenericLib  - data found in row: 1 in cell: 3
+[main] INFO  base.AppGenericLib  - Reading data from excel from sheet: hindi	 testcaseID: TC_VC_004	 cellName: Mike on
+[main] INFO  base.AppGenericLib  - data found in row: 1 in cell: 2
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/mic_icon
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/mic_icon
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://0.0.0.0:5555/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://127.0.0.1:7777/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - Reading data from excel from sheet: hindi	 testcaseID: TC_VC_004	 cellName: Mike off
+[main] INFO  base.AppGenericLib  - data found in row: 1 in cell: 3
+[main] INFO  base.AppGenericLib  - Reading data from excel from sheet: hindi	 testcaseID: TC_VC_004	 cellName: Mike on
+[main] INFO  base.AppGenericLib  - data found in row: 1 in cell: 2
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/mic_icon
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/mic_icon
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://127.0.0.1:7777/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://127.0.0.1:7777/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - Reading data from excel from sheet: hindi	 testcaseID: TC_VC_004	 cellName: Mike off
+[main] INFO  base.AppGenericLib  - data found in row: 1 in cell: 3
+[main] INFO  base.AppGenericLib  - Reading data from excel from sheet: hindi	 testcaseID: TC_VC_004	 cellName: Mike on
+[main] INFO  base.AppGenericLib  - data found in row: 1 in cell: 2
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/mic_icon
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/mic_icon
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://127.0.0.1:7777/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - Reading data from excel from sheet: hindi	 testcaseID: TC_VC_005	 cellName: video on
+[main] INFO  base.AppGenericLib  - data found in row: 3 in cell: 2
+[main] INFO  base.AppGenericLib  - Reading data from excel from sheet: hindi	 testcaseID: TC_VC_005	 cellName: Video Off
+[main] INFO  base.AppGenericLib  - data found in row: 3 in cell: 3
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/video_icon
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/video_icon
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://127.0.0.1:7777/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - data found in row: 3 in cell: 2
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.id: com.teachmint.teachmint:id/video_icon
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/video_icon
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/go_live_button
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - Tapping on element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/zoom_touch_view']
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Student Controls' or @resource-id='com.teachmint.teachmint:id/student_control_button']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/student_audio_switch
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://127.0.0.1:7777/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - data found in row: 3 in cell: 2
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.id: com.teachmint.teachmint:id/video_icon
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/go_live_button
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Student Controls' or @resource-id='com.teachmint.teachmint:id/student_control_button']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/student_chat_switch
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://127.0.0.1:7777/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://127.0.0.1:7777/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://127.0.0.1:7777/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://127.0.0.1:7777/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android, udid: emulator-5554}
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://127.0.0.1:7777/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android, udid: emulator-5554}
+[main] INFO  base.AppGenericLib  - launching student driver in appium server url: http://127.0.0.1:6666/wd/hub
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://127.0.0.1:7777/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://127.0.0.1:7777/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - Reading data from excel from sheet: hindi	 testcaseID: TC_VC_004	 cellName: Mike off
+[main] INFO  base.AppGenericLib  - data found in row: 1 in cell: 3
+[main] INFO  base.AppGenericLib  - Reading data from excel from sheet: hindi	 testcaseID: TC_VC_004	 cellName: Mike on
+[main] INFO  base.AppGenericLib  - data found in row: 1 in cell: 2
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/mic_icon
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/mic_icon
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://127.0.0.1:7777/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - Reading data from excel from sheet: hindi	 testcaseID: TC_VC_005	 cellName: video on
+[main] INFO  base.AppGenericLib  - data found in row: 3 in cell: 2
+[main] INFO  base.AppGenericLib  - Reading data from excel from sheet: hindi	 testcaseID: TC_VC_005	 cellName: Video Off
+[main] INFO  base.AppGenericLib  - data found in row: 3 in cell: 3
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/video_icon
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://127.0.0.1:7777/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - data found in row: 3 in cell: 2
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.id: com.teachmint.teachmint:id/video_icon
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/video_icon
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/go_live_button
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Student Controls' or @resource-id='com.teachmint.teachmint:id/student_control_button']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/student_audio_switch
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://127.0.0.1:7777/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - data found in row: 3 in cell: 2
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.id: com.teachmint.teachmint:id/video_icon
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/go_live_button
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - Tapping on element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/zoom_touch_view']
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Student Controls' or @resource-id='com.teachmint.teachmint:id/student_control_button']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/student_chat_switch
+[main] INFO  base.AppGenericLib  - Setting the language: hindi
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://127.0.0.1:7777/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://127.0.0.1:7777/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - Reading data from excel from sheet: hindi	 testcaseID: TC_VC_004	 cellName: Mike off
+[main] INFO  base.AppGenericLib  - data found in row: 1 in cell: 3
+[main] INFO  base.AppGenericLib  - Reading data from excel from sheet: hindi	 testcaseID: TC_VC_004	 cellName: Mike on
+[main] INFO  base.AppGenericLib  - data found in row: 1 in cell: 2
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/mic_icon
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/mic_icon
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://127.0.0.1:7777/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - Reading data from excel from sheet: hindi	 testcaseID: TC_VC_005	 cellName: video on
+[main] INFO  base.AppGenericLib  - data found in row: 3 in cell: 2
+[main] INFO  base.AppGenericLib  - Reading data from excel from sheet: hindi	 testcaseID: TC_VC_005	 cellName: Video Off
+[main] INFO  base.AppGenericLib  - data found in row: 3 in cell: 3
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/video_icon
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://127.0.0.1:7777/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - data found in row: 3 in cell: 2
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.id: com.teachmint.teachmint:id/video_icon
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/video_icon
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/go_live_button
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Student Controls' or @resource-id='com.teachmint.teachmint:id/student_control_button']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/student_audio_switch
+[main] INFO  base.AppGenericLib  - Setting device capability
+[main] INFO  base.AppGenericLib  - capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - launching app: server url: http://127.0.0.1:7777/wd/hub
+ platform: ANDROID 
+ capabilities: Capabilities {appActivity: com.teachmint.teachmint.Mai..., appPackage: com.teachmint.teachmint, autoGrantPermissions: true, automationName: uiautomator2, noReset: true, platform: ANDROID, platformName: android}
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: (//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']
+[main] INFO  base.AppGenericLib  - data found in row: 3 in cell: 2
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.id: com.teachmint.teachmint:id/video_icon
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/go_live_button
+[main] INFO  base.AppGenericLib  - waiting for visibility of Element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@resource-id='com.teachmint.teachmint:id/options_menu' or @text='More']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.xpath: //*[@text='Student Controls' or @resource-id='com.teachmint.teachmint:id/student_control_button']
+[main] INFO  base.AppGenericLib  - clicking on element: Located by By.id: com.teachmint.teachmint:id/student_chat_switch

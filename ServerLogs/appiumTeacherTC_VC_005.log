@@ -1,0 +1,427 @@
+2022-04-04 06:22:28:211 [Appium] Welcome to Appium v1.22.3
+2022-04-04 06:22:28:214 [Appium] Non-default server args:
+2022-04-04 06:22:28:215 [Appium]   address: 127.0.0.1
+2022-04-04 06:22:28:215 [Appium]   port: 7777
+2022-04-04 06:22:28:215 [Appium]   logFile: C:\Users\User\IdeaProjects\TeachMintAppium\.\ServerLogs\appiumTeacherTC_VC_005.log
+2022-04-04 06:22:28:314 [Appium] Appium REST http interface listener started on 127.0.0.1:7777
+2022-04-04 06:22:28:473 [HTTP] --> GET /wd/hub/status
+2022-04-04 06:22:28:474 [HTTP] {}
+2022-04-04 06:22:28:478 [GENERIC] Calling AppiumDriver.getStatus() with args: []
+2022-04-04 06:22:28:482 [GENERIC] Responding to client with driver.getStatus() result: {"build":{"version":"1.22.3"}}
+2022-04-04 06:22:28:501 [HTTP] <-- GET /wd/hub/status 200 21 ms - 68
+2022-04-04 06:22:28:503 [HTTP] 
+2022-04-04 06:22:28:713 [HTTP] --> POST /wd/hub/session
+2022-04-04 06:22:28:715 [HTTP] {"desiredCapabilities":{"appActivity":"com.teachmint.teachmint.MainActivity","appPackage":"com.teachmint.teachmint","noReset":true,"automationName":"uiautomator2","autoGrantPermissions":true,"platformName":"android","platform":"ANDROID"},"capabilities":{"firstMatch":[{"appium:appActivity":"com.teachmint.teachmint.MainActivity","appium:appPackage":"com.teachmint.teachmint","appium:autoGrantPermissions":true,"appium:automationName":"uiautomator2","appium:noReset":true,"platform":"ANDROID","platformName":"android"}]}}
+2022-04-04 06:22:28:716 [W3C] Calling AppiumDriver.createSession() with args: [{"appActivity":"com.teachmint.teachmint.MainActivity","appPackage":"com.teachmint.teachmint","noReset":true,"automationName":"uiautomator2","autoGrantPermissions":true,"platformName":"android","platform":"ANDROID"},null,{"firstMatch":[{"appium:appActivity":"com.teachmint.teachmint.MainActivity","appium:appPackage":"com.teachmint.teachmint","appium:autoGrantPermissions":true,"appium:automationName":"uiautomator2","appium:noReset":true,"platform":"ANDROID","platformName":"android"}]}]
+2022-04-04 06:22:28:726 [BaseDriver] Event 'newSessionRequested' logged at 1649053348716 (11:52:28 GMT+0530 (India Standard Time))
+2022-04-04 06:22:28:730 [BaseDriver] The following capabilities are not standard capabilities and should have an extension prefix:
+2022-04-04 06:22:28:731 [BaseDriver]   platform
+2022-04-04 06:22:29:513 [Appium] Appium v1.22.3 creating new AndroidUiautomator2Driver (v1.70.1) session
+2022-04-04 06:22:29:519 [BaseDriver] W3C capabilities and MJSONWP desired capabilities were provided
+2022-04-04 06:22:29:520 [BaseDriver] Creating session with W3C capabilities: {
+2022-04-04 06:22:29:520 [BaseDriver]   "alwaysMatch": {
+2022-04-04 06:22:29:520 [BaseDriver]     "appium:platform": "ANDROID",
+2022-04-04 06:22:29:520 [BaseDriver]     "platformName": "android",
+2022-04-04 06:22:29:520 [BaseDriver]     "appium:appActivity": "com.teachmint.teachmint.MainActivity",
+2022-04-04 06:22:29:521 [BaseDriver]     "appium:appPackage": "com.teachmint.teachmint",
+2022-04-04 06:22:29:521 [BaseDriver]     "appium:autoGrantPermissions": true,
+2022-04-04 06:22:29:521 [BaseDriver]     "appium:automationName": "uiautomator2",
+2022-04-04 06:22:29:521 [BaseDriver]     "appium:noReset": true
+2022-04-04 06:22:29:521 [BaseDriver]   },
+2022-04-04 06:22:29:522 [BaseDriver]   "firstMatch": [
+2022-04-04 06:22:29:522 [BaseDriver]     {}
+2022-04-04 06:22:29:522 [BaseDriver]   ]
+2022-04-04 06:22:29:522 [BaseDriver] }
+2022-04-04 06:22:29:535 [BaseDriver] The following capabilities were provided, but are not recognized by Appium:
+2022-04-04 06:22:29:536 [BaseDriver]   platform
+2022-04-04 06:22:29:541 [BaseDriver] Session created with session id: 5d33cec8-c988-456f-866a-b5b331765763
+2022-04-04 06:22:29:542 [UiAutomator2] Starting 'com.teachmint.teachmint' directly on the device
+2022-04-04 06:22:29:717 [ADB] Found 3 'build-tools' folders under 'C:\Users\User\AppData\Local\Android\Sdk' (newest first):
+2022-04-04 06:22:29:718 [ADB]     C:/Users/User/AppData/Local/Android/Sdk/build-tools/32.1.0-rc1
+2022-04-04 06:22:29:719 [ADB]     C:/Users/User/AppData/Local/Android/Sdk/build-tools/32.0.0
+2022-04-04 06:22:29:719 [ADB]     C:/Users/User/AppData/Local/Android/Sdk/build-tools/30.0.3
+2022-04-04 06:22:29:725 [ADB] Using 'adb.exe' from 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe'
+2022-04-04 06:22:29:741 [ADB] Running 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe -P 5037 start-server'
+2022-04-04 06:22:29:892 [AndroidDriver] Retrieving device list
+2022-04-04 06:22:29:893 [ADB] Trying to find a connected android device
+2022-04-04 06:22:29:895 [ADB] Getting connected devices
+2022-04-04 06:22:29:960 [ADB] Connected devices: [{"udid":"emulator-5554","state":"device"}]
+2022-04-04 06:22:29:961 [AndroidDriver] Using device: emulator-5554
+2022-04-04 06:22:29:966 [ADB] Using 'adb.exe' from 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe'
+2022-04-04 06:22:29:966 [ADB] Running 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe -P 5037 start-server'
+2022-04-04 06:22:30:025 [ADB] Setting device id to emulator-5554
+2022-04-04 06:22:30:026 [ADB] Running 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe -P 5037 -s emulator-5554 shell getprop ro.build.version.sdk'
+2022-04-04 06:22:30:383 [ADB] Current device property 'ro.build.version.sdk': 31
+2022-04-04 06:22:30:384 [ADB] Getting device platform version
+2022-04-04 06:22:30:385 [ADB] Running 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe -P 5037 -s emulator-5554 shell getprop ro.build.version.release'
+2022-04-04 06:22:30:512 [ADB] Current device property 'ro.build.version.release': 12
+2022-04-04 06:22:30:513 [ADB] Device API level: 31
+2022-04-04 06:22:30:513 [UiAutomator2] Relaxing hidden api policy
+2022-04-04 06:22:30:514 [ADB] Running 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe -P 5037 -s emulator-5554 shell 'settings put global hidden_api_policy_pre_p_apps 1;settings put global hidden_api_policy_p_apps 1;settings put global hidden_api_policy 1''
+2022-04-04 06:22:31:019 [AndroidDriver] No app sent in, not parsing package/activity
+2022-04-04 06:22:31:021 [ADB] Running 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe -P 5037 -s emulator-5554 wait-for-device'
+2022-04-04 06:22:31:100 [ADB] Running 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe -P 5037 -s emulator-5554 shell echo ping'
+2022-04-04 06:22:31:182 [AndroidDriver] Pushing settings apk to device...
+2022-04-04 06:22:31:185 [ADB] Getting install status for io.appium.settings
+2022-04-04 06:22:31:186 [ADB] Running 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe -P 5037 -s emulator-5554 shell dumpsys package io.appium.settings'
+2022-04-04 06:22:31:633 [ADB] 'io.appium.settings' is installed
+2022-04-04 06:22:31:634 [ADB] Getting package info for 'io.appium.settings'
+2022-04-04 06:22:31:634 [ADB] Running 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe -P 5037 -s emulator-5554 shell dumpsys package io.appium.settings'
+2022-04-04 06:22:31:836 [ADB] The version name of the installed 'io.appium.settings' is greater or equal to the application version name ('3.4.0' >= '3.4.0')
+2022-04-04 06:22:31:838 [ADB] There is no need to install/upgrade 'C:\Users\User\AppData\Roaming\npm\node_modules\appium\node_modules\io.appium.settings\apks\settings_apk-debug.apk'
+2022-04-04 06:22:31:840 [ADB] Getting IDs of all 'io.appium.settings' processes
+2022-04-04 06:22:31:841 [ADB] Running 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe -P 5037 -s emulator-5554 shell 'pgrep --help; echo $?''
+2022-04-04 06:22:32:025 [ADB] Running 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe -P 5037 -s emulator-5554 shell pgrep -f \(\[\[:blank:\]\]\|\^\)io\.appium\.settings\(\[\[:blank:\]\]\|\$\)'
+2022-04-04 06:22:32:597 [AndroidDriver] io.appium.settings is already running. There is no need to reset its permissions.
+2022-04-04 06:22:32:599 [Logcat] Starting logs capture with command: C:\\Users\\User\\AppData\\Local\\Android\\Sdk\\platform-tools\\adb.exe -P 5037 -s emulator-5554 logcat -v threadtime
+2022-04-04 06:22:32:845 [UiAutomator2] Forwarding UiAutomator2 Server port 6790 to local port 8207
+2022-04-04 06:22:32:848 [ADB] Forwarding system: 8207 to device: 6790
+2022-04-04 06:22:32:849 [ADB] Running 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe -P 5037 -s emulator-5554 forward tcp:8207 tcp:6790'
+2022-04-04 06:22:32:938 [ADB] Getting install status for io.appium.uiautomator2.server
+2022-04-04 06:22:32:939 [ADB] Running 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe -P 5037 -s emulator-5554 shell dumpsys package io.appium.uiautomator2.server'
+2022-04-04 06:22:33:232 [ADB] 'io.appium.uiautomator2.server' is installed
+2022-04-04 06:22:33:232 [ADB] Getting package info for 'io.appium.uiautomator2.server'
+2022-04-04 06:22:33:233 [ADB] Running 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe -P 5037 -s emulator-5554 shell dumpsys package io.appium.uiautomator2.server'
+2022-04-04 06:22:34:404 [ADB] The version name of the installed 'io.appium.uiautomator2.server' is greater or equal to the application version name ('4.27.0' >= '4.27.0')
+2022-04-04 06:22:34:404 [UiAutomator2] io.appium.uiautomator2.server installation state: sameVersionInstalled
+2022-04-04 06:22:34:406 [ADB] Checking app cert for C:\Users\User\AppData\Roaming\npm\node_modules\appium\node_modules\appium-uiautomator2-server\apks\appium-uiautomator2-server-v4.27.0.apk
+2022-04-04 06:22:34:494 [ADB] Using 'apksigner.jar' from 'C:\Users\User\AppData\Local\Android\Sdk\build-tools\32.1.0-rc1\lib\apksigner.jar'
+2022-04-04 06:22:34:499 [ADB] Starting apksigner: 'C:\\Program Files\\Java\\jdk1.8.0_202\\bin\\java.exe' -Xmx1024M -Xss1m -jar C:\\Users\\User\\AppData\\Local\\Android\\Sdk\\build-tools\\32.1.0-rc1\\lib\\apksigner.jar verify --print-certs C:\\Users\\User\\AppData\\Roaming\\npm\\node_modules\\appium\\node_modules\\appium-uiautomator2-server\\apks\\appium-uiautomator2-server-v4.27.0.apk
+2022-04-04 06:22:37:428 [ADB] apksigner stdout: Signer #1 certificate DN: EMAILADDRESS=android@android.com, CN=Android, OU=Android, O=Android, L=Mountain View, ST=California, C=US
+2022-04-04 06:22:37:429 [ADB] Signer #1 certificate SHA-256 digest: a40da80a59d170caa950cf15c18c454d47a39b26989d8b640ecd745ba71bf5dc
+2022-04-04 06:22:37:429 [ADB] Signer #1 certificate SHA-1 digest: 61ed377e85d386a8dfee6b864bd85b0bfaa5af81
+2022-04-04 06:22:37:429 [ADB] Signer #1 certificate MD5 digest: e89b158e4bcf988ebd09eb83f5378e87
+2022-04-04 06:22:37:429 [ADB] 
+2022-04-04 06:22:37:431 [ADB] sha256 hash did match for 'appium-uiautomator2-server-v4.27.0.apk'
+2022-04-04 06:22:37:431 [ADB] 'C:\Users\User\AppData\Roaming\npm\node_modules\appium\node_modules\appium-uiautomator2-server\apks\appium-uiautomator2-server-v4.27.0.apk' is signed with the default certificate
+2022-04-04 06:22:37:431 [ADB] Getting install status for io.appium.uiautomator2.server.test
+2022-04-04 06:22:37:432 [ADB] Running 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe -P 5037 -s emulator-5554 shell dumpsys package io.appium.uiautomator2.server.test'
+2022-04-04 06:22:37:592 [ADB] 'io.appium.uiautomator2.server.test' is installed
+2022-04-04 06:22:37:592 [ADB] Checking app cert for C:\Users\User\AppData\Roaming\npm\node_modules\appium\node_modules\appium-uiautomator2-server\apks\appium-uiautomator2-server-debug-androidTest.apk
+2022-04-04 06:22:37:609 [ADB] Starting apksigner: 'C:\\Program Files\\Java\\jdk1.8.0_202\\bin\\java.exe' -Xmx1024M -Xss1m -jar C:\\Users\\User\\AppData\\Local\\Android\\Sdk\\build-tools\\32.1.0-rc1\\lib\\apksigner.jar verify --print-certs C:\\Users\\User\\AppData\\Roaming\\npm\\node_modules\\appium\\node_modules\\appium-uiautomator2-server\\apks\\appium-uiautomator2-server-debug-androidTest.apk
+2022-04-04 06:22:38:515 [ADB] apksigner stdout: Signer #1 certificate DN: EMAILADDRESS=android@android.com, CN=Android, OU=Android, O=Android, L=Mountain View, ST=California, C=US
+2022-04-04 06:22:38:516 [ADB] Signer #1 certificate SHA-256 digest: a40da80a59d170caa950cf15c18c454d47a39b26989d8b640ecd745ba71bf5dc
+2022-04-04 06:22:38:516 [ADB] Signer #1 certificate SHA-1 digest: 61ed377e85d386a8dfee6b864bd85b0bfaa5af81
+2022-04-04 06:22:38:516 [ADB] Signer #1 certificate MD5 digest: e89b158e4bcf988ebd09eb83f5378e87
+2022-04-04 06:22:38:516 [ADB] 
+2022-04-04 06:22:38:517 [ADB] sha256 hash did match for 'appium-uiautomator2-server-debug-androidTest.apk'
+2022-04-04 06:22:38:517 [ADB] 'C:\Users\User\AppData\Roaming\npm\node_modules\appium\node_modules\appium-uiautomator2-server\apks\appium-uiautomator2-server-debug-androidTest.apk' is signed with the default certificate
+2022-04-04 06:22:38:517 [UiAutomator2] Server packages are not going to be (re)installed
+2022-04-04 06:22:38:524 [UiAutomator2] Waiting up to 30000ms for services to be available
+2022-04-04 06:22:38:526 [ADB] Running 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe -P 5037 -s emulator-5554 shell pm list instrumentation'
+2022-04-04 06:22:38:681 [UiAutomator2] Instrumentation target 'io.appium.uiautomator2.server.test/androidx.test.runner.AndroidJUnitRunner' is available
+2022-04-04 06:22:38:687 [ADB] Adding packages ["io.appium.settings","io.appium.uiautomator2.server","io.appium.uiautomator2.server.test"] to Doze whitelist
+2022-04-04 06:22:38:688 [ADB] Got the following command chunks to execute: [["dumpsys","deviceidle","whitelist","+io.appium.settings",";","dumpsys","deviceidle","whitelist","+io.appium.uiautomator2.server",";","dumpsys","deviceidle","whitelist","+io.appium.uiautomator2.server.test",";"]]
+2022-04-04 06:22:38:688 [ADB] Running 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe -P 5037 -s emulator-5554 shell dumpsys deviceidle whitelist +io.appium.settings ; dumpsys deviceidle whitelist +io.appium.uiautomator2.server ; dumpsys deviceidle whitelist +io.appium.uiautomator2.server.test ;'
+2022-04-04 06:22:38:885 [UiAutomator2] No app capability. Assuming it is already on the device
+2022-04-04 06:22:38:887 [UiAutomator2] Performing shallow cleanup of automation leftovers
+2022-04-04 06:22:39:368 [UiAutomator2] The following obsolete sessions are still running: ["4e750875-ee11-466e-9020-b398c3845589"]
+2022-04-04 06:22:39:374 [UiAutomator2] Cleaning up 1 obsolete session
+2022-04-04 06:22:40:631 [ADB] Running 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe -P 5037 -s emulator-5554 shell am force-stop io.appium.uiautomator2.server.test'
+2022-04-04 06:22:41:006 [UiAutomator2] Starting UIAutomator2 server 4.27.0
+2022-04-04 06:22:41:007 [UiAutomator2] Using UIAutomator2 server from 'C:\Users\User\AppData\Roaming\npm\node_modules\appium\node_modules\appium-uiautomator2-server\apks\appium-uiautomator2-server-v4.27.0.apk' and test from 'C:\Users\User\AppData\Roaming\npm\node_modules\appium\node_modules\appium-uiautomator2-server\apks\appium-uiautomator2-server-debug-androidTest.apk'
+2022-04-04 06:22:41:008 [UiAutomator2] Waiting up to 30000ms for UiAutomator2 to be online...
+2022-04-04 06:22:41:009 [ADB] Creating ADB subprocess with args: ["-P",5037,"-s","emulator-5554","shell","am","instrument","-w","-e","disableAnalytics",true,"io.appium.uiautomator2.server.test/androidx.test.runner.AndroidJUnitRunner"]
+2022-04-04 06:22:41:029 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:22:41:032 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:22:41:080 [WD Proxy] socket hang up
+2022-04-04 06:22:42:100 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:22:42:102 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:22:42:121 [WD Proxy] socket hang up
+2022-04-04 06:22:43:131 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:22:43:132 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:22:43:177 [WD Proxy] socket hang up
+2022-04-04 06:22:44:181 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:22:44:182 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:22:44:208 [WD Proxy] socket hang up
+2022-04-04 06:22:45:219 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:22:45:220 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:22:45:231 [WD Proxy] socket hang up
+2022-04-04 06:22:46:251 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:22:46:258 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:22:46:311 [WD Proxy] socket hang up
+2022-04-04 06:22:47:331 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:22:47:333 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:22:47:375 [WD Proxy] socket hang up
+2022-04-04 06:22:48:426 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:22:48:427 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:22:48:540 [WD Proxy] socket hang up
+2022-04-04 06:22:49:545 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:22:49:546 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:22:49:560 [WD Proxy] socket hang up
+2022-04-04 06:22:50:572 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:22:50:572 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:22:50:590 [WD Proxy] socket hang up
+2022-04-04 06:22:51:595 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:22:51:596 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:22:51:611 [WD Proxy] socket hang up
+2022-04-04 06:22:52:625 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:22:52:626 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:22:52:642 [WD Proxy] socket hang up
+2022-04-04 06:22:53:653 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:22:53:654 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:22:53:671 [WD Proxy] socket hang up
+2022-04-04 06:22:54:677 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:22:54:678 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:22:54:694 [WD Proxy] socket hang up
+2022-04-04 06:22:55:699 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:22:55:700 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:22:55:714 [WD Proxy] socket hang up
+2022-04-04 06:22:56:730 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:22:56:731 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:22:56:748 [WD Proxy] socket hang up
+2022-04-04 06:22:57:760 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:22:57:760 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:22:57:779 [WD Proxy] socket hang up
+2022-04-04 06:22:58:783 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:22:58:784 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:22:58:803 [WD Proxy] socket hang up
+2022-04-04 06:22:59:813 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:22:59:814 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:22:59:830 [WD Proxy] socket hang up
+2022-04-04 06:23:00:835 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:23:00:839 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:23:00:858 [WD Proxy] socket hang up
+2022-04-04 06:23:01:878 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:23:01:878 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:23:01:895 [WD Proxy] socket hang up
+2022-04-04 06:23:01:988 [Instrumentation] io.appium.uiautomator2.server.test.AppiumUiAutomator2Server:
+2022-04-04 06:23:02:912 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:23:02:913 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:23:02:933 [WD Proxy] socket hang up
+2022-04-04 06:23:03:947 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:23:03:948 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:23:03:969 [WD Proxy] socket hang up
+2022-04-04 06:23:04:986 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:23:04:987 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:23:05:008 [WD Proxy] socket hang up
+2022-04-04 06:23:06:023 [WD Proxy] Matched '/status' to command name 'getStatus'
+2022-04-04 06:23:06:024 [WD Proxy] Proxying [GET /status] to [GET http://127.0.0.1:8207/wd/hub/status] with no body
+2022-04-04 06:23:06:438 [WD Proxy] Got response with status 200: {"sessionId":"None","value":{"message":"UiAutomator2 Server is ready to accept commands","ready":true}}
+2022-04-04 06:23:06:455 [UiAutomator2] The initialization of the instrumentation process took 25444ms
+2022-04-04 06:23:06:458 [WD Proxy] Matched '/session' to command name 'createSession'
+2022-04-04 06:23:06:459 [WD Proxy] Proxying [POST /session] to [POST http://127.0.0.1:8207/wd/hub/session] with body: {"capabilities":{"firstMatch":[{"platform":"ANDROID","webStorageEnabled":false,"takesScreenshot":true,"javascriptEnabled":true,"databaseEnabled":false,"networkConnectionEnabled":true,"locationContextEnabled":false,"warnings":{},"desired":{"platformName":"android","platform":"ANDROID","appActivity":"com.teachmint.teachmint.MainActivity","appPackage":"com.teachmint.teachmint","autoGrantPermissions":true,"automationName":"uiautomator2","noReset":true},"platformName":"android","appActivity":"com.teachmint.teachmint.MainActivity","appPackage":"com.teachmint.teachmint","autoGrantPermissions":true,"automationName":"uiautomator2","noReset":true,"deviceName":"emulator-5554","deviceUDID":"emulator-5554"}],"alwaysMatch":{}}}
+2022-04-04 06:23:06:578 [WD Proxy] Got response with status 200: {"sessionId":"5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a","value":{"capabilities":{"firstMatch":[{"platform":"ANDROID","webStorageEnabled":false,"takesScreenshot":true,"javascriptEnabled":true,"databaseEnabled":false,"networkConnectionEnabled":true,"locationContextEnabled":false,"warnings":{},"desired":{"platformName":"android","platform":"ANDROID","appActivity":"com.teachmint.teachmint.MainActivity","appPackage":"com.teachmint.teachmint","autoGrantPermissions":true,"automationName":"uiautomator2","noReset":true},"platformName":"android","appActivity":"com.teachmint.teachmint.MainActivity","appPackage":"com.teachmint.teachmint","autoGrantPermissions":true,"automationName":"uiautomator2","noReset":true,"deviceName":"emulator-5554","deviceUDID":"emulator-5554"}],"alwaysMatch":{}},"sessionId":"5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a"}}
+2022-04-04 06:23:06:580 [WD Proxy] Determined the downstream protocol as 'W3C'
+2022-04-04 06:23:06:618 [WD Proxy] Proxying [GET /appium/device/info] to [GET http://127.0.0.1:8207/wd/hub/session/5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a/appium/device/info] with no body
+2022-04-04 06:23:07:005 [WD Proxy] Got response with status 200: {"sessionId":"5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a","value":{"androidId":"c351c5228722c51e","apiVersion":"31","bluetooth":{"state":"ON"},"brand":"google","carrierName":"","displayDensity":440,"locale":"en_US","manufacturer":"Google","model":"sdk_gphone64_x86_64","networks":[{"capabilities":{"SSID":null,"linkDownBandwidthKbps":4300,"linkUpstreamBandwidthKbps":1800,"networkCapabilities":"NET_CAPABILITY_MMS,NET_CAPABILITY_SUPL,NET_CAPABILITY_DUN,NET_CAPABILITY_FOTA,NET_CAPABILITY_IMS,NET_CAPABILITY_CBS,NET_CAPABILITY_INTERNET,NET_CAPABILITY_NOT_RESTRICTED,NET_CAPABILITY_TRUSTED,NET_CAPABILITY_NOT_VPN,NET_CAPABILITY_VALIDATED,NET_CAPABILITY_NOT_ROAMING,NET_CAPABILITY_NOT_CONGESTED","signalStrength":-2147483648,"transportTypes":"TRANSPORT_CELLULAR"},"detailedState":"SUSPENDED","extraInfo":"epc.tmobile.com","isAvailable":true,"isConnected":false,"isFailover":false,"isRoaming":false,"state":"SUSPENDED","subtype":0,"subtypeName":"UNKNOWN","type":0,"typeName":"MOBILE"},{"capabilities":{"SSID":null,"linkDownBandwidt...
+2022-04-04 06:23:07:022 [ADB] Running 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe -P 5037 -s emulator-5554 shell dumpsys window'
+2022-04-04 06:23:08:085 [AndroidDriver] Screen already unlocked, doing nothing
+2022-04-04 06:23:08:096 [UiAutomator2] Starting 'com.teachmint.teachmint/com.teachmint.teachmint.MainActivity and waiting for 'com.teachmint.teachmint/com.teachmint.teachmint.MainActivity'
+2022-04-04 06:23:08:117 [ADB] Running 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe -P 5037 -s emulator-5554 shell am start -W -n com.teachmint.teachmint/com.teachmint.teachmint.MainActivity -S -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -f 0x10200000'
+2022-04-04 06:23:21:382 [WD Proxy] Proxying [GET /appium/device/pixel_ratio] to [GET http://127.0.0.1:8207/wd/hub/session/5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a/appium/device/pixel_ratio] with no body
+2022-04-04 06:23:21:588 [WD Proxy] Got response with status 200: {"sessionId":"5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a","value":2.75}
+2022-04-04 06:23:21:597 [WD Proxy] Matched '/appium/device/system_bars' to command name 'getSystemBars'
+2022-04-04 06:23:21:598 [WD Proxy] Proxying [GET /appium/device/system_bars] to [GET http://127.0.0.1:8207/wd/hub/session/5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a/appium/device/system_bars] with no body
+2022-04-04 06:23:21:682 [WD Proxy] Got response with status 200: {"sessionId":"5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a","value":{"statusBar":83}}
+2022-04-04 06:23:21:686 [WD Proxy] Matched '/window/current/size' to command name 'getWindowSize'
+2022-04-04 06:23:21:687 [WD Proxy] Proxying [GET /window/current/size] to [GET http://127.0.0.1:8207/wd/hub/session/5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a/window/current/size] with no body
+2022-04-04 06:23:21:736 [WD Proxy] Got response with status 200: {"sessionId":"5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a","value":{"height":2148,"width":1080}}
+2022-04-04 06:23:21:739 [Appium] New AndroidUiautomator2Driver session created successfully, session 5d33cec8-c988-456f-866a-b5b331765763 added to master session list
+2022-04-04 06:23:21:744 [BaseDriver] Event 'newSessionStarted' logged at 1649053401741 (11:53:21 GMT+0530 (India Standard Time))
+2022-04-04 06:23:21:746 [W3C (5d33cec8)] Cached the protocol value 'W3C' for the new session 5d33cec8-c988-456f-866a-b5b331765763
+2022-04-04 06:23:21:749 [W3C (5d33cec8)] Responding to client with driver.createSession() result: {"capabilities":{"platform":"ANDROID","webStorageEnabled":false,"takesScreenshot":true,"javascriptEnabled":true,"databaseEnabled":false,"networkConnectionEnabled":true,"locationContextEnabled":false,"warnings":{},"desired":{"platformName":"android","platform":"ANDROID","appActivity":"com.teachmint.teachmint.MainActivity","appPackage":"com.teachmint.teachmint","autoGrantPermissions":true,"automationName":"uiautomator2","noReset":true},"platformName":"android","appActivity":"com.teachmint.teachmint.MainActivity","appPackage":"com.teachmint.teachmint","autoGrantPermissions":true,"automationName":"uiautomator2","noReset":true,"deviceName":"emulator-5554","deviceUDID":"emulator-5554","deviceApiLevel":31,"platformVersion":"12","deviceScreenSize":"1080x2280","deviceScreenDensity":440,"deviceModel":"sdk_gphone64_x86_64","deviceManufacturer":"Google","pixelRatio":2.75,"statBarHeight":83,"viewportRect":{"left":0,"top":83,"width":1080,"height":2065}}}
+2022-04-04 06:23:21:763 [HTTP] <-- POST /wd/hub/session 200 53046 ms - 1015
+2022-04-04 06:23:21:763 [HTTP] 
+2022-04-04 06:23:22:118 [HTTP] --> POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/timeouts
+2022-04-04 06:23:22:119 [HTTP] {"implicit":50000}
+2022-04-04 06:23:22:130 [W3C (5d33cec8)] Calling AppiumDriver.timeouts() with args: [null,null,null,null,50000,"5d33cec8-c988-456f-866a-b5b331765763"]
+2022-04-04 06:23:22:132 [BaseDriver] W3C timeout argument: {"implicit":50000}}
+2022-04-04 06:23:22:134 [BaseDriver] Set implicit wait to 50000ms
+2022-04-04 06:23:22:136 [W3C (5d33cec8)] Responding to client with driver.timeouts() result: null
+2022-04-04 06:23:22:140 [HTTP] <-- POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/timeouts 200 20 ms - 14
+2022-04-04 06:23:22:141 [HTTP] 
+2022-04-04 06:23:22:607 [HTTP] --> GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/context
+2022-04-04 06:23:22:607 [HTTP] {}
+2022-04-04 06:23:22:626 [W3C (5d33cec8)] Calling AppiumDriver.getCurrentContext() with args: ["5d33cec8-c988-456f-866a-b5b331765763"]
+2022-04-04 06:23:22:627 [W3C (5d33cec8)] Responding to client with driver.getCurrentContext() result: "NATIVE_APP"
+2022-04-04 06:23:22:632 [HTTP] <-- GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/context 200 25 ms - 22
+2022-04-04 06:23:22:632 [HTTP] 
+2022-04-04 06:23:22:656 [HTTP] --> POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element
+2022-04-04 06:23:22:656 [HTTP] {"using":"xpath","value":"(//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]"}
+2022-04-04 06:23:22:667 [W3C (5d33cec8)] Calling AppiumDriver.findElement() with args: ["xpath","(//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]","5d33cec8-c988-456f-866a-b5b331765763"]
+2022-04-04 06:23:22:669 [BaseDriver] Valid locator strategies for this request: xpath, id, class name, accessibility id, css selector, -android uiautomator
+2022-04-04 06:23:22:670 [BaseDriver] Waiting up to 50000 ms for condition
+2022-04-04 06:23:22:674 [WD Proxy] Matched '/element' to command name 'findElement'
+2022-04-04 06:23:22:674 [WD Proxy] Proxying [POST /element] to [POST http://127.0.0.1:8207/wd/hub/session/5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a/element] with body: {"strategy":"xpath","selector":"(//*[@resource-id='com.teachmint.teachmint:id/title' and @text='Class10'])[last()]","context":"","multiple":false}
+2022-04-04 06:23:32:537 [WD Proxy] Got response with status 200: {"sessionId":"5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a","value":{"ELEMENT":"00000000-0000-0329-ffff-ffff000000eb","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0329-ffff-ffff000000eb"}}
+2022-04-04 06:23:32:541 [W3C (5d33cec8)] Responding to client with driver.findElement() result: {"element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0329-ffff-ffff000000eb","ELEMENT":"00000000-0000-0329-ffff-ffff000000eb"}
+2022-04-04 06:23:32:546 [HTTP] <-- POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element 200 9887 ms - 137
+2022-04-04 06:23:32:547 [HTTP] 
+2022-04-04 06:23:32:755 [HTTP] --> POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element/00000000-0000-0329-ffff-ffff000000eb/click
+2022-04-04 06:23:32:755 [HTTP] {"id":"00000000-0000-0329-ffff-ffff000000eb"}
+2022-04-04 06:23:32:758 [W3C (5d33cec8)] Calling AppiumDriver.click() with args: ["00000000-0000-0329-ffff-ffff000000eb","5d33cec8-c988-456f-866a-b5b331765763"]
+2022-04-04 06:23:32:772 [WD Proxy] Matched '/element/00000000-0000-0329-ffff-ffff000000eb/click' to command name 'click'
+2022-04-04 06:23:32:775 [WD Proxy] Proxying [POST /element/00000000-0000-0329-ffff-ffff000000eb/click] to [POST http://127.0.0.1:8207/wd/hub/session/5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a/element/00000000-0000-0329-ffff-ffff000000eb/click] with body: {"element":"00000000-0000-0329-ffff-ffff000000eb"}
+2022-04-04 06:23:33:956 [WD Proxy] Got response with status 200: {"sessionId":"5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a","value":null}
+2022-04-04 06:23:33:958 [W3C (5d33cec8)] Responding to client with driver.click() result: null
+2022-04-04 06:23:33:961 [HTTP] <-- POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element/00000000-0000-0329-ffff-ffff000000eb/click 200 1205 ms - 14
+2022-04-04 06:23:33:961 [HTTP] 
+2022-04-04 06:23:34:059 [HTTP] --> GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/context
+2022-04-04 06:23:34:060 [HTTP] {}
+2022-04-04 06:23:34:068 [W3C (5d33cec8)] Calling AppiumDriver.getCurrentContext() with args: ["5d33cec8-c988-456f-866a-b5b331765763"]
+2022-04-04 06:23:34:070 [W3C (5d33cec8)] Responding to client with driver.getCurrentContext() result: "NATIVE_APP"
+2022-04-04 06:23:34:072 [HTTP] <-- GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/context 200 12 ms - 22
+2022-04-04 06:23:34:073 [HTTP] 
+2022-04-04 06:23:34:090 [HTTP] --> POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element
+2022-04-04 06:23:34:090 [HTTP] {"using":"xpath","value":"//*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']"}
+2022-04-04 06:23:34:091 [W3C (5d33cec8)] Calling AppiumDriver.findElement() with args: ["xpath","//*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']","5d33cec8-c988-456f-866a-b5b331765763"]
+2022-04-04 06:23:34:092 [BaseDriver] Valid locator strategies for this request: xpath, id, class name, accessibility id, css selector, -android uiautomator
+2022-04-04 06:23:34:093 [BaseDriver] Waiting up to 50000 ms for condition
+2022-04-04 06:23:34:094 [WD Proxy] Matched '/element' to command name 'findElement'
+2022-04-04 06:23:34:095 [WD Proxy] Proxying [POST /element] to [POST http://127.0.0.1:8207/wd/hub/session/5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a/element] with body: {"strategy":"xpath","selector":"//*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']","context":"","multiple":false}
+2022-04-04 06:23:36:450 [WD Proxy] Got response with status 404: {"sessionId":"5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a","value":{"error":"no such element","message":"An element could not be located on the page using the given search parameters","stacktrace":"io.appium.uiautomator2.common.exceptions.ElementNotFoundException: An element could not be located on the page using the given search parameters\n\tat io.appium.uiautomator2.handler.FindElement.findElement(FindElement.java:90)\n\tat io.appium.uiautomator2.handler.FindElement.safeHandle(FindElement.java:67)\n\tat io.appium.uiautomator2.handler.request.SafeRequestHandler.handle(SafeRequestHandler.java:59)\n\tat io.appium.uiautomator2.server.AppiumServlet.handleRequest(AppiumServlet.java:266)\n\tat io.appium.uiautomator2.server.AppiumServlet.handleHttpRequest(AppiumServlet.java:260)\n\tat io.appium.uiautomator2.http.ServerHandler.channelRead(ServerHandler.java:68)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)\n\tat io.netty.channel.AbstractChannelHandlerCont...
+2022-04-04 06:23:36:455 [W3C] Matched W3C error code 'no such element' to NoSuchElementError
+2022-04-04 06:23:36:456 [BaseDriver] Waited for 2363 ms so far
+2022-04-04 06:23:36:964 [WD Proxy] Matched '/element' to command name 'findElement'
+2022-04-04 06:23:36:966 [WD Proxy] Proxying [POST /element] to [POST http://127.0.0.1:8207/wd/hub/session/5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a/element] with body: {"strategy":"xpath","selector":"//*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']","context":"","multiple":false}
+2022-04-04 06:23:42:724 [WD Proxy] Got response with status 200: {"sessionId":"5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a","value":{"ELEMENT":"00000000-0000-0329-ffff-ffff00000177","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0329-ffff-ffff00000177"}}
+2022-04-04 06:23:42:732 [W3C (5d33cec8)] Responding to client with driver.findElement() result: {"element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0329-ffff-ffff00000177","ELEMENT":"00000000-0000-0329-ffff-ffff00000177"}
+2022-04-04 06:23:42:746 [HTTP] <-- POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element 200 8653 ms - 137
+2022-04-04 06:23:42:747 [HTTP] 
+2022-04-04 06:23:42:903 [HTTP] --> GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element/00000000-0000-0329-ffff-ffff00000177/displayed
+2022-04-04 06:23:42:903 [HTTP] {}
+2022-04-04 06:23:42:907 [W3C (5d33cec8)] Calling AppiumDriver.elementDisplayed() with args: ["00000000-0000-0329-ffff-ffff00000177","5d33cec8-c988-456f-866a-b5b331765763"]
+2022-04-04 06:23:42:917 [WD Proxy] Matched '/element/00000000-0000-0329-ffff-ffff00000177/attribute/displayed' to command name 'getAttribute'
+2022-04-04 06:23:42:917 [WD Proxy] Proxying [GET /element/00000000-0000-0329-ffff-ffff00000177/attribute/displayed] to [GET http://127.0.0.1:8207/wd/hub/session/5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a/element/00000000-0000-0329-ffff-ffff00000177/attribute/displayed] with no body
+2022-04-04 06:23:42:971 [WD Proxy] Got response with status 200: {"sessionId":"5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a","value":"true"}
+2022-04-04 06:23:42:973 [W3C (5d33cec8)] Responding to client with driver.elementDisplayed() result: true
+2022-04-04 06:23:42:978 [HTTP] <-- GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element/00000000-0000-0329-ffff-ffff00000177/displayed 200 73 ms - 14
+2022-04-04 06:23:42:990 [HTTP] 
+2022-04-04 06:23:42:999 [HTTP] --> GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/context
+2022-04-04 06:23:42:999 [HTTP] {}
+2022-04-04 06:23:43:003 [W3C (5d33cec8)] Calling AppiumDriver.getCurrentContext() with args: ["5d33cec8-c988-456f-866a-b5b331765763"]
+2022-04-04 06:23:43:005 [W3C (5d33cec8)] Responding to client with driver.getCurrentContext() result: "NATIVE_APP"
+2022-04-04 06:23:43:008 [HTTP] <-- GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/context 200 8 ms - 22
+2022-04-04 06:23:43:009 [HTTP] 
+2022-04-04 06:23:43:055 [HTTP] --> POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element
+2022-04-04 06:23:43:055 [HTTP] {"using":"xpath","value":"//*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']"}
+2022-04-04 06:23:43:057 [W3C (5d33cec8)] Calling AppiumDriver.findElement() with args: ["xpath","//*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']","5d33cec8-c988-456f-866a-b5b331765763"]
+2022-04-04 06:23:43:060 [BaseDriver] Valid locator strategies for this request: xpath, id, class name, accessibility id, css selector, -android uiautomator
+2022-04-04 06:23:43:060 [BaseDriver] Waiting up to 50000 ms for condition
+2022-04-04 06:23:43:061 [WD Proxy] Matched '/element' to command name 'findElement'
+2022-04-04 06:23:43:062 [WD Proxy] Proxying [POST /element] to [POST http://127.0.0.1:8207/wd/hub/session/5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a/element] with body: {"strategy":"xpath","selector":"//*[@text='Go Live' or @resource-id='com.teachmint.teachmint:id/go_live']","context":"","multiple":false}
+2022-04-04 06:23:43:559 [WD Proxy] Got response with status 200: {"sessionId":"5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a","value":{"ELEMENT":"00000000-0000-0329-ffff-ffff00000177","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0329-ffff-ffff00000177"}}
+2022-04-04 06:23:43:560 [W3C (5d33cec8)] Responding to client with driver.findElement() result: {"element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0329-ffff-ffff00000177","ELEMENT":"00000000-0000-0329-ffff-ffff00000177"}
+2022-04-04 06:23:43:563 [HTTP] <-- POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element 200 507 ms - 137
+2022-04-04 06:23:43:563 [HTTP] 
+2022-04-04 06:23:43:591 [HTTP] --> POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element/00000000-0000-0329-ffff-ffff00000177/click
+2022-04-04 06:23:43:591 [HTTP] {"id":"00000000-0000-0329-ffff-ffff00000177"}
+2022-04-04 06:23:43:593 [W3C (5d33cec8)] Calling AppiumDriver.click() with args: ["00000000-0000-0329-ffff-ffff00000177","5d33cec8-c988-456f-866a-b5b331765763"]
+2022-04-04 06:23:43:594 [WD Proxy] Matched '/element/00000000-0000-0329-ffff-ffff00000177/click' to command name 'click'
+2022-04-04 06:23:43:595 [WD Proxy] Proxying [POST /element/00000000-0000-0329-ffff-ffff00000177/click] to [POST http://127.0.0.1:8207/wd/hub/session/5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a/element/00000000-0000-0329-ffff-ffff00000177/click] with body: {"element":"00000000-0000-0329-ffff-ffff00000177"}
+2022-04-04 06:23:44:126 [WD Proxy] Got response with status 200: {"sessionId":"5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a","value":null}
+2022-04-04 06:23:44:128 [W3C (5d33cec8)] Responding to client with driver.click() result: null
+2022-04-04 06:23:44:131 [HTTP] <-- POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element/00000000-0000-0329-ffff-ffff00000177/click 200 538 ms - 14
+2022-04-04 06:23:44:131 [HTTP] 
+2022-04-04 06:23:47:842 [HTTP] --> GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/context
+2022-04-04 06:23:47:842 [HTTP] {}
+2022-04-04 06:23:47:844 [W3C (5d33cec8)] Calling AppiumDriver.getCurrentContext() with args: ["5d33cec8-c988-456f-866a-b5b331765763"]
+2022-04-04 06:23:47:847 [W3C (5d33cec8)] Responding to client with driver.getCurrentContext() result: "NATIVE_APP"
+2022-04-04 06:23:47:853 [HTTP] <-- GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/context 200 8 ms - 22
+2022-04-04 06:23:47:853 [HTTP] 
+2022-04-04 06:23:47:868 [HTTP] --> POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element
+2022-04-04 06:23:47:869 [HTTP] {"using":"id","value":"com.teachmint.teachmint:id/video_status"}
+2022-04-04 06:23:47:872 [W3C (5d33cec8)] Calling AppiumDriver.findElement() with args: ["id","com.teachmint.teachmint:id/video_status","5d33cec8-c988-456f-866a-b5b331765763"]
+2022-04-04 06:23:47:872 [BaseDriver] Valid locator strategies for this request: xpath, id, class name, accessibility id, css selector, -android uiautomator
+2022-04-04 06:23:47:873 [BaseDriver] Waiting up to 50000 ms for condition
+2022-04-04 06:23:47:874 [WD Proxy] Matched '/element' to command name 'findElement'
+2022-04-04 06:23:47:875 [WD Proxy] Proxying [POST /element] to [POST http://127.0.0.1:8207/wd/hub/session/5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a/element] with body: {"strategy":"id","selector":"com.teachmint.teachmint:id/video_status","context":"","multiple":false}
+2022-04-04 06:23:49:189 [WD Proxy] Got response with status 200: {"sessionId":"5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a","value":{"ELEMENT":"00000000-0000-0329-ffff-ffff000001a4","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0329-ffff-ffff000001a4"}}
+2022-04-04 06:23:49:190 [W3C (5d33cec8)] Responding to client with driver.findElement() result: {"element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0329-ffff-ffff000001a4","ELEMENT":"00000000-0000-0329-ffff-ffff000001a4"}
+2022-04-04 06:23:49:193 [HTTP] <-- POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element 200 1324 ms - 137
+2022-04-04 06:23:49:193 [HTTP] 
+2022-04-04 06:23:49:204 [HTTP] --> GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element/00000000-0000-0329-ffff-ffff000001a4/text
+2022-04-04 06:23:49:205 [HTTP] {}
+2022-04-04 06:23:49:222 [W3C (5d33cec8)] Driver proxy active, passing request on via HTTP proxy
+2022-04-04 06:23:49:233 [WD Proxy] Matched '/wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element/00000000-0000-0329-ffff-ffff000001a4/text' to command name 'getText'
+2022-04-04 06:23:49:233 [WD Proxy] Proxying [GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element/00000000-0000-0329-ffff-ffff000001a4/text] to [GET http://127.0.0.1:8207/wd/hub/session/5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a/element/00000000-0000-0329-ffff-ffff000001a4/text] with no body
+2022-04-04 06:23:50:632 [WD Proxy] Got response with status 200: {"sessionId":"5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a","value":"वीडियो ऑफ"}
+2022-04-04 06:23:50:634 [WD Proxy] Replacing sessionId 5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a with 5d33cec8-c988-456f-866a-b5b331765763
+2022-04-04 06:23:50:636 [HTTP] <-- GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element/00000000-0000-0329-ffff-ffff000001a4/text 200 1431 ms - 88
+2022-04-04 06:23:50:637 [HTTP] 
+2022-04-04 06:23:52:786 [HTTP] --> GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/context
+2022-04-04 06:23:52:787 [HTTP] {}
+2022-04-04 06:23:52:788 [W3C (5d33cec8)] Calling AppiumDriver.getCurrentContext() with args: ["5d33cec8-c988-456f-866a-b5b331765763"]
+2022-04-04 06:23:52:791 [W3C (5d33cec8)] Responding to client with driver.getCurrentContext() result: "NATIVE_APP"
+2022-04-04 06:23:52:794 [HTTP] <-- GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/context 200 7 ms - 22
+2022-04-04 06:23:52:796 [HTTP] 
+2022-04-04 06:23:52:809 [HTTP] --> POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element
+2022-04-04 06:23:52:810 [HTTP] {"using":"id","value":"com.teachmint.teachmint:id/video_status"}
+2022-04-04 06:23:52:811 [W3C (5d33cec8)] Calling AppiumDriver.findElement() with args: ["id","com.teachmint.teachmint:id/video_status","5d33cec8-c988-456f-866a-b5b331765763"]
+2022-04-04 06:23:52:812 [BaseDriver] Valid locator strategies for this request: xpath, id, class name, accessibility id, css selector, -android uiautomator
+2022-04-04 06:23:52:813 [BaseDriver] Waiting up to 50000 ms for condition
+2022-04-04 06:23:52:814 [WD Proxy] Matched '/element' to command name 'findElement'
+2022-04-04 06:23:52:814 [WD Proxy] Proxying [POST /element] to [POST http://127.0.0.1:8207/wd/hub/session/5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a/element] with body: {"strategy":"id","selector":"com.teachmint.teachmint:id/video_status","context":"","multiple":false}
+2022-04-04 06:23:52:873 [WD Proxy] Got response with status 200: {"sessionId":"5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a","value":{"ELEMENT":"00000000-0000-0329-ffff-ffff000001a4","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0329-ffff-ffff000001a4"}}
+2022-04-04 06:23:52:875 [W3C (5d33cec8)] Responding to client with driver.findElement() result: {"element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0329-ffff-ffff000001a4","ELEMENT":"00000000-0000-0329-ffff-ffff000001a4"}
+2022-04-04 06:23:52:880 [HTTP] <-- POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element 200 67 ms - 137
+2022-04-04 06:23:52:881 [HTTP] 
+2022-04-04 06:23:52:886 [HTTP] --> GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element/00000000-0000-0329-ffff-ffff000001a4/text
+2022-04-04 06:23:52:887 [HTTP] {}
+2022-04-04 06:23:52:892 [W3C (5d33cec8)] Driver proxy active, passing request on via HTTP proxy
+2022-04-04 06:23:52:895 [WD Proxy] Matched '/wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element/00000000-0000-0329-ffff-ffff000001a4/text' to command name 'getText'
+2022-04-04 06:23:52:896 [WD Proxy] Proxying [GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element/00000000-0000-0329-ffff-ffff000001a4/text] to [GET http://127.0.0.1:8207/wd/hub/session/5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a/element/00000000-0000-0329-ffff-ffff000001a4/text] with no body
+2022-04-04 06:23:52:924 [WD Proxy] Got response with status 200: {"sessionId":"5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a","value":"वीडियो ऑफ"}
+2022-04-04 06:23:52:925 [WD Proxy] Replacing sessionId 5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a with 5d33cec8-c988-456f-866a-b5b331765763
+2022-04-04 06:23:52:928 [HTTP] <-- GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element/00000000-0000-0329-ffff-ffff000001a4/text 200 40 ms - 88
+2022-04-04 06:23:52:928 [HTTP] 
+2022-04-04 06:23:52:936 [HTTP] --> GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/context
+2022-04-04 06:23:52:937 [HTTP] {}
+2022-04-04 06:23:52:940 [W3C (5d33cec8)] Calling AppiumDriver.getCurrentContext() with args: ["5d33cec8-c988-456f-866a-b5b331765763"]
+2022-04-04 06:23:52:942 [W3C (5d33cec8)] Responding to client with driver.getCurrentContext() result: "NATIVE_APP"
+2022-04-04 06:23:52:946 [HTTP] <-- GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/context 200 9 ms - 22
+2022-04-04 06:23:52:947 [HTTP] 
+2022-04-04 06:23:52:966 [HTTP] --> POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element
+2022-04-04 06:23:52:966 [HTTP] {"using":"id","value":"com.teachmint.teachmint:id/video_icon"}
+2022-04-04 06:23:52:967 [W3C (5d33cec8)] Calling AppiumDriver.findElement() with args: ["id","com.teachmint.teachmint:id/video_icon","5d33cec8-c988-456f-866a-b5b331765763"]
+2022-04-04 06:23:52:968 [BaseDriver] Valid locator strategies for this request: xpath, id, class name, accessibility id, css selector, -android uiautomator
+2022-04-04 06:23:52:968 [BaseDriver] Waiting up to 50000 ms for condition
+2022-04-04 06:23:52:970 [WD Proxy] Matched '/element' to command name 'findElement'
+2022-04-04 06:23:52:970 [WD Proxy] Proxying [POST /element] to [POST http://127.0.0.1:8207/wd/hub/session/5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a/element] with body: {"strategy":"id","selector":"com.teachmint.teachmint:id/video_icon","context":"","multiple":false}
+2022-04-04 06:23:53:030 [WD Proxy] Got response with status 200: {"sessionId":"5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a","value":{"ELEMENT":"00000000-0000-0329-ffff-ffff000001a2","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0329-ffff-ffff000001a2"}}
+2022-04-04 06:23:53:032 [W3C (5d33cec8)] Responding to client with driver.findElement() result: {"element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0329-ffff-ffff000001a2","ELEMENT":"00000000-0000-0329-ffff-ffff000001a2"}
+2022-04-04 06:23:53:034 [HTTP] <-- POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element 200 67 ms - 137
+2022-04-04 06:23:53:035 [HTTP] 
+2022-04-04 06:23:53:061 [HTTP] --> POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element/00000000-0000-0329-ffff-ffff000001a2/click
+2022-04-04 06:23:53:063 [HTTP] {"id":"00000000-0000-0329-ffff-ffff000001a2"}
+2022-04-04 06:23:53:065 [W3C (5d33cec8)] Calling AppiumDriver.click() with args: ["00000000-0000-0329-ffff-ffff000001a2","5d33cec8-c988-456f-866a-b5b331765763"]
+2022-04-04 06:23:53:069 [WD Proxy] Matched '/element/00000000-0000-0329-ffff-ffff000001a2/click' to command name 'click'
+2022-04-04 06:23:53:069 [WD Proxy] Proxying [POST /element/00000000-0000-0329-ffff-ffff000001a2/click] to [POST http://127.0.0.1:8207/wd/hub/session/5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a/element/00000000-0000-0329-ffff-ffff000001a2/click] with body: {"element":"00000000-0000-0329-ffff-ffff000001a2"}
+2022-04-04 06:23:53:255 [WD Proxy] Got response with status 200: {"sessionId":"5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a","value":null}
+2022-04-04 06:23:53:256 [W3C (5d33cec8)] Responding to client with driver.click() result: null
+2022-04-04 06:23:53:259 [HTTP] <-- POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element/00000000-0000-0329-ffff-ffff000001a2/click 200 198 ms - 14
+2022-04-04 06:23:53:259 [HTTP] 
+2022-04-04 06:23:55:281 [HTTP] --> GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/context
+2022-04-04 06:23:55:281 [HTTP] {}
+2022-04-04 06:23:55:283 [W3C (5d33cec8)] Calling AppiumDriver.getCurrentContext() with args: ["5d33cec8-c988-456f-866a-b5b331765763"]
+2022-04-04 06:23:55:284 [W3C (5d33cec8)] Responding to client with driver.getCurrentContext() result: "NATIVE_APP"
+2022-04-04 06:23:55:287 [HTTP] <-- GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/context 200 6 ms - 22
+2022-04-04 06:23:55:288 [HTTP] 
+2022-04-04 06:23:55:338 [HTTP] --> POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element
+2022-04-04 06:23:55:338 [HTTP] {"using":"id","value":"com.teachmint.teachmint:id/video_status"}
+2022-04-04 06:23:55:339 [W3C (5d33cec8)] Calling AppiumDriver.findElement() with args: ["id","com.teachmint.teachmint:id/video_status","5d33cec8-c988-456f-866a-b5b331765763"]
+2022-04-04 06:23:55:340 [BaseDriver] Valid locator strategies for this request: xpath, id, class name, accessibility id, css selector, -android uiautomator
+2022-04-04 06:23:55:341 [BaseDriver] Waiting up to 50000 ms for condition
+2022-04-04 06:23:55:342 [WD Proxy] Matched '/element' to command name 'findElement'
+2022-04-04 06:23:55:342 [WD Proxy] Proxying [POST /element] to [POST http://127.0.0.1:8207/wd/hub/session/5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a/element] with body: {"strategy":"id","selector":"com.teachmint.teachmint:id/video_status","context":"","multiple":false}
+2022-04-04 06:23:55:652 [WD Proxy] Got response with status 200: {"sessionId":"5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a","value":{"ELEMENT":"00000000-0000-0329-ffff-ffff000001a4","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0329-ffff-ffff000001a4"}}
+2022-04-04 06:23:55:653 [W3C (5d33cec8)] Responding to client with driver.findElement() result: {"element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0329-ffff-ffff000001a4","ELEMENT":"00000000-0000-0329-ffff-ffff000001a4"}
+2022-04-04 06:23:55:655 [HTTP] <-- POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element 200 317 ms - 137
+2022-04-04 06:23:55:655 [HTTP] 
+2022-04-04 06:23:55:784 [HTTP] --> GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element/00000000-0000-0329-ffff-ffff000001a4/text
+2022-04-04 06:23:55:804 [HTTP] {}
+2022-04-04 06:23:55:839 [W3C (5d33cec8)] Driver proxy active, passing request on via HTTP proxy
+2022-04-04 06:23:55:870 [WD Proxy] Matched '/wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element/00000000-0000-0329-ffff-ffff000001a4/text' to command name 'getText'
+2022-04-04 06:23:55:873 [WD Proxy] Proxying [GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element/00000000-0000-0329-ffff-ffff000001a4/text] to [GET http://127.0.0.1:8207/wd/hub/session/5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a/element/00000000-0000-0329-ffff-ffff000001a4/text] with no body
+2022-04-04 06:23:56:257 [WD Proxy] Got response with status 200: {"sessionId":"5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a","value":"वीडियो ऑन"}
+2022-04-04 06:23:56:262 [WD Proxy] Replacing sessionId 5b169d4b-6bd2-4dbe-aa9c-a634e4f42f1a with 5d33cec8-c988-456f-866a-b5b331765763
+2022-04-04 06:23:56:264 [HTTP] <-- GET /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/element/00000000-0000-0329-ffff-ffff000001a4/text 200 511 ms - 88
+2022-04-04 06:23:56:264 [HTTP] 
+2022-04-04 06:23:56:548 [HTTP] --> POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/appium/app/close
+2022-04-04 06:23:56:548 [HTTP] {}
+2022-04-04 06:23:56:573 [W3C (5d33cec8)] Calling AppiumDriver.closeApp() with args: ["5d33cec8-c988-456f-866a-b5b331765763"]
+2022-04-04 06:23:56:592 [ADB] Running 'C:\Users\User\AppData\Local\Android\Sdk\platform-tools\adb.exe -P 5037 -s emulator-5554 shell am force-stop com.teachmint.teachmint'
+2022-04-04 06:23:59:523 [W3C (5d33cec8)] Responding to client with driver.closeApp() result: null
+2022-04-04 06:23:59:529 [HTTP] <-- POST /wd/hub/session/5d33cec8-c988-456f-866a-b5b331765763/appium/app/close 200 2977 ms - 14
+2022-04-04 06:23:59:529 [HTTP] 

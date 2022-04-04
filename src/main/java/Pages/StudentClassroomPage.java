@@ -91,7 +91,7 @@ public class StudentClassroomPage extends AppGenericLib {
         catch (Exception e)
         {
             awaitForElement(driver,Camera);
-            custmWait(driver,Camera);
+            customWait(driver,Camera);
             clickOnElement(Camera);
             clickOnElement(cameraShutter);
             clickOnElement(clickForPic);

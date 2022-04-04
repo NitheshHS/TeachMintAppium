@@ -12,9 +12,13 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.reflections8.vfs.Vfs;
 import org.testng.asserts.SoftAssert;
 
 import java.io.File;
@@ -22,6 +26,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author Nitheesha
+ */
 public class CapabailitySettingLib {
     public AppiumDriver driver;
     public AppiumDriver studentDriver;
@@ -30,10 +37,51 @@ public class CapabailitySettingLib {
     public ExtentSparkReporter spark;
     public ExtentReports reports;
     public ExtentTest test;
+    public static Logger logger;
+    public AppiumDriverLocalService teacherAppiumService;
+    public AppiumDriverLocalService studentAppiumService;
 
+    public AppiumDriverLocalService setupAppiumServer(int portNum,String loginAs,String testcasename){
+        AppiumServiceBuilder builder=new AppiumServiceBuilder()
+                .withAppiumJS(new File(FilePaths.APPIUM_JS_FILE))
+                .withIPAddress(FilePaths.APPIUM_SERVER_IP)
+                .usingDriverExecutable(new File(FilePaths.APPIUM_NODEJS))
+                .usingPort(portNum);
 
+        if(loginAs.equalsIgnoreCase("teacher")) {
+            builder.withLogFile(new File("./ServerLogs/appiumTeacher"+testcasename+".log"));
+            return teacherAppiumService = AppiumDriverLocalService.buildService(builder);
+        }else if(loginAs.equalsIgnoreCase("student")){
+            builder.withLogFile(new File("./ServerLogs/appiumStudent"+testcasename+".log"));
+            return studentAppiumService=AppiumDriverLocalService.buildService(builder);
+        }
+        return teacherAppiumService;
+    }
+
+    public void startTeacherAppiumServer(AppiumDriverLocalService service){
+        if(service!=null){
+            service.start();
+        }
+    }
+
+    public void stopTeacherAppiumServer(){
+        if(teacherAppiumService!=null){
+            teacherAppiumService.stop();
+        }
+    }
+    public void startStudentAppiumServer(AppiumDriverLocalService service){
+        if(service!=null){
+            service.start();
+        }
+    }
+
+    public void stopStudentAppiumServer(){
+        if(studentAppiumService!=null){
+            studentAppiumService.stop();
+        }
+    }
     public DesiredCapabilities setDesiredCapability(String platform) {
-
+        logger.info("Setting device capability");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platform", platform);
         capabilities.setCapability(CapabilityType.PLATFORM_NAME, AppInfo.ANDROID_PLATFORM_NAME.getLabel());
@@ -42,11 +90,12 @@ public class CapabailitySettingLib {
         capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
         capabilities.setCapability("automationName", AppInfo.ANDROID_AUTOMATION_NAME.getLabel());
         capabilities.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS,true);
+        logger.info("capabilities: "+capabilities.toString());
         return capabilities;
     }
 
-    public AppiumDriver launchApp(URL url, Platform platForm, DesiredCapabilities capabilities) {
-
+    public AppiumDriver launchTeacherDriver(URL url, Platform platForm, DesiredCapabilities capabilities) {
+        logger.info("launching app: server url: "+url+"\n platform: "+platForm+" \n capabilities: "+capabilities.toString());
         switch (platForm) {
             case ANDROID:
                 driver = new AndroidDriver(url, capabilities);
@@ -62,11 +111,12 @@ public class CapabailitySettingLib {
     }
 
     public AppiumDriver launchStudentDriver(URL url, Platform platform) throws MalformedURLException {
+        logger.info("launching student driver in appium server url: "+url);
         DesiredCapabilities capabilities = null;
         switch (platform) {
             case ANDROID:
                 capabilities = setDesiredCapability("android");
-                capabilities.setCapability(MobileCapabilityType.UDID, "R9ZRB0CHV3T");//emulator-5556
+                capabilities.setCapability(MobileCapabilityType.UDID, "emulator-5556");// R9ZRB0CHV3T
                 studentDriver = new AndroidDriver(url, capabilities);
                 break;
             case IOS:

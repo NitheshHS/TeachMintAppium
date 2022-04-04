@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/User/IdeaProjects/TeachMintAppium">
+        <classes>
+            <class name="tests.StudentTests">
+                <methods>
+                    <include name="TC_E_014_ValidateStudentCanPracticeUsingLearnTab"/>
+                </methods>
+            </class>
+            <class name="tests.TestRun">
+                <methods>
+                    <include name="TC_E_001_ValidateTheTeacherIsAbleToStartTheLiveClassTest"/>
+                    <include name="TC_E_008_ValidateIfTheTeacherIsAbleToCreateLivePollTest"/>
+                    <include name="TC_E_005_ValidateNetworkSwitchInTeacherSideDuringLiveClassTest"/>
+                    <include name="TC_E_007_ValidateIfTheTeacherIsAbleToStartYoutubeStreamTest"/>
+                    <include name="TC_E_009_ValidateIfTheTeacherIsAbleToChatWithChatDisabledForStudents"/>
+                    <include name="TC_E_002_ValidateTheTeacherIsAbleToShareScreenInLiveClass"/>
+                    <include name="TC_E_017_ValidateThatTeacherCanCreateHomeworkUsingBlueFloatingIconOnSummaryTab"/>
+                    <include name="TC_E_012_ValidateThatUnderChatTabStudentIsAbleToSendAnAttachmentUsingTheCamera"/>
+                    <include name="TC_E_011_ValidateTheTeacherIsAbleToCreateStudyMaterialPdf"/>
+                    <include name="TC_E_004_ValidateTheTeacherIsAbleToVideoStreamInLiveClassTest"/>
+                    <include name="TC_E_016_ValidateThatTeacherCanCreateTestUsingQuestionBankRecommendations"/>
+                    <include name="TC_E_013_ValidateTeacherIsAbleToAddTimetableForAClass"/>
+                    <include name="TC_E_014_ValidateStudentCanPracticeUsingLearnTab"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

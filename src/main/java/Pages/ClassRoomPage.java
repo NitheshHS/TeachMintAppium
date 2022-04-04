@@ -460,7 +460,7 @@ public class ClassRoomPage extends AppGenericLib {
         clickOnElement(ContinueButton);
         awaitForElement(driver, EnglishButton);
         clickOnElement(EnglishButton);
-        custmWait(driver, TopicNoun);
+        customWait(driver, TopicNoun);
         clickOnElement(TopicNoun);
         // awaitForElement(driver,EnglishButton);
         scrollToElement(driver);
@@ -480,7 +480,7 @@ public class ClassRoomPage extends AppGenericLib {
         awaitForElement(driver, DeleteIcon);
         clickOnElement(DeleteIcon);
         awaitForElement(driver, DeleteButton);
-        custmWait(driver, DeleteButton);
+        customWait(driver, DeleteButton);
         clickOnElement(DeleteButton);
         Thread.sleep(2000);
         verifyUpdatedMarks();

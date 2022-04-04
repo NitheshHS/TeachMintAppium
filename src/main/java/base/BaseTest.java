@@ -14,13 +14,14 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+/**
+ * @author Nitheesha
+ */
 public class BaseTest extends AppGenericLib {
 
     @BeforeSuite
     public void configBS() {
-        System.out.println("configuring report");
-        //configExtentReport();
-        //ExtentManager.configExtent();
+      logger();
     }
 
     @BeforeClass
@@ -29,12 +30,14 @@ public class BaseTest extends AppGenericLib {
     }
 
     @BeforeMethod
-    public void launchApp() throws MalformedURLException {
+    public void launchApp(ITestResult result) throws MalformedURLException {
+        startTeacherAppiumServer(setupAppiumServer(7777,"teacher",result.getMethod().getMethodName()));
+       // startStudentAppiumServer(setupAppiumServer(6666,"student",result.getMethod().getMethodName()));
         DesiredCapabilities capabilities =
                 setDesiredCapability(AppInfo.PLATFORM.getLabel());
-      //  capabilities.setCapability(MobileCapabilityType.UDID,"R9ZRB050WWT");//emulator-5554
-        driver=launchApp(new URL("http://localhost:4723/wd/hub"), Platform.ANDROID,capabilities);
-        //studentDriver = launchStudentDriver(new URL("http://localhost:6666/wd/hub"), Platform.ANDROID);
+      // capabilities.setCapability(MobileCapabilityType.UDID,"emulator-5554");//emulator-5554 R9ZRB050WWT
+        driver=launchTeacherDriver(teacherAppiumService.getUrl(), Platform.ANDROID,capabilities);
+       // studentDriver = launchStudentDriver(studentAppiumService.getUrl(), Platform.ANDROID);
     }
 
     @AfterMethod(alwaysRun = true)
@@ -59,6 +62,8 @@ public class BaseTest extends AppGenericLib {
         if (studentDriver != null) {
             studentDriver.closeApp();
         }
+        stopTeacherAppiumServer();
+        stopStudentAppiumServer();
     }
 
     @AfterClass(alwaysRun = true)
