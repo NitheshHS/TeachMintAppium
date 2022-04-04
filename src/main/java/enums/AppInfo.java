@@ -2,7 +2,7 @@ package enums;
 
 public enum AppInfo {
 
-    ANDROID_AUTOMATION_NAME("uiautomator2"),
+    ANDROID_AUTOMATION_NAME("UiAutomator2"),
     ANDROID_PLATFORM_NAME("android"),
     ANDROID_APP_PACKAGE("com.teachmint.teachmint"),
     ANDROID_APP_ACTIVITY("com.teachmint.teachmint.MainActivity"),

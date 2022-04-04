@@ -41,21 +41,25 @@ public class CapabailitySettingLib {
     public AppiumDriverLocalService teacherAppiumService;
     public AppiumDriverLocalService studentAppiumService;
 
-    public AppiumDriverLocalService setupAppiumServer(int portNum,String loginAs,String testcasename){
+    public AppiumDriverLocalService setupTeacherAppiumServer(int portNum,String testcasename){
         AppiumServiceBuilder builder=new AppiumServiceBuilder()
                 .withAppiumJS(new File(FilePaths.APPIUM_JS_FILE))
                 .withIPAddress(FilePaths.APPIUM_SERVER_IP)
                 .usingDriverExecutable(new File(FilePaths.APPIUM_NODEJS))
-                .usingPort(portNum);
-
-        if(loginAs.equalsIgnoreCase("teacher")) {
-            builder.withLogFile(new File("./ServerLogs/appiumTeacher"+testcasename+".log"));
-            return teacherAppiumService = AppiumDriverLocalService.buildService(builder);
-        }else if(loginAs.equalsIgnoreCase("student")){
-            builder.withLogFile(new File("./ServerLogs/appiumStudent"+testcasename+".log"));
-            return studentAppiumService=AppiumDriverLocalService.buildService(builder);
-        }
+                .usingPort(portNum)
+            .withLogFile(new File("./ServerLogs/appiumTeacher"+testcasename+".log"));
+           teacherAppiumService=AppiumDriverLocalService.buildService(builder);
         return teacherAppiumService;
+    }
+
+    public AppiumDriverLocalService setupStudentAppiumServer(int portNum,String testcasename){
+        AppiumServiceBuilder builder=new AppiumServiceBuilder()
+                .withAppiumJS(new File(FilePaths.APPIUM_JS_FILE))
+                .withIPAddress(FilePaths.APPIUM_SERVER_IP)
+                .usingDriverExecutable(new File(FilePaths.APPIUM_NODEJS))
+                .usingPort(portNum)
+            .withLogFile(new File("./ServerLogs/appiumStudent"+testcasename+".log"));
+            return studentAppiumService=AppiumDriverLocalService.buildService(builder);
     }
 
     public void startTeacherAppiumServer(AppiumDriverLocalService service){
@@ -90,6 +94,8 @@ public class CapabailitySettingLib {
         capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
         capabilities.setCapability("automationName", AppInfo.ANDROID_AUTOMATION_NAME.getLabel());
         capabilities.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS,true);
+       // capabilities.setCapability("appWaitForLaunch ",false);
+       // capabilities.setCapability("adbExecTimeout",50000);
         logger.info("capabilities: "+capabilities.toString());
         return capabilities;
     }
@@ -116,7 +122,7 @@ public class CapabailitySettingLib {
         switch (platform) {
             case ANDROID:
                 capabilities = setDesiredCapability("android");
-                capabilities.setCapability(MobileCapabilityType.UDID, "emulator-5556");// R9ZRB0CHV3T
+                capabilities.setCapability(MobileCapabilityType.UDID, "180ca44a");// R9ZRB0CHV3T emulator-5554
                 studentDriver = new AndroidDriver(url, capabilities);
                 break;
             case IOS:
@@ -126,7 +132,7 @@ public class CapabailitySettingLib {
                 System.out.println("Invalid capabilities: " + capabilities);
                 break;
         }
-        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+        studentDriver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
         return studentDriver;
     }
 

@@ -12,7 +12,6 @@ import org.testng.annotations.*;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.URL;
 
 /**
  * @author Nitheesha
@@ -21,23 +20,25 @@ public class BaseTest extends AppGenericLib {
 
     @BeforeSuite
     public void configBS() {
-      logger();
+        logger();
     }
 
     @BeforeClass
     public void configBC() {
-        sheetName=setLangauge(Langauges.HINDI.toString());
+        sheetName = setLangauge(Langauges.HINDI.toString());
     }
 
     @BeforeMethod
     public void launchApp(ITestResult result) throws MalformedURLException {
-        startTeacherAppiumServer(setupAppiumServer(7777,"teacher",result.getMethod().getMethodName()));
-       // startStudentAppiumServer(setupAppiumServer(6666,"student",result.getMethod().getMethodName()));
+        startStudentAppiumServer(setupStudentAppiumServer(6666, result.getMethod().getMethodName()));
+        startTeacherAppiumServer(setupTeacherAppiumServer(7777, result.getMethod().getMethodName()));
+
         DesiredCapabilities capabilities =
                 setDesiredCapability(AppInfo.PLATFORM.getLabel());
-      // capabilities.setCapability(MobileCapabilityType.UDID,"emulator-5554");//emulator-5554 R9ZRB050WWT
-        driver=launchTeacherDriver(teacherAppiumService.getUrl(), Platform.ANDROID,capabilities);
-       // studentDriver = launchStudentDriver(studentAppiumService.getUrl(), Platform.ANDROID);
+        capabilities.setCapability(MobileCapabilityType.UDID, "be7890e80508");//emulator-5554 R9ZRB050WWT
+        driver = launchTeacherDriver(teacherAppiumService.getUrl(), Platform.ANDROID, capabilities);
+       studentDriver = launchStudentDriver(studentAppiumService.getUrl(), Platform.ANDROID);
+
     }
 
     @AfterMethod(alwaysRun = true)
@@ -46,10 +47,10 @@ public class BaseTest extends AppGenericLib {
         if (result.getStatus() == ITestResult.SUCCESS) {
 
         } else if (result.getStatus() == ITestResult.FAILURE) {
-            if(driver!=null) {
+            if (driver != null) {
                 saveScreenshot(getScreenshot(driver));
             }
-            if(studentDriver!=null) {
+            if (studentDriver != null) {
                 saveScreenshot(getScreenshot(studentDriver));
             }
         } else if (result.getStatus() == ITestResult.SKIP) {
