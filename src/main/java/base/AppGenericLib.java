@@ -47,7 +47,7 @@ public class AppGenericLib extends CapabailitySettingLib {
         } else if (Langauges.HINDI.toString().equalsIgnoreCase(langauges)) {
             return Langauges.HINDI.toString();
         } else {
-            return null;
+            return "english";
         }
     }
 //    public void compareImage(File image1, File image2) throws IOException {
@@ -283,8 +283,7 @@ public class AppGenericLib extends CapabailitySettingLib {
     }
 
     public static void logger() {
-        logger = Logger.getLogger(AppGenericLib.class);
-        logger.setLevel(Level.DEBUG);
+            logger = logger==null?Logger.getLogger(AppGenericLib.class):logger;
         try {
             PropertyConfigurator.configure(new FileInputStream(FilePaths.LOG4J_PROPERTIES));
         } catch (FileNotFoundException e) {
@@ -293,10 +292,11 @@ public class AppGenericLib extends CapabailitySettingLib {
     }
 
     /**
-     *
+     * Pass class name and method name in string to extract testcase id
      * @param className
      * @param testMethodName
      * @return testCaseId from annotation
+     * eg: getTestCaseId(Testscript.class,"TestRunMethod")
      */
     public  String getTestCaseId(Class className,String testMethodName){
         try {
@@ -309,6 +309,27 @@ public class AppGenericLib extends CapabailitySettingLib {
             e.printStackTrace();
         }
         return "No Testcase id found: "+testMethodName;
+    }
+
+    /**
+     * click on the element by using visible text of the element use this method when app running under different languages
+     * @param driver
+     * @param visibleText
+     */
+    public void clickOnElementByVisibleText(AppiumDriver driver,String visibleText){
+        logger.info("Clicking on element by using visible text: "+visibleText);
+        driver.findElement(By.xpath("//*[@text='"+visibleText+"']")).click();
+    }
+
+    /**
+     * Type into the text field use this method when app launched with different langauge like hindi, kannada, tamil etc..
+     * @param driver
+     * @param elementVisibleText
+     * @param text
+     */
+    public void typeByVisibleText(AppiumDriver driver, String elementVisibleText,String text){
+        logger.info("typing into text field by using visible text of element: "+elementVisibleText+" text: "+text);
+        driver.findElement(By.xpath("//*[@text='"+elementVisibleText+"']")).sendKeys(text);
     }
 }
 

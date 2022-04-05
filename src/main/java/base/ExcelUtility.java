@@ -3,11 +3,8 @@ package base;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.sikuli.script.App;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 /**
@@ -24,7 +21,7 @@ public class ExcelUtility {
      * @return Excel cell value in string
      */
     public static String getExcelData(String sheetName, int rowNo, int cellNo) {
-        AppGenericLib.logger.info("data found in row: "+rowNo+" in cell: "+cellNo);
+        AppGenericLib.logger.info("data found in row: " + rowNo + " in cell: " + cellNo);
         try {
             FileInputStream file = new FileInputStream(FilePaths.LANGUAGES);
             Workbook workbook = WorkbookFactory.create(file);
@@ -39,13 +36,14 @@ public class ExcelUtility {
 
     /**
      * Method read data based on testcase id and the column name/test data cell
+     *
      * @param sheetName
      * @param testcaseID
      * @param columnName
      * @return Cell String value
      */
     public static String getExcelData(String sheetName, String testcaseID, String columnName) {
-        AppGenericLib.logger.info("Reading data from excel from sheet: "+sheetName+"\t testcaseID: "+testcaseID+"\t cellName: "+columnName);
+        AppGenericLib.logger.info("Reading data from excel from sheet: " + sheetName + "\t testcaseID: " + testcaseID + "\t cellName: " + columnName);
         try {
             FileInputStream file = new FileInputStream(FilePaths.LANGUAGES);
             Workbook workbook = WorkbookFactory.create(file);
@@ -85,22 +83,44 @@ public class ExcelUtility {
 
     /**
      * Method used to write data into excel sheet
+     *
      * @param sheetName
      * @param rowNum
      * @param cellNum
      * @param cellValue
      */
-    public void writeDataToExcel(String sheetName, int rowNum,int cellNum,String cellValue){
-        AppGenericLib.logger.info("writing data into excel: "+sheetName+"\t cell value: "+cellValue);
+    public void writeDataToExcel(String sheetName, int rowNum, int cellNum, String cellValue) {
+        AppGenericLib.logger.info("writing data into excel: " + sheetName + "\t cell value: " + cellValue);
         try {
-            FileInputStream file=new FileInputStream(FilePaths.LANGUAGES);
+            FileInputStream file = new FileInputStream(FilePaths.LANGUAGES);
             Workbook workbook = WorkbookFactory.create(file);
             Sheet sheet = workbook.getSheet(sheetName);
             sheet.createRow(rowNum).createCell(cellNum).setCellValue(cellValue);
-            FileOutputStream fileOut=new FileOutputStream(FilePaths.LANGUAGES);
+            FileOutputStream fileOut = new FileOutputStream(FilePaths.LANGUAGES);
             workbook.write(fileOut);
         } catch (Throwable e) {
             e.printStackTrace();
         }
+    }
+
+    public Object[][] readDataToExcel(String sheetName){
+        AppGenericLib.logger.info("writing data into excel: " + sheetName );
+        try {
+            FileInputStream file = new FileInputStream(FilePaths.LANGUAGES);
+            Workbook workbook = WorkbookFactory.create(file);
+            Sheet sheet = workbook.getSheet(sheetName);
+           int rowNum = sheet.getLastRowNum();
+          int cellNum = sheet.getRow(0).getLastCellNum();
+          Object[][] data=new Object[rowNum][cellNum];
+          for (int i=0;i< rowNum;i++){
+              for(int j=0;j<cellNum;j++){
+                    data[i][j]=sheet.getRow(i).getCell(j).getStringCellValue();
+              }
+          }
+          return data;
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+        return new Object[0][0];
     }
 }

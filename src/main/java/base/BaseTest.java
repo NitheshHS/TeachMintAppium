@@ -1,12 +1,9 @@
 package base;
 
 
-import enums.AppInfo;
-import enums.Langauges;
-import io.appium.java_client.remote.MobileCapabilityType;
+import Pages.RegistrationPage;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.Platform;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
@@ -25,7 +22,7 @@ public class BaseTest extends AppGenericLib {
 
     @BeforeClass
     public void configBC() {
-        sheetName = setLangauge(Langauges.HINDI.toString());
+
     }
 
     @BeforeMethod
@@ -33,12 +30,26 @@ public class BaseTest extends AppGenericLib {
         startStudentAppiumServer(setupStudentAppiumServer(6666, result.getMethod().getMethodName()));
         startTeacherAppiumServer(setupTeacherAppiumServer(7777, result.getMethod().getMethodName()));
 
-        DesiredCapabilities capabilities =
-                setDesiredCapability(AppInfo.PLATFORM.getLabel());
-        capabilities.setCapability(MobileCapabilityType.UDID, "be7890e80508");//emulator-5554 R9ZRB050WWT
-        driver = launchTeacherDriver(teacherAppiumService.getUrl(), Platform.ANDROID, capabilities);
-       studentDriver = launchStudentDriver(studentAppiumService.getUrl(), Platform.ANDROID);
+        driver = launchTeacherDriver(teacherAppiumService.getUrl(), Platform.ANDROID);
+        studentDriver = launchStudentDriver(studentAppiumService.getUrl(), Platform.ANDROID);
 
+        sheetName = setLangauge(FileUtility.getPropertyValue("language"));
+        if (driver != null) {
+            RegistrationPage registrationPage = new RegistrationPage(driver);
+            registrationPage.selectLangaugeAndClickOnContinue(sheetName);
+            String teacherPhoNo = FileUtility.getPropertyValue("teacherPhoneNumber1");
+            String teacherOTP = FileUtility.getPropertyValue("teacherotp1");
+            registrationPage.enterPhoneNumberAndclickOnOTP(teacherPhoNo, teacherOTP);
+        }
+        if (studentDriver != null) {
+            RegistrationPage studentRegistrationPage = new RegistrationPage(studentDriver);
+            studentRegistrationPage.selectLangaugeAndClickOnContinue(sheetName);
+            String studentPhNo = FileUtility.getPropertyValue("studentPhoneNumber1");
+            String studentOTP = FileUtility.getPropertyValue("studentOtp1");
+            studentRegistrationPage.enterPhoneNumberAndclickOnOTP(studentPhNo, studentOTP);
+        }
+
+        // registrationPage.clickOnTeacherAndEnterName("Nithesh","Class10","Maths");
     }
 
     @AfterMethod(alwaysRun = true)

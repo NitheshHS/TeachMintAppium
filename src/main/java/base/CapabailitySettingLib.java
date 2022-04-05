@@ -1,10 +1,6 @@
 package base;
 
-import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.aventstack.extentreports.reporter.configuration.Theme;
 import enums.AppInfo;
 import enums.LoginAs;
 import io.appium.java_client.AppiumDriver;
@@ -18,7 +14,6 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.reflections8.vfs.Vfs;
 import org.testng.asserts.SoftAssert;
 
 import java.io.File;
@@ -30,80 +25,85 @@ import java.util.concurrent.TimeUnit;
  * @author Nitheesha
  */
 public class CapabailitySettingLib {
+    public static Logger logger;
     public AppiumDriver driver;
     public AppiumDriver studentDriver;
     public SoftAssert softAssert = new SoftAssert();
     public String sheetName;
-    public ExtentSparkReporter spark;
-    public ExtentReports reports;
     public ExtentTest test;
-    public static Logger logger;
     public AppiumDriverLocalService teacherAppiumService;
     public AppiumDriverLocalService studentAppiumService;
 
-    public AppiumDriverLocalService setupTeacherAppiumServer(int portNum,String testcasename){
-        AppiumServiceBuilder builder=new AppiumServiceBuilder()
+    public AppiumDriverLocalService setupTeacherAppiumServer(int portNum, String testcasename) {
+        AppiumServiceBuilder builder = new AppiumServiceBuilder()
                 .withAppiumJS(new File(FilePaths.APPIUM_JS_FILE))
                 .withIPAddress(FilePaths.APPIUM_SERVER_IP)
                 .usingDriverExecutable(new File(FilePaths.APPIUM_NODEJS))
                 .usingPort(portNum)
-            .withLogFile(new File("./ServerLogs/appiumTeacher"+testcasename+".log"));
-           teacherAppiumService=AppiumDriverLocalService.buildService(builder);
+                .withLogFile(new File("./ServerLogs/appiumTeacher" + testcasename + ".log"));
+        teacherAppiumService = AppiumDriverLocalService.buildService(builder);
         return teacherAppiumService;
     }
 
-    public AppiumDriverLocalService setupStudentAppiumServer(int portNum,String testcasename){
-        AppiumServiceBuilder builder=new AppiumServiceBuilder()
+    public AppiumDriverLocalService setupStudentAppiumServer(int portNum, String testcasename) {
+        AppiumServiceBuilder builder = new AppiumServiceBuilder()
                 .withAppiumJS(new File(FilePaths.APPIUM_JS_FILE))
                 .withIPAddress(FilePaths.APPIUM_SERVER_IP)
                 .usingDriverExecutable(new File(FilePaths.APPIUM_NODEJS))
                 .usingPort(portNum)
-            .withLogFile(new File("./ServerLogs/appiumStudent"+testcasename+".log"));
-            return studentAppiumService=AppiumDriverLocalService.buildService(builder);
+                .withLogFile(new File("./ServerLogs/appiumStudent" + testcasename + ".log"));
+        return studentAppiumService = AppiumDriverLocalService.buildService(builder);
     }
 
-    public void startTeacherAppiumServer(AppiumDriverLocalService service){
-        if(service!=null){
+    public void startTeacherAppiumServer(AppiumDriverLocalService service) {
+        if (service != null) {
             service.start();
         }
     }
 
-    public void stopTeacherAppiumServer(){
-        if(teacherAppiumService!=null){
+    public void stopTeacherAppiumServer() {
+        if (teacherAppiumService != null) {
             teacherAppiumService.stop();
         }
     }
-    public void startStudentAppiumServer(AppiumDriverLocalService service){
-        if(service!=null){
+
+    public void startStudentAppiumServer(AppiumDriverLocalService service) {
+        if (service != null) {
             service.start();
         }
     }
 
-    public void stopStudentAppiumServer(){
-        if(studentAppiumService!=null){
+    public void stopStudentAppiumServer() {
+        if (studentAppiumService != null) {
             studentAppiumService.stop();
         }
     }
+
     public DesiredCapabilities setDesiredCapability(String platform) {
         logger.info("Setting device capability");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platform", platform);
         capabilities.setCapability(CapabilityType.PLATFORM_NAME, AppInfo.ANDROID_PLATFORM_NAME.getLabel());
-        capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, AppInfo.ANDROID_APP_PACKAGE.getLabel());
-        capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, AppInfo.ANDROID_APP_ACTIVITY.getLabel());
-        capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
+        //capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, AppInfo.ANDROID_APP_PACKAGE.getLabel());
+        // capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, AppInfo.ANDROID_APP_ACTIVITY.getLabel());
+        capabilities.setCapability(MobileCapabilityType.NO_RESET, false);
+        capabilities.setCapability(MobileCapabilityType.APP, FilePaths.teachMintApp);
+        //capabilities.setCapability(MobileCapabilityType.FULL_RESET,true);
         capabilities.setCapability("automationName", AppInfo.ANDROID_AUTOMATION_NAME.getLabel());
-        capabilities.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS,true);
-       // capabilities.setCapability("appWaitForLaunch ",false);
-       // capabilities.setCapability("adbExecTimeout",50000);
-        logger.info("capabilities: "+capabilities.toString());
+        capabilities.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS, true);
+        // capabilities.setCapability("appWaitForLaunch ",false);
+        // capabilities.setCapability("adbExecTimeout",50000);
+        logger.info("capabilities: " + capabilities.toString());
         return capabilities;
     }
 
-    public AppiumDriver launchTeacherDriver(URL url, Platform platForm, DesiredCapabilities capabilities) {
-        logger.info("launching app: server url: "+url+"\n platform: "+platForm+" \n capabilities: "+capabilities.toString());
+    public AppiumDriver launchTeacherDriver(URL url, Platform platForm) {
+        logger.info("launching app: server url: " + url + "\n platform: " + platForm);
+        DesiredCapabilities capabilities = null;
         switch (platForm) {
             case ANDROID:
+                capabilities = setDesiredCapability("android");
+                capabilities.setCapability(MobileCapabilityType.UDID, FileUtility.getPropertyValue("teacherUDID"));
                 driver = new AndroidDriver(url, capabilities);
                 break;
             case IOS:
@@ -117,12 +117,12 @@ public class CapabailitySettingLib {
     }
 
     public AppiumDriver launchStudentDriver(URL url, Platform platform) throws MalformedURLException {
-        logger.info("launching student driver in appium server url: "+url);
+        logger.info("launching student driver in appium server url: " + url);
         DesiredCapabilities capabilities = null;
         switch (platform) {
             case ANDROID:
                 capabilities = setDesiredCapability("android");
-                capabilities.setCapability(MobileCapabilityType.UDID, "180ca44a");// R9ZRB0CHV3T emulator-5554
+                capabilities.setCapability(MobileCapabilityType.UDID, FileUtility.getPropertyValue("studentUDID"));// R9ZRB0CHV3T emulator-5554
                 studentDriver = new AndroidDriver(url, capabilities);
                 break;
             case IOS:
@@ -150,46 +150,12 @@ public class CapabailitySettingLib {
                 studentcapabilities = setDesiredCapability("android");
                 studentcapabilities.setCapability(MobileCapabilityType.UDID, "R9ZRB0CHV3T");//emulator-5556
                 studentDriver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), studentcapabilities);
-                studentDriver.manage().timeouts().implicitlyWait(50,TimeUnit.SECONDS);
+                studentDriver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
                 break;
             default:
                 System.out.println("Invalid student capabilities: ");
                 break;
         }
-
-
     }
-
-
-
-    public void configExtentReport() {
-        if (spark == null || reports == null) {
-            spark = new ExtentSparkReporter(new File("./report.html"));
-            spark.config().setTheme(Theme.DARK);
-            spark.config().setDocumentTitle("TeachMint");
-            reports = new ExtentReports();
-            reports.attachReporter(spark);
-            reports.setSystemInfo("APP Package", AppInfo.ANDROID_APP_PACKAGE.getLabel());
-            reports.setSystemInfo("APP Activity", AppInfo.ANDROID_APP_ACTIVITY.getLabel());
-            reports.setSystemInfo("Platform", AppInfo.PLATFORM.getLabel());
-            reports.setSystemInfo("URL", AppInfo.SERVER_URL.getLabel());
-
-        }
-    }
-
-    public void flushReport() {
-        if (reports != null) {
-            reports.flush();
-        }
-    }
-
-    public void testName(String testcaseName, String author) {
-        test = reports.createTest(testcaseName).assignAuthor(author);
-    }
-
-    public void info(String message) {
-        test.log(Status.INFO, message);
-    }
-
 
 }

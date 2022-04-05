@@ -163,7 +163,7 @@ public class ClassRoomPage extends AppGenericLib {
     @FindBy(id = "com.teachmint.teachmint:id/video_status")
     private WebElement videoStatus;
 
-    @FindBy(id="com.teachmint.teachmint:id/student_audio_switch")
+    @FindBy(id = "com.teachmint.teachmint:id/student_audio_switch")
     private WebElement studentAudioControlSwitch;
 
     public ClassRoomPage(AppiumDriver driver) {
@@ -173,14 +173,12 @@ public class ClassRoomPage extends AppGenericLib {
 
     @Step("Tapping on go live link in class room page")
     public void clickOnGoLive() {
-        //goLiveLink.click();
         awaitForElement(driver, goLiveLink);
         clickOnElement(goLiveLink);
     }
 
     @Step("tapping on go live button ")
     public void clickOnGoLivebutton() {
-        // awaitForElement(driver,goLiveBtn);
         clickOnElement(goLiveBtn);
     }
 
@@ -525,7 +523,7 @@ public class ClassRoomPage extends AppGenericLib {
     }
 
     @Step("Turn on mic and verify the text {micOffStatus}, {micOnStatus}")
-    public void turnOnMicAndVerifyTheText(String micOffStatus,String micOnStatus) {
+    public void turnOnMicAndVerifyTheText(String micOffStatus, String micOnStatus) {
         waitOrPause(2);
         String status = micStatus.getText();
         if (status.equalsIgnoreCase(micOffStatus)) {
@@ -540,7 +538,7 @@ public class ClassRoomPage extends AppGenericLib {
     }
 
     @Step("Turn off mic and verify the text {micOnStatus}, {micOffStatus}")
-    public void turnOffMicAndVerifyTheText(String micOnStatus,String micOffStatus) {
+    public void turnOffMicAndVerifyTheText(String micOnStatus, String micOffStatus) {
         waitOrPause(2);
         String status = micStatus.getText();
         if (status.equalsIgnoreCase(micOnStatus)) {
@@ -553,6 +551,7 @@ public class ClassRoomPage extends AppGenericLib {
         }
         softAssert.assertAll();
     }
+
     @Step("Turn on video and verify the text")
     public void turnOnVideoAndVerifyText(String videoOnStatus, String videoOffStatus) {
         waitOrPause(2);
@@ -584,27 +583,12 @@ public class ClassRoomPage extends AppGenericLib {
     }
 
     @Step("Tap on allow student to speak")
-    public void clickOnStudentAudioSwitch(){
+    public void clickOnStudentAudioSwitch() {
         clickOnElement(studentAudioControlSwitch);
     }
 
-
 }
 
-//    public void comapareImage() throws IOException {
-//       // awaitForElement(driver,micIcon);
-//        File micIconBeforeMeeting=micIcon.getScreenshotAs(OutputType.FILE);
-//       // awaitForElement(driver,micIconInMeeting);
-//        File miciconmeeting = null;
-//        for(int tapCount = 0; tapCount<=60;tapCount++) {
-//            try {
-//                miciconmeeting = micIconInMeeting.getScreenshotAs(OutputType.FILE);
-//            } catch (Exception e) {
-//                tapOnElement(driver, (MobileElement) micIconInMeeting);
-//            }
-//        }
-//       compareImage(micIconBeforeMeeting,miciconmeeting);
-//    }
 
 
 

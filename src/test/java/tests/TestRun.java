@@ -4,7 +4,6 @@ import Pages.*;
 import base.BaseTest;
 import base.ExcelUtility;
 import io.qameta.allure.Description;
-import org.python.antlr.ast.Str;
 import org.testng.annotations.Test;
 
 import java.io.File;
@@ -40,7 +39,7 @@ public class TestRun extends BaseTest {
         classRoomPage.clickOnGoLivebutton();
         classRoomPage.tapOnMoreButton();
         classRoomPage.startLivePoll("30", "A");
-        takeScreenshot(driver,"TC_E_008");
+        takeScreenshot(driver, "TC_E_008");
         classRoomPage.stopLivePoll();
     }
 
@@ -57,7 +56,7 @@ public class TestRun extends BaseTest {
         turnOffMobileDataAndWifi(driver);
         pressNavigationBack(driver);
         classRoomPage.verifyTheNoInternetMsg("Check your network");
-        takeScreenshot(driver,"TC_E_005");
+        takeScreenshot(driver, "TC_E_005");
         turnWifiOn(driver);
     }
 
@@ -69,7 +68,7 @@ public class TestRun extends BaseTest {
         landingPage.clickOnClassRoom();
         ClassRoomPage classRoomPage = new ClassRoomPage(driver);
         classRoomPage.clickOnGoLive();
-        String videoOffStatus= ExcelUtility.getExcelData(sheetName,3,3);
+        String videoOffStatus = ExcelUtility.getExcelData(sheetName, 3, 3);
         classRoomPage.disableVideo(videoOffStatus);
         classRoomPage.clickOnGoLivebutton();
         classRoomPage.tapOnMoreButton();
@@ -237,8 +236,8 @@ public class TestRun extends BaseTest {
         timeTablePage.addTimetableForSlot1("7", "30", "8", "00");
         timeTablePage.clickOnPlus();
         timeTablePage.addTimetableForSlot2("5", "00", "7", "00");
-        takeScreenshot(driver,"TC_E_013");
-        timeTablePage.verifyTheTimeSlot("7:30 AM-8:00 AM","5:00 PM-7:00 PM");
+        takeScreenshot(driver, "TC_E_013");
+        timeTablePage.verifyTheTimeSlot("7:30 AM-8:00 AM", "5:00 PM-7:00 PM");
     }
 
     @Description("TC_E_014_ValidateStudentCanPracticeUsingLearnTab")
@@ -259,13 +258,13 @@ public class TestRun extends BaseTest {
     public void TC_E_018_ValidateThatTeacherIsAbleToAddASyllabusForAClass() throws InterruptedException {
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
-        ClassRoomPage classRoomPage=new ClassRoomPage(driver);
+        ClassRoomPage classRoomPage = new ClassRoomPage(driver);
         classRoomPage.clickOnSyllabus();
-        SyllabusPage syllabusPage=new SyllabusPage(driver);
+        SyllabusPage syllabusPage = new SyllabusPage(driver);
         syllabusPage.clickOnAddMoreButton();
-        syllabusPage.createSyllabus("CBSE","Class 6","English");
+        syllabusPage.createSyllabus("CBSE", "Class 6", "English");
         syllabusPage.clickOnFirstSyllabusAndViewChapters();
-        ArrayList<String> chapterLists=new ArrayList<>();
+        ArrayList<String> chapterLists = new ArrayList<>();
         chapterLists.add("Who Did Patrick’s Homework?");
         chapterLists.add("How the Dog Found Himself a New Master!");
         chapterLists.add("Taro’s Reward");

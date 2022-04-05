@@ -4,7 +4,7 @@ import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
 
 public class Retry implements IRetryAnalyzer {
-    int retry=2;
+    int retry=1;
     @Override
     public boolean retry(ITestResult iTestResult) {
         if(retry>=0){

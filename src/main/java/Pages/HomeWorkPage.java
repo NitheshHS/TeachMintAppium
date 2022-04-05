@@ -37,7 +37,7 @@ public class HomeWorkPage extends AppGenericLib {
     private WebElement homeWorkTopicTextField;
     @FindBy(xpath = "//*[@resource-id='com.teachmint.teachmint:id/click_save' and @text='Create Homework']")
     private WebElement createHomeworkButton;
-    @FindBy(id="com.teachmint.teachmint:id/add_attachment")
+    @FindBy(id = "com.teachmint.teachmint:id/add_attachment")
     private WebElement attachment;
 
     public HomeWorkPage(AppiumDriver driver) {
@@ -97,7 +97,7 @@ public class HomeWorkPage extends AppGenericLib {
     }
 
     @Step("Adding attachment to MCQ")
-    public void clickOnAttachment(){
+    public void clickOnAttachment() {
         clickOnElement(attachment);
     }
 }

@@ -71,9 +71,9 @@ public class TimeTablePage extends AppGenericLib {
 
     @Step("Tap on sunday switch button")
     public void toggleOnSundayTimeTable() {
-        try{
+        try {
             plusButton.click();
-        }catch (Exception e){
+        } catch (Exception e) {
             clickOnElement(sundaySwitchButton);
         }
     }
@@ -109,7 +109,7 @@ public class TimeTablePage extends AppGenericLib {
     }
 
     @Step("Add second slot in the timetable")
-    public void addTimetableForSlot2(String fromHours , String fromMinutes, String toHours, String toMinutes ) {
+    public void addTimetableForSlot2(String fromHours, String fromMinutes, String toHours, String toMinutes) {
         scrollToElement(driver);
         clickOnElement(from2);
         clickOnElement(switchToKeyBoardButton);
@@ -131,10 +131,10 @@ public class TimeTablePage extends AppGenericLib {
         clickOnElement(okButton);
     }
 
-    public void verifyTheTimeSlot(String timeSlot1, String timeSlot2){
+    public void verifyTheTimeSlot(String timeSlot1, String timeSlot2) {
         clickOnElement(updateClassroomButton);
         System.out.println(scheduledTimeText.getText().trim());
-        String timeSlot= scheduledTimeText.getText().trim();
+        String timeSlot = scheduledTimeText.getText().trim();
         softAssert.assertTrue((timeSlot.contains(timeSlot1) || timeSlot.contains(timeSlot2)), "Time slots are not matching");
         clickOnElement(editButton);
         clickOnElement(sundaySwitchButton);
