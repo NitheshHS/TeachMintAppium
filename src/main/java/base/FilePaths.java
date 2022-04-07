@@ -7,5 +7,5 @@ public interface FilePaths {
     String APPIUM_SERVER_IP="127.0.0.1";
     String APPIUM_JS_FILE="C:\\Users\\User\\AppData\\Roaming\\npm\\node_modules\\appium\\build\\lib\\main.js";
     String APPIUM_NODEJS="C:\\Program Files\\nodejs\\node.exe";
-    String teachMintApp="./src/test/TestData/com.teachmint.teachmint_2022-02-10.apk";
+    String TEACHMINT_APK="./src/main/java/resources/com.teachmint.teachmint_2022-02-10.apk";
 }

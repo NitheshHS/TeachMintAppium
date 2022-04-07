@@ -30,7 +30,6 @@ public class LandingPage extends AppGenericLib {
     public void clickOnClassRoom() {
         //awaitForElement(driver,classNameText);
         try {
-
             clickOnElement(classNameText);
         } catch (StaleElementReferenceException e) {
             clickOnElement(classNameText);

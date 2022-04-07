@@ -26,11 +26,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class CapabailitySettingLib {
     public static Logger logger;
-    public AppiumDriver driver;
+    public AppiumDriver driver;//teacher
     public AppiumDriver studentDriver;
     public SoftAssert softAssert = new SoftAssert();
     public String sheetName;
-    public ExtentTest test;
     public AppiumDriverLocalService teacherAppiumService;
     public AppiumDriverLocalService studentAppiumService;
 
@@ -87,12 +86,12 @@ public class CapabailitySettingLib {
         //capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE, AppInfo.ANDROID_APP_PACKAGE.getLabel());
         // capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY, AppInfo.ANDROID_APP_ACTIVITY.getLabel());
         capabilities.setCapability(MobileCapabilityType.NO_RESET, false);
-        capabilities.setCapability(MobileCapabilityType.APP, FilePaths.teachMintApp);
+        capabilities.setCapability(MobileCapabilityType.APP, FilePaths.TEACHMINT_APK);
         //capabilities.setCapability(MobileCapabilityType.FULL_RESET,true);
         capabilities.setCapability("automationName", AppInfo.ANDROID_AUTOMATION_NAME.getLabel());
         capabilities.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS, true);
         // capabilities.setCapability("appWaitForLaunch ",false);
-        // capabilities.setCapability("adbExecTimeout",50000);
+        //capabilities.setCapability("adbExecTimeout",500000);
         logger.info("capabilities: " + capabilities.toString());
         return capabilities;
     }

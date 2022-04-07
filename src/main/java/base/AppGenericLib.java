@@ -10,12 +10,9 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.nativekey.AndroidKey;
 import io.appium.java_client.android.nativekey.KeyEvent;
-import io.appium.java_client.service.local.AppiumDriverLocalService;
-import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.touch.TapOptions;
 import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.By;
@@ -32,7 +29,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
 /**
@@ -84,6 +80,15 @@ public class AppGenericLib extends CapabailitySettingLib {
 //            System.out.println("Difference: " + percentage);
 //        }
 //    }
+
+    public static void logger() {
+        logger = logger == null ? Logger.getLogger(AppGenericLib.class) : logger;
+        try {
+            PropertyConfigurator.configure(new FileInputStream(FilePaths.LOG4J_PROPERTIES));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void awaitForElement(AppiumDriver driver, WebElement element) {
         logger.info("waiting for visibility of Element: " + element);
@@ -156,8 +161,10 @@ public class AppGenericLib extends CapabailitySettingLib {
     public void turnOffMobileDataAndWifi(AppiumDriver driver) throws IOException, InterruptedException {
         logger.info("turning off both wifi and mobile data");
         AndroidDriver androidDriver = (AndroidDriver) driver;
-        if (androidDriver.getConnection().isWiFiEnabled() || androidDriver.getConnection().isDataEnabled()) {
+        if (androidDriver.getConnection().isWiFiEnabled()) {
             androidDriver.toggleWifi();
+        }
+        if (androidDriver.getConnection().isDataEnabled()) {
             androidDriver.toggleData();
         }
 
@@ -166,8 +173,10 @@ public class AppGenericLib extends CapabailitySettingLib {
     public void turnOnDataAndWifi(AppiumDriver driver) {
         logger.info("Turning on both data and wifi");
         AndroidDriver androidDriver = (AndroidDriver) driver;
-        if (!(androidDriver.getConnection().isWiFiEnabled() || androidDriver.getConnection().isDataEnabled())) {
+        if (!androidDriver.getConnection().isWiFiEnabled()) {
             androidDriver.toggleWifi();
+        }
+        if (!androidDriver.getConnection().isDataEnabled()) {
             androidDriver.toggleData();
         }
     }
@@ -209,7 +218,7 @@ public class AppGenericLib extends CapabailitySettingLib {
     }
 
     public void scrollToElement(AppiumDriver driver, String visibleText) {
-        logger.info("Scrolling to the visible text: "+visibleText);
+        logger.info("Scrolling to the visible text: " + visibleText);
         driver.findElement(MobileBy
                 .AndroidUIAutomator(
                         "new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollTextIntoView(" + visibleText + "))"));
@@ -232,7 +241,7 @@ public class AppGenericLib extends CapabailitySettingLib {
     }
 
     public void customWait(AppiumDriver driver, WebElement element) throws InterruptedException {
-        logger.info("Waiting for Element to clickable: "+element);
+        logger.info("Waiting for Element to clickable: " + element);
         try {
             WebDriverWait w = new WebDriverWait(driver, 10);
             w.until(ExpectedConditions.elementToBeClickable(element));
@@ -282,54 +291,48 @@ public class AppGenericLib extends CapabailitySettingLib {
         }
     }
 
-    public static void logger() {
-            logger = logger==null?Logger.getLogger(AppGenericLib.class):logger;
-        try {
-            PropertyConfigurator.configure(new FileInputStream(FilePaths.LOG4J_PROPERTIES));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
     /**
      * Pass class name and method name in string to extract testcase id
+     *
      * @param className
      * @param testMethodName
      * @return testCaseId from annotation
      * eg: getTestCaseId(Testscript.class,"TestRunMethod")
      */
-    public  String getTestCaseId(Class className,String testMethodName){
+    public String getTestCaseId(Class className, String testMethodName) {
         try {
             Method method = className.getMethod(testMethodName);
             TestInfo testinfo = (TestInfo) method.getAnnotation(TestInfo.class);
-            if(testinfo!=null){
-                  return testinfo.testcaseID();
+            if (testinfo != null) {
+                return testinfo.testcaseID();
             }
         } catch (Throwable e) {
             e.printStackTrace();
         }
-        return "No Testcase id found: "+testMethodName;
+        return "No Testcase id found: " + testMethodName;
     }
 
     /**
      * click on the element by using visible text of the element use this method when app running under different languages
+     *
      * @param driver
      * @param visibleText
      */
-    public void clickOnElementByVisibleText(AppiumDriver driver,String visibleText){
-        logger.info("Clicking on element by using visible text: "+visibleText);
-        driver.findElement(By.xpath("//*[@text='"+visibleText+"']")).click();
+    public void clickOnElementByVisibleText(AppiumDriver driver, String visibleText) {
+        logger.info("Clicking on element by using visible text: " + visibleText);
+        driver.findElement(By.xpath("//*[@text='" + visibleText + "']")).click();
     }
 
     /**
      * Type into the text field use this method when app launched with different langauge like hindi, kannada, tamil etc..
+     *
      * @param driver
      * @param elementVisibleText
      * @param text
      */
-    public void typeByVisibleText(AppiumDriver driver, String elementVisibleText,String text){
-        logger.info("typing into text field by using visible text of element: "+elementVisibleText+" text: "+text);
-        driver.findElement(By.xpath("//*[@text='"+elementVisibleText+"']")).sendKeys(text);
+    public void typeByVisibleText(AppiumDriver driver, String elementVisibleText, String text) {
+        logger.info("typing into text field by using visible text of element: " + elementVisibleText + " text: " + text);
+        driver.findElement(By.xpath("//*[@text='" + elementVisibleText + "']")).sendKeys(text);
     }
 }
 

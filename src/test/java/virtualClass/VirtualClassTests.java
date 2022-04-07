@@ -2,10 +2,14 @@ package virtualClass;
 
 import Pages.ClassRoomPage;
 import Pages.LandingPage;
+import Pages.StudentClassroomPage;
 import TestAnnotations.TestInfo;
 import base.BaseTest;
 import base.ExcelUtility;
 import org.testng.annotations.Test;
+
+import java.io.File;
+import java.io.IOException;
 
 public class VirtualClassTests extends BaseTest {
 
@@ -16,7 +20,7 @@ public class VirtualClassTests extends BaseTest {
 
     @TestInfo(testcaseID = "TC_VC_004", testCaseName = "ValidateIfTheTeacherIsAbleToUnmuteAndMuteTheAudio")
     @Test(alwaysRun = true, retryAnalyzer = base.Retry.class)
-    public void TC_VC_004_ValidateIfTheTeacherIsAbleToUnmuteAndMuteTheAudio() {
+    public void TC_VC_004_ValidateIfTheTeacherIsAbleToUnmuteAndMuteTheAudio() throws IOException {
         String testCaseid = getTestCaseId(VirtualClassTests.class, "TC_VC_004_ValidateIfTheTeacherIsAbleToUnmuteAndMuteTheAudio");
         LandingPage landingPage = new LandingPage(driver);
         landingPage.clickOnClassRoom();
@@ -26,9 +30,18 @@ public class VirtualClassTests extends BaseTest {
         String micOnStatus = ExcelUtility.getExcelData(sheetName, testCaseid, "Mike on");
         classRoomPage.turnOffMicAndVerifyTheText(micOnStatus, micOffStatus);
         classRoomPage.turnOnMicAndVerifyTheText(micOffStatus, micOnStatus);
+        classRoomPage.clickOnGoLivebutton();
+        StudentClassroomPage studentClassroomPage = new StudentClassroomPage(studentDriver);
+        studentClassroomPage.tapOnClassroom();
+        studentClassroomPage.tapOnJoinLiveButton();
+        waitOrPause(15);
+        File TeacherLive = takeScreenshot(driver, "TeacherLiveSession");
+        File StudentLive = takeScreenshot(studentDriver, "StudentLiveSession");
+        double compPer = compareImage(TeacherLive, StudentLive);
+        softAssert.assertTrue(compPer >= 60, "Both images are not same");
     }
 
-    @TestInfo(testcaseID = "TC_VC_005", testCaseName = "")
+    @TestInfo(testcaseID = "TC_VC_005", testCaseName = "ValidateIfTheTeacherIsAbleToSwitchOffAndOnTheVideo")
     @Test(alwaysRun = true, description = "TC_VC_005_ValidateIfTheTeacherIsAbleToSwitchOffAndOnTheVideo")
     public void TC_VC_005() {
         String testcaseId = getTestCaseId(VirtualClassTests.class, "TC_VC_005");
@@ -54,6 +67,7 @@ public class VirtualClassTests extends BaseTest {
         classRoomPage.tapOnMoreButton();
         classRoomPage.tapOnStudentControl();
         classRoomPage.clickOnStudentAudioSwitch();
+
     }
 
     @Test(alwaysRun = true, retryAnalyzer = base.Retry.class)

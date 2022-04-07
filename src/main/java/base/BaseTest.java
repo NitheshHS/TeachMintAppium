@@ -32,8 +32,10 @@ public class BaseTest extends AppGenericLib {
 
         driver = launchTeacherDriver(teacherAppiumService.getUrl(), Platform.ANDROID);
         studentDriver = launchStudentDriver(studentAppiumService.getUrl(), Platform.ANDROID);
-
-        sheetName = setLangauge(FileUtility.getPropertyValue("language"));
+        sheetName=System.getProperty("Language");
+        if(sheetName==null) {
+            sheetName = setLangauge(FileUtility.getPropertyValue("language"));
+        }
         if (driver != null) {
             RegistrationPage registrationPage = new RegistrationPage(driver);
             registrationPage.selectLangaugeAndClickOnContinue(sheetName);
@@ -85,7 +87,7 @@ public class BaseTest extends AppGenericLib {
 
     @AfterSuite(alwaysRun = true)
     public void configAS() {
-        System.out.println("Flushing the report");
+
     }
 
     @Attachment(value = "Page screenshot", type = "image/png")
